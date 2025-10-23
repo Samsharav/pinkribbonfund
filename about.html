@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бидний тухай - Ягаан Тууз Сан</title>
+    <style>
+        /* [Одоо байгаа CSS-ийг хадгална] */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #fce4ec; color: #333; }
+        
+        /* ---------------------------------------------------- */
+        /* ШИНЭЧИЛСЭН HEADER БА LOGO-НЫ ХЭСЭГ */
+        /* ---------------------------------------------------- */
+        header {
+            background-color: #e91e63;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            flex-direction: column; 
+        }
+
+        .logo-container {
+            margin-bottom: 10px; 
+        }
+        
+        .logo-container img {
+            width: 100px; 
+            height: auto;
+            background-color: white; 
+            padding: 5px;
+            border-radius: 50%; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        }
+        /* ---------------------------------------------------- */
+        
+        nav { background-color: #c2185b; text-align: center; padding: 10px 0; }
+        nav a { color: white; text-decoration: none; padding: 10px 20px; margin: 0 5px; font-weight: bold; }
+        .container { width: 80%; margin: 20px auto; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+        h2 { color: #d81b60; border-bottom: 2px solid #e91e63; padding-bottom: 5px; }
+        .image-container { text-align: center; margin-bottom: 20px; }
+        .image-container img { max-width: 100%; height: auto; border-radius: 8px; }
+        .video-container { margin: 20px 0; text-align: center; }
+        .video-container iframe { width: 100%; max-width: 700px; height: 394px; border: none; border-radius: 8px; }
+        .team-grid { display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px; }
+        .team-member { width: 45%; text-align: center; margin-bottom: 20px; }
+        .team-member img { width: 100%; border-radius: 8px; max-width: 250px; }
+        footer { text-align: center; padding: 20px 0; background-color: #e91e63; color: white; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Ягаан Тууз Сангийн Лого">
+            </a>
+        </div>
+        
+        <h1>Бидний тухай</h1>
+        <p>Бидний түүх, эрхэм зорилго, баг хамт олон</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Нүүр хуудас</a>
+        <a href="about.html">Бидний тухай</a>
+        <a href="impact.html">Үр нөлөө</a>
+        <a href="donate.html">Хандив өргөх</a>
+        <a href="contact.html">Холбоо барих</a>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Үүсгэн байгуулагчид ба Түүх</h2>
+            <p>Ягаан Тууз Сан нь [Он]-д хөхний хорт хавдрын эсрэг тэмцэх... Эхэндээ бид [Анхны үйл ажиллагаа]-аас эхэлсэн бөгөөд өдгөө...</p>
+
+            <div class="image-container">
+                <img src="images/team-photo.jpg" alt="Ягаан Тууз Сангийн баг хамт олон" style="max-width: 500px;">
+            </div>
+
+            <h2>Баг хамт олон</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="images/member1.jpg" alt="Багийн гишүүн 1">
+                    <p><strong>[Гишүүн 1-ийн Нэр]</strong><br>Үүсгэн байгуулагч</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/member2.jpg" alt="Багийн гишүүн 2">
+                    <p><strong>[Гишүүн 2-ийн Нэр]</strong><br>Гүйцэтгэх захирал</p>
+                </div>
+            </div>
+
+            <section style="margin-top: 30px;">
+                <h2>Ярилцлага: Бидний Түүх</h2>
+                <div class="video-container">
+                     <iframe src="https://www.youtube.com/embed/[YouTube Video ID]?rel=0" allowfullscreen></iframe>
+                </div>
+            </section>
+            
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ягаан Тууз Сан. Бүх эрх хуулиар хамгаалагдсан.</p>
+    </footer>
+
+</body>
+</html>

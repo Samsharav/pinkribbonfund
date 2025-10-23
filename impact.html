@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Үр нөлөө - Ягаан Тууз Сан</title>
+    <style>
+        /* [Одоо байгаа CSS-ийг хадгална] */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #fce4ec; color: #333; }
+        
+        /* ---------------------------------------------------- */
+        /* ШИНЭЧИЛСЭН HEADER БА LOGO-НЫ ХЭСЭГ */
+        /* ---------------------------------------------------- */
+        header {
+            background-color: #e91e63;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            flex-direction: column; 
+        }
+
+        .logo-container {
+            margin-bottom: 10px; 
+        }
+        
+        .logo-container img {
+            width: 100px; 
+            height: auto;
+            background-color: white; 
+            padding: 5px;
+            border-radius: 50%; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        }
+        /* ---------------------------------------------------- */
+        
+        nav { background-color: #c2185b; text-align: center; padding: 10px 0; }
+        nav a { color: white; text-decoration: none; padding: 10px 20px; margin: 0 5px; font-weight: bold; }
+        .container { width: 80%; margin: 20px auto; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+        h2 { color: #d81b60; border-bottom: 2px solid #e91e63; padding-bottom: 5px; }
+        .statistic { text-align: center; margin: 20px 0; padding: 15px; background-color: #fff8e1; border-left: 5px solid #ffccbc; }
+        .statistic h3 { color: #e91e63; font-size: 2em; margin: 5px 0; }
+        .image-container { text-align: center; margin-bottom: 20px; }
+        .image-container img { max-width: 100%; height: auto; border-radius: 8px; }
+        .video-container { margin: 20px 0; text-align: center; }
+        .video-container iframe { width: 100%; max-width: 700px; height: 394px; border: none; border-radius: 8px; }
+        footer { text-align: center; padding: 20px 0; background-color: #e91e63; color: white; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Ягаан Тууз Сангийн Лого">
+            </a>
+        </div>
+        
+        <h1>Үр нөлөө ба Тайлан</h1>
+        <p>Бидний хэрхэн өөрчлөлт авчирч буй тухай</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Нүүр хуудас</a>
+        <a href="about.html">Бидний тухай</a>
+        <a href="impact.html">Үр нөлөө</a>
+        <a href="donate.html">Хандив өргөх</a>
+        <a href="contact.html">Холбоо барих</a>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Бидний ололт амжилтууд</h2>
+            <p>Таны дэмжлэгээр бид [Он]-ээс хойш дараах томоохон ажлуудыг хийж гүйцэтгэлээ:</p>
+            
+            <div class="statistic">
+                <h3>5,000+</h3>
+                <p>Эрт илрүүлгийн шинжилгээнд хамрагдсан иргэд</p>
+            </div>
+            
+            <div class="image-container">
+                <img src="images/impact-graphic.jpg" alt="Санхүүгийн үр нөлөөний график" style="max-width: 600px;">
+            </div>
+
+            <div class="statistic">
+                <h3>$150 сая</h3>
+                <p>Хөхний хорт хавдрын судалгаанд зарцуулсан санхүүжилт</p>
+            </div>
+
+            <section style="margin-top: 30px;">
+                <h2>Түүх: Амьдрал Аварсан Дэмжлэг</h2>
+                <div class="video-container">
+                     <iframe src="https://www.youtube.com/embed/[YouTube Video ID]?rel=0" allowfullscreen></iframe>
+                </div>
+            </section>
+            
+            <h2>Санхүүгийн ил тод байдал</h2>
+            <p>Бид жил бүрийн санхүүгийн тайланг ил тод мэдээлдэг. Манай санхүүгийн [Хувь]-ийн хэсэг нь шууд хөтөлбөрүүдэд зарцуулагддаг.</p>
+            <p><a href="#">2024 оны бүрэн тайланг татаж авах (PDF)</a></p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ягаан Тууз Сан. Бүх эрх хуулиар хамгаалагдсан.</p>
+    </footer>
+
+</body>
+</html>

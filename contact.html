@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Холбоо барих - Ягаан Тууз Сан</title>
+    <style>
+        /* [Одоо байгаа CSS-ийг хадгална] */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #fce4ec; color: #333; }
+        
+        /* ---------------------------------------------------- */
+        /* ШИНЭЧИЛСЭН HEADER БА LOGO-НЫ ХЭСЭГ */
+        /* ---------------------------------------------------- */
+        header {
+            background-color: #e91e63;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            flex-direction: column; 
+        }
+
+        .logo-container {
+            margin-bottom: 10px; 
+        }
+        
+        .logo-container img {
+            width: 100px; 
+            height: auto;
+            background-color: white; 
+            padding: 5px;
+            border-radius: 50%; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        }
+        /* ---------------------------------------------------- */
+        
+        nav { background-color: #c2185b; text-align: center; padding: 10px 0; }
+        nav a { color: white; text-decoration: none; padding: 10px 20px; margin: 0 5px; font-weight: bold; }
+        .container { width: 80%; margin: 20px auto; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+        h2 { color: #d81b60; border-bottom: 2px solid #e91e63; padding-bottom: 5px; }
+        .contact-info p { font-size: 1.1em; margin: 15px 0; }
+        .contact-info strong { color: #e91e63; }
+        .image-container { text-align: center; margin-bottom: 20px; }
+        .image-container img { max-width: 100%; height: auto; border-radius: 8px; }
+        .video-container { margin: 20px 0; text-align: center; }
+        .video-container iframe { width: 100%; max-width: 700px; height: 394px; border: none; border-radius: 8px; }
+        footer { text-align: center; padding: 20px 0; background-color: #e91e63; color: white; margin-top: 30px; }
+        
+        /* ТУСЛАМЖ ХҮСЭХ ХЭСГИЙН CSS (өмнөх хариултаас) */
+        .help-callout {
+            background-color: #f0f4c3; 
+            border: 2px solid #afb42b;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .help-callout h2 {
+            color: #afb42b; 
+            border-bottom: 2px solid #afb42b;
+            padding-bottom: 10px;
+        }
+        .register-button {
+            display: inline-block;
+            background-color: #afb42b; 
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        .register-button:hover {
+            background-color: #827717;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Ягаан Тууз Сангийн Лого">
+            </a>
+        </div>
+        
+        <h1>Холбоо барих</h1>
+        <p>Бидэнтэй нэгдэх, асуух зүйлээ тодруулахыг хүсвэл</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Нүүр хуудас</a>
+        <a href="about.html">Бидний тухай</a>
+        <a href="impact.html">Үр нөлөө</a>
+        <a href="donate.html">Хандив өргөх</a>
+        <a href="contact.html">Холбоо барих</a>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Бидний байршил ба Хаяг</h2>
+            <div class="contact-info">
+                <p><strong>Албан ёсны нэр:</strong> Ягаан Тууз Сан</p>
+                <p><strong>Хаяг:</strong> [Дэлгэрэнгүй хаяг]</p>
+            </div>
+
+            <div class="image-container">
+                <img src="images/office-map.jpg" alt="Ягаан Тууз Сангийн байршлын зураг" style="max-width: 600px;">
+            </div>
+
+            <h2>Бидэнтэй холбогдох</h2>
+            <div class="contact-info">
+                <p><strong>Утас:</strong> <a href="tel:[Утасны дугаар]" style="color:#c2185b;">[Утасны дугаар]</a></p>
+                <p><strong>И-мэйл:</strong> <a href="mailto:[И-мэйл хаяг]" style="color:#c2185b;">[И-мэйл хаяг]</a></p>
+                <p><strong>Сошиал Медиа:</strong> Facebook | Instagram | Twitter</p>
+            </div>
+            
+            <div class="help-callout">
+                <h2>Хорт Хавдрын Дэмжлэг Хүсэх Бүртгэл</h2>
+                <p>Хэрэв та эсвэл таны гэр бүлийн хүн хөхний хорт хавдартай бөгөөд санхүүгийн, сэтгэл зүйн эсвэл мэдээллийн дэмжлэг авахыг хүсвэл бүртгүүлнэ үү. Бид тантай холбогдож, шаардлагатай мэдээллийг авна.</p>
+                <a href="application.html" class="register-button">ТУСЛАМЖ ХҮСЭХ БҮРТГЭЛ ҮҮСГЭХ</a>
+                <p style="margin-top: 10px; font-size: 0.9em; color: #555;">*Таны мэдээлэл нууц байна.</p>
+            </div>
+            
+            <section style="margin-top: 30px;">
+                <h2>Бидэнтэй нэгдээрэй</h2>
+                <div class="video-container">
+                     <iframe src="https://www.youtube.com/embed/[YouTube Video ID]?rel=0" allowfullscreen></iframe>
+                </div>
+            </section>
+
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ягаан Тууз Сан. Бүх эрх хуулиар хамгаалагдсан.</p>
+    </footer>
+
+</body>
+</html>

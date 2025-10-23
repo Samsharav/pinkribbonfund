@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хандив өргөх - Ягаан Тууз Сан</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #fce4ec; color: #333; }
+        
+        /* ---------------------------------------------------- */
+        /* ШИНЭЧИЛСЭН HEADER БА LOGO-НЫ ХЭСЭГ */
+        /* ---------------------------------------------------- */
+        header {
+            background-color: #e91e63;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            flex-direction: column; 
+        }
+
+        .logo-container {
+            margin-bottom: 10px; 
+        }
+        
+        .logo-container img {
+            width: 100px; 
+            height: auto;
+            background-color: white; 
+            padding: 5px;
+            border-radius: 50%; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        }
+        /* ---------------------------------------------------- */
+        
+        nav { background-color: #c2185b; text-align: center; padding: 10px 0; }
+        nav a { color: white; text-decoration: none; padding: 10px 20px; margin: 0 5px; font-weight: bold; }
+        .container { width: 80%; margin: 20px auto; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+        h2 { color: #d81b60; border-bottom: 2px solid #e91e63; padding-bottom: 5px; }
+        
+        /* Хандивын сонголтын хэсэг */
+        .donation-options { display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px; }
+        .option { background-color: #ffccbc; padding: 20px; border-radius: 8px; text-align: center; width: 30%; margin-bottom: 20px; }
+        .option h3 { color: #c2185b; }
+        .option a { display: block; background-color: #e91e63; color: white; padding: 10px; text-decoration: none; border-radius: 5px; margin-top: 15px; font-weight: bold; }
+        .option a:hover { background-color: #c2185b; }
+
+        /* QR Code хэсэг */
+        .qr-section { display: flex; justify-content: space-between; gap: 30px; margin-top: 30px; }
+        .qr-box { width: 48%; background-color: #fff8e1; padding: 20px; border-radius: 8px; text-align: center; }
+        .qr-box img { max-width: 100%; height: auto; max-height: 250px; border: 1px solid #c2185b; border-radius: 5px; margin-top: 10px; }
+        
+        /* Голомт банкны мэдээлэл */
+        .bank-info { 
+            background-color: #e0f2f1; 
+            padding: 20px; 
+            border: 2px solid #009688; 
+            border-radius: 8px; 
+            margin-top: 30px; 
+            text-align: center;
+        }
+        .bank-info h3 { color: #009688; }
+        .bank-details p { margin: 5px 0; font-size: 1.1em; }
+        .bank-details strong { color: #e91e63; }
+
+        .image-container { text-align: center; margin-bottom: 20px; }
+        .image-container img { max-width: 100%; height: auto; border-radius: 8px; }
+        .video-container { margin: 20px 0; text-align: center; }
+        .video-container iframe { width: 100%; max-width: 700px; height: 394px; border: none; border-radius: 8px; }
+        footer { text-align: center; padding: 20px 0; background-color: #e91e63; color: white; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Ягаан Тууз Сангийн Лого">
+            </a>
+        </div>
+        
+        <h1>Хандив өргөх</h1>
+        <p>Таны дэмжлэг амьдралыг аварна</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Нүүр хуудас</a>
+        <a href="about.html">Бидний тухай</a>
+        <a href="impact.html">Үр нөлөө</a>
+        <a href="donate.html">Хандив өргөх</a>
+        <a href="contact.html">Холбоо барих</a>
+    </nav>
+
+    <div class="container">
+        <section>
+            
+            <h2>Банкны Шийдэл: Голомт болон Бусад Банкаар Шилжүүлэх</h2>
+
+            <div class="bank-info">
+                <h3>Голомт Банкны Данс (Үндсэн Хандив)</h3>
+                <div class="bank-details">
+                    <p><strong>Хүлээн авагч:</strong> Ягаан Тууз Сан</p>
+                    <p><strong>Дансны дугаар:</strong> <strong style="font-size: 1.2em;">[Голомт Банкны 10 оронтой Дансны дугаарыг энд оруулна уу]</strong></p>
+                    <p><strong>Гүйлгээний утга:</strong> Хандив</p>
+                    <p><em>(Та Монгол дахь бусад бүх банкны апп-аас энэ данс руу шилжүүлэг хийх боломжтой.)</em></p>
+                </div>
+            </div>
+
+            <div class="image-container" style="margin-top: 30px;">
+                <img src="images/donate-callout.jpg" alt="Хөхний хорт хавдрын тухай зургийн уриалга" style="max-width: 500px;">
+            </div>
+
+            <h2 style="margin-top: 30px;">Түргэн Төлбөрийн Систем (QR)</h2>
+            <p>Та Social Pay (Social Pay), QPay (QPay) ашиглан манай QR кодыг уншуулан хэдхэн хормын дотор хандив өргөх боломжтой.</p>
+            
+            <div class="qr-section">
+                <div class="qr-box">
+                    <h3>QPay (Кьюпэй)</h3>
+                    <img src="images/qpay-qr-code.jpg" alt="QPay QR Code (Зургийг солино уу)">
+                    <p>QPay-г ашиглан хялбархан уншуулна уу.</p>
+                </div>
+                
+                <div class="qr-box">
+                    <h3>Social Pay (Сошиал Пэй)</h3>
+                    <img src="images/socialpay-qr-code.jpg" alt="Social Pay QR Code (Зургийг солино уу)">
+                    <p>Social Pay-г ашиглан хялбархан уншуулна уу.</p>
+                </div>
+            </div>
+            
+            <h2 style="margin-top: 30px;">Вэбсайтаар болон Картын Төлбөр (API Gateway)</h2>
+            <p>Та мөн UTH (Uth), BTM (Btm) зэрэг олон улсын болон дотоодын картыг ашиглан онлайн төлбөрийн гарцаар дамжуулан хандив өргөх боломжтой. Энэ нь таныг Голомт банкны эсвэл бусад төлбөрийн системийн төлбөр хийх хуудас руу шилжүүлнэ.</p>
+
+            <div class="donation-options" style="margin-top: 15px;">
+                <div class="option" style="width: 45%;">
+                    <h3>Нэг удаагийн Онлайн Хандив</h3>
+                    <p>Виза, Мастер эсвэл Монголын карт ашиглах.</p>
+                    <a href="#">Төлбөр хийх гарц руу шилжих</a>
+                </div>
+                <div class="option" style="width: 45%;">
+                    <h3>Сар бүр Тогтмол Хандив</h3>
+                    <p>Урт хугацааны дэмжлэг үзүүлэхээр бүртгүүлэх.</p>
+                    <a href="#">Тогтмол хандив үүсгэх</a>
+                </div>
+            </div>
+            
+            <h2 style="margin-top: 30px;">Таны хандив ямар өөрчлөлт авчрах вэ?</h2>
+            <ul>
+                <li>**50,000₮** - Нэг эмэгтэйн хөхний хорт хавдрын эрт илрүүлгийн шинжилгээний зардалд.</li>
+                <li>**200,000₮** - Өвчтөнд химийн эмчилгээний үед шаардлагатай тэжээлийн дэмжлэгт.</li>
+                <li>**1,000,000₮** - Эмчилгээний дараах сэтгэл зүйн нэг сарын зөвлөгөөнд.</li>
+            </ul>
+
+            <section style="margin-top: 30px;">
+                <h2>Бидний Ил Тод Байдал (Видео)</h2>
+                <div class="video-container">
+                     <iframe src="https://www.youtube.com/embed/[YouTube Video ID]?rel=0" allowfullscreen></iframe>
+                </div>
+            </section>
+
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ягаан Тууз Сан. Бүх эрх хуулиар хамгаалагдсан.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тусламж Хүсэх - Ягаан Тууз Сан</title>
+    <style>
+        /* Ерөнхий CSS нь бусад хуудастайгаа ижил байна */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #fce4ec; color: #333; }
+        
+        /* ---------------------------------------------------- */
+        /* HEADER БА LOGO-НЫ ХЭСЭГ (Үндсэн загвар) */
+        /* ---------------------------------------------------- */
+        header {
+            background-color: #e91e63;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            flex-direction: column; 
+        }
+
+        .logo-container { margin-bottom: 10px; }
+        .logo-container img {
+            width: 100px; 
+            height: auto;
+            background-color: white; 
+            padding: 5px;
+            border-radius: 50%; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        }
+        
+        nav { background-color: #c2185b; text-align: center; padding: 10px 0; }
+        nav a { color: white; text-decoration: none; padding: 10px 20px; margin: 0 5px; font-weight: bold; }
+        .container { width: 80%; max-width: 800px; margin: 20px auto; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+        h2 { color: #d81b60; border-bottom: 2px solid #e91e63; padding-bottom: 5px; }
+
+        /* ---------------------------------------------------- */
+        /* МАЯГТЫН (FORM) CSS */
+        /* ---------------------------------------------------- */
+        .application-form label {
+            display: block;
+            margin-bottom: 5px;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #c2185b;
+        }
+        .application-form input[type="text"],
+        .application-form input[type="email"],
+        .application-form input[type="tel"],
+        .application-form textarea,
+        .application-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* padding нь нийт өргөнд багтах */
+        }
+        .application-form textarea {
+            resize: vertical;
+        }
+        .application-form .checkbox-group label {
+            display: inline;
+            font-weight: normal;
+            margin-right: 20px;
+            color: #333;
+        }
+        .application-form .button-submit {
+            background-color: #e91e63;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .application-form .button-submit:hover {
+            background-color: #c2185b;
+        }
+
+        footer { text-align: center; padding: 20px 0; background-color: #e91e63; color: white; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Ягаан Тууз Сангийн Лого">
+            </a>
+        </div>
+        
+        <h1>Тусламж Хүсэх</h1>
+        <p>Хөхний хорт хавдартай иргэдийн бүртгэл</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Нүүр хуудас</a>
+        <a href="about.html">Бидний тухай</a>
+        <a href="impact.html">Үр нөлөө</a>
+        <a href="donate.html">Хандив өргөх</a>
+        <a href="contact.html">Холбоо барих</a>
+    </nav>
+
+    <div class="container">
+        
+        <p style="text-align: center; font-size: 1.1em; color: #e91e63; font-weight: bold;">
+            Энэхүү маягтыг бөглөснөөр та Ягаан Тууз Сангаас дэмжлэг, зөвлөгөө авах боломжтой. Бид тантай ажлын 3 хоногт багтаан холбогдоно.
+        </p>
+
+        <form action="/submit-application" method="POST" class="application-form">
+            
+            <fieldset>
+                <legend style="color: #d81b60; font-size: 1.3em; margin-top: 20px;">I. Үндсэн Мэдээлэл</legend>
+                
+                <label for="full_name">Овог нэр (Бүрэн):</label>
+                <input type="text" id="full_name" name="full_name" required>
+
+                <label for="phone">Утасны дугаар:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Жишээ: 99xxxxxx">
+
+                <label for="email">И-мэйл хаяг (Хэрэв байгаа бол):</label>
+                <input type="email" id="email" name="email">
+
+                <label for="register_number">Регистрийн дугаар:</label>
+                <input type="text" id="register_number" name="register_number" required placeholder="Иргэний үнэмлэх дээрх">
+
+            </fieldset>
+
+            <fieldset style="margin-top: 30px;">
+                <legend style="color: #d81b60; font-size: 1.3em;">II. Эрүүл Мэндийн Төлөв</legend>
+
+                <label for="diagnosis_year">Онош батлагдсан он:</label>
+                <input type="text" id="diagnosis_year" name="diagnosis_year" required placeholder="Жишээ: 2023">
+
+                <label for="stage">Хавдрын үе шат (Хэрэв мэдэх бол):</label>
+                <select id="stage" name="stage">
+                    <option value="">-- Сонгоно уу --</option>
+                    <option value="I">I (Эхний) үе шат</option>
+                    <option value="II">II (Дунд) үе шат</option>
+                    <option value="III">III (Хүндэвтэр) үе шат</option>
+                    <option value="IV">IV (Тархалттай) үе шат</option>
+                    <option value="unknown">Мэдэхгүй / Онош шалгагдаж байгаа</option>
+                </select>
+
+                <label for="treatment_status">Одоогийн эмчилгээний төлөв:</label>
+                <textarea id="treatment_status" name="treatment_status" rows="4" placeholder="Хими, туяа, мэс засал, дааврын эмчилгээний аль нь хийгдэж байгаа эсвэл дууссан талаар товч бичнэ үү."></textarea>
+            
+            </fieldset>
+
+            <fieldset style="margin-top: 30px;">
+                <legend style="color: #d81b60; font-size: 1.3em;">III. Хүсэж буй Тусламжийн Төрөл</legend>
+
+                <p style="margin-top: 10px;">Ямар төрлийн дэмжлэг, тусламж авахыг хүсэж байна вэ? (Олон сонголт хийж болно)</p>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="financial" name="help_type" value="financial">
+                    <label for="financial">Санхүүгийн тусламж</label><br>
+                    
+                    <input type="checkbox" id="counseling" name="help_type" value="counseling">
+                    <label for="counseling">Сэтгэл зүйн зөвлөгөө</label><br>
+                    
+                    <input type="checkbox" id="info" name="help_type" value="info">
+                    <label for="info">Мэдээлэл (Эмчилгээ, эрх зүй)</label><br>
+                    
+                    <input type="checkbox" id="nutrition" name="help_type" value="nutrition">
+                    <label for="nutrition">Тэжээлийн дэмжлэг</label><br>
+                    
+                    <input type="checkbox" id="other" name="help_type" value="other">
+                    <label for="other">Бусад (Доор тайлбарлана уу)</label>
+                </div>
+
+                <label for="details">Тусламж хүсэх болсон шалтгаан (Дэлгэрэнгүй):</label>
+                <textarea id="details" name="details" rows="5" placeholder="Таны нөхцөл байдал, тусламжийн хэрэгцээг дэлгэрэнгүй бичнэ үү."></textarea>
+
+            </fieldset>
+
+            <p style="margin-top: 20px; font-size: 0.9em;">
+                **Анхаарах:** Энэхүү маягт нь зөвхөн бүртгэл үүсгэх зорилготой. Таны мэдээллийг хүлээн авсны дараа манай баг тантай холбогдож, баталгаажуулалт хийнэ.
+            </p>
+
+            <button type="submit" class="button-submit">БҮРТГЭЛИЙГ ИЛГЭЭХ</button>
+
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ягаан Тууз Сан. Бүх эрх хуулиар хамгаалагдсан.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ягаан Тууз Сан</title>
+    <style>
+        /* [Одоо байгаа CSS-ийг хадгална] */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #fce4ec; color: #333; }
+        
+        /* ---------------------------------------------------- */
+        /* ШИНЭЧИЛСЭН HEADER БА LOGO-НЫ ХЭСЭГ */
+        /* ---------------------------------------------------- */
+        header {
+            background-color: #e91e63;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            flex-direction: column; 
+        }
+
+        .logo-container {
+            margin-bottom: 10px; 
+        }
+        
+        .logo-container img {
+            width: 100px; 
+            height: 100px;
+            background-color: white; 
+	    padding: 5px;
+            border-radius: 50%; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+	    object-fit: contain;
+        }
+        /* ---------------------------------------------------- */
+        
+        nav { background-color: #c2185b; text-align: center; padding: 10px 0; }
+        nav a { color: white; text-decoration: none; padding: 10px 20px; margin: 0 5px; font-weight: bold; }
+        .container { width: 80%; margin: 20px auto; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+        .main-callout { text-align: center; padding: 40px 20px; background-color: #ffccbc; border-radius: 8px; margin-bottom: 30px; }
+        .main-callout h2 { color: #d81b60; margin-bottom: 15px; }
+        .donate-button { display: inline-block; background-color: #e91e63; color: white; padding: 15px 30px; text-decoration: none; font-size: 1.2em; font-weight: bold; border-radius: 5px; margin-top: 20px; transition: background-color 0.3s; }
+        .donate-button:hover { background-color: #c2185b; }
+        section h2 { color: #d81b60; border-bottom: 2px solid #e91e63; padding-bottom: 5px; }
+        .image-container { text-align: center; margin-bottom: 20px; }
+        .image-container img { max-width: 100%; height: auto; border-radius: 8px; }
+        .video-container { margin: 20px 0; text-align: center; }
+        .video-container iframe { width: 100%; max-width: 700px; height: 394px; border: none; border-radius: 8px; }
+        footer { text-align: center; padding: 20px 0; background-color: #e91e63; color: white; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/logo.jpg" alt="Ягаан Тууз Сангийн Лого">
+            </a>
+        </div>
+        
+        <h1>Ягаан Тууз Сан</h1>
+        <p>Хөхний хорт хавдрын эсрэг тэмцэх, амь насыг аврахын төлөө</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Нүүр хуудас</a>
+        <a href="about.html">Бидний тухай</a>
+        <a href="impact.html">Үр нөлөө</a>
+        <a href="donate.html">Хандив өргөх</a>
+        <a href="contact.html">Холбоо барих</a>
+    </nav>
+
+    <div class="container">
+        
+        <div class="main-callout" id="home">
+            <h2>ЭНЭ ХАВДРЫГ ХАМТДАА ЯЛЦГААЯ</h2>
+            <p>Таны өргөсөн хандив бүр судалгаа, эрт илрүүлэг, өвчтөнд үзүүлэх дэмжлэгт шууд хүрч байна.</p>
+            <a href="donate.html" class="donate-button">ОДОО ХАНДИВ ӨРГӨХ</a>
+        </div>
+        
+        <div class="image-container">
+            <img src="images/pink-ribbon-hero.jpg" alt="Хөхний хорт хавдрын ягаан туузны бэлгэдэл" style="max-height: 300px;">
+        </div>
+
+        <section id="about-summary">
+            <h2>Бидний эрхэм зорилго</h2>
+            <p>Бидний сан нь Монгол Улсад хөхний хорт хавдраар өвчилсөн иргэдэд санхүүгийн болон сэтгэл санааны дэмжлэг үзүүлэх... <a href="about.html">Дэлгэрэнгүй унших &rarr;</a></p>
+        </section>
+
+        <section style="margin-top: 30px;">
+            <h2>Бичлэг: Эрт Илрүүлгийн Ач Холбогдол</h2>
+            <div class="video-container">
+                 <iframe src="https://www.youtube.com/embed/[YouTube Video ID]?rel=0" allowfullscreen></iframe>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ягаан Тууз Сан. Бүх эрх хуулиар хамгаалагдсан.</p>
+    </footer>
+
+</body>
+</html>
