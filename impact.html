@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Үр нөлөө - Ягаан Тууз Сан</title>
+    <title>Төсөл, арга хэмжээ</title>
     <style>
         /* [Одоо байгаа CSS-ийг хадгална] */
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #fce4ec; color: #333; }
@@ -12,7 +12,7 @@
         /* ШИНЭЧИЛСЭН HEADER БА LOGO-НЫ ХЭСЭГ */
         /* ---------------------------------------------------- */
         header {
-            background-color: #e91e63;
+            background-color: #DA6888;
             color: white;
             padding: 20px 0;
             text-align: center;
@@ -21,9 +21,16 @@
             justify-content: center; 
             flex-direction: column; 
         }
+/* HEADER-ИЙН P ТАГИЙГ ХЯЗГААРЛАХ НЭМЭЛТ */
+        header p {
+            max-width: 600px; 
+            /* Зайг 10px-ээс 5px болгон ойртуулж, голд төвлөрүүлнэ */
+            margin: 5px auto 0 auto; 
+            padding: 0 10px; 
+        }
 
         .logo-container {
-            margin-bottom: 10px; 
+            margin-bottom: 0px; 
         }
         
         .logo-container img {
@@ -40,7 +47,7 @@ object-fit: contain;
         nav { background-color: #c2185b; text-align: center; padding: 10px 0; }
         nav a { color: white; text-decoration: none; padding: 10px 20px; margin: 0 5px; font-weight: bold; }
         .container { width: 80%; margin: 20px auto; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
-        h2 { color: #d81b60; border-bottom: 2px solid #e91e63; padding-bottom: 5px; }
+        h2 { color: #DA6888; border-bottom: 2px solid #e91e63; padding-bottom: 5px; }
         .statistic { text-align: center; margin: 20px 0; padding: 15px; background-color: #fff8e1; border-left: 5px solid #ffccbc; }
         .statistic h3 { color: #e91e63; font-size: 2em; margin: 5px 0; }
         .image-container { text-align: center; margin-bottom: 20px; }
@@ -48,7 +55,14 @@ object-fit: contain;
         .video-container { margin: 20px 0; text-align: center; }
         .video-container iframe { width: 100%; max-width: 700px; height: 394px; border: none; border-radius: 8px; }
         footer { text-align: center; padding: 20px 0; background-color: #e91e63; color: white; margin-top: 30px; }
-    </style>
+    
+/* ШИНЭЭР НЭМСЭН: Текстийн өнгө, зайг тохируулах */
+        .impact-text {
+            color: #DA6888; /* Текстийн өнгийг ягаан туузны өнгөнд ойртуулав */
+            line-height: 1.5; /* Уншихад хялбар болгох */
+            margin-bottom: 30px;
+	    text-align: justify; /* Нэмэлт: Текстийг хоёр тал руу нь тэгшлэнэ */
+</style>
 </head>
 <body>
 
@@ -59,22 +73,28 @@ object-fit: contain;
             </a>
         </div>
         
-        <h1>Үр нөлөө ба Тайлан</h1>
-        <p>Бидний хэрхэн өөрчлөлт авчирч буй тухай</p>
+        <h1>Төсөл, арга хэмжээ</h1>
+        <p>Тус сангаас хэрэгжүүлсэн, цаашид хэрэгжүүлэхээр төлөвлөсөн төсөл, арга хэмжээний тухай мэдээлэлтэй энэ хэсгээс танилцана уу...  </p>
     </header>
 
     <nav>
         <a href="index.html">Нүүр хуудас</a>
         <a href="about.html">Бидний тухай</a>
-        <a href="impact.html">Үр нөлөө</a>
-        <a href="donate.html">Хандив өргөх</a>
+        <a href="impact.html">Төсөл, арга хэмжээ</a>
+        <a href="donate.html">Хандив өгөх</a>
         <a href="contact.html">Холбоо барих</a>
     </nav>
 
     <div class="container">
         <section>
-            <h2>Бидний ололт амжилтууд</h2>
-            <p>Таны дэмжлэгээр бид [Он]-ээс хойш дараах томоохон ажлуудыг хийж гүйцэтгэлээ:</p>
+            <h2>Бидний хэрэгжүүлсэн төслүүд</h2>
+ <div class="image-container flex-item">
+                <img src="images/8in1.jpg" alt="Хөхний хорт хавдрын ягаан туузны бэлгэдэл">
+            </div>
+
+<p class="impact-text">Манай дэлхий дээрх <strong>найман эмэгтэй тутмын нэг</strong> нь хөхний хорт хавдартай гэж оношлогдож байгаа бөгөөд энэ бол үнэхээр эмгэнэлтэй, анхаарал хандуулах шаардлагатай тоо баримт болоод байна. Монгол Улсын хувьд хөхний хорт хавдрыг эрт үед илрүүлж, шаардлагатай эмчилгээ, тусламж үйлчилгээг цаг алдалгүй авах нь таны <strong>амь насыг хамгаалах, өвчин бусад эд эрхтэнд үсэрхийлж тархахаас сэргийлэх</strong> хамгийн үр дүнтэй арга зам юм. Тиймээс та өнөөдрөөс эхлэн өөрийн эрүүл мэндэд анхаарч, эмчийн үзлэг, шинжилгээнд тогтмол хамрагдаарай. Хөхний эрүүл мэндээ хамгаална гэдэг бол өөрийгөө хайрлах, гэр бүлээ хамгаалах хамгийн эхний алхам байдаг. Бид тантай хорт хавдрын эсрэг хамтдаа тэмцэх болно.</p>
+            
+            <p class="impact-text"><strong>Таны дэмжлэгээр бид [Он]-ээс хойш дараах томоохон ажлуудыг хийж гүйцэтгэлээ. Үүнд:</strong></p>
             
             <div class="statistic">
                 <h3>5,000+</h3>
@@ -98,8 +118,8 @@ object-fit: contain;
             </section>
             
             <h2>Санхүүгийн ил тод байдал</h2>
-            <p>Бид жил бүрийн санхүүгийн тайланг ил тод мэдээлдэг. Манай санхүүгийн [Хувь]-ийн хэсэг нь шууд хөтөлбөрүүдэд зарцуулагддаг.</p>
-            <p><a href="#">2024 оны бүрэн тайланг татаж авах (PDF)</a></p>
+            <p>Бид жил бүрийн санхүүгийн тайланг ил тод мэдээлдэг. Манай санхүүгийн [Хувь]-ийн хэсэг нь шууд төсөл, арга хэмжээнд  зарцуулагддаг.</p>
+            <p><a href="#">2025 оны жилийн эцсийн тайланг татаж авах (PDF)</a></p>
         </section>
     </div>
 

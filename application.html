@@ -12,7 +12,7 @@
         /* HEADER БА LOGO-НЫ ХЭСЭГ (Үндсэн загвар) */
         /* ---------------------------------------------------- */
         header {
-            background-color: #e91e63;
+            background-color: #DA6888;
             color: white;
             padding: 20px 0;
             text-align: center;
@@ -22,7 +22,15 @@
             flex-direction: column; 
         }
 
-        .logo-container { margin-bottom: 10px; }
+/* HEADER-ИЙН P ТАГИЙГ ХЯЗГААРЛАХ НЭМЭЛТ */
+        header p {
+            max-width: 600px; 
+            /* Зайг 10px-ээс 5px болгон ойртуулж, голд төвлөрүүлнэ */
+            margin: 5px auto 0 auto; 
+            padding: 0 10px; 
+        }
+
+        .logo-container { margin-bottom: 0px; }
         .logo-container img {
             width: 100px; 
             height: 100px;
@@ -36,7 +44,7 @@ object-fit: contain;
         nav { background-color: #c2185b; text-align: center; padding: 10px 0; }
         nav a { color: white; text-decoration: none; padding: 10px 20px; margin: 0 5px; font-weight: bold; }
         .container { width: 80%; max-width: 800px; margin: 20px auto; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
-        h2 { color: #d81b60; border-bottom: 2px solid #e91e63; padding-bottom: 5px; }
+        h2 { color: #DA6888; border-bottom: 2px solid #e91e63; padding-bottom: 5px; }
 
         /* ---------------------------------------------------- */
         /* МАЯГТЫН (FORM) CSS */
@@ -46,7 +54,7 @@ object-fit: contain;
             margin-bottom: 5px;
             margin-top: 15px;
             font-weight: bold;
-            color: #c2185b;
+            color: #DA6888;
         }
         .application-form input[type="text"],
         .application-form input[type="email"],
@@ -103,8 +111,8 @@ object-fit: contain;
     <nav>
         <a href="index.html">Нүүр хуудас</a>
         <a href="about.html">Бидний тухай</a>
-        <a href="impact.html">Үр нөлөө</a>
-        <a href="donate.html">Хандив өргөх</a>
+        <a href="impact.html">Төсөл, арга хэмжээ</a>
+        <a href="donate.html">Хандив өгөх</a>
         <a href="contact.html">Холбоо барих</a>
     </nav>
 
@@ -136,7 +144,7 @@ object-fit: contain;
             <fieldset style="margin-top: 30px;">
                 <legend style="color: #d81b60; font-size: 1.3em;">II. Эрүүл Мэндийн Төлөв</legend>
 
-                <label for="diagnosis_year">Онош батлагдсан он:</label>
+                <label for="diagnosis_year">Онош батлагдсан огноо:</label>
                 <input type="text" id="diagnosis_year" name="diagnosis_year" required placeholder="Жишээ: 2023">
 
                 <label for="stage">Хавдрын үе шат (Хэрэв мэдэх бол):</label>
@@ -181,7 +189,7 @@ object-fit: contain;
             </fieldset>
 
             <p style="margin-top: 20px; font-size: 0.9em;">
-                **Анхаарах:** Энэхүү маягт нь зөвхөн бүртгэл үүсгэх зорилготой. Таны мэдээллийг хүлээн авсны дараа манай баг тантай холбогдож, баталгаажуулалт хийнэ.
+                **Анхаарах:** Энэхүү маягт нь зөвхөн бүртгэл үүсгэх зорилготой. Таны мэдээллийг хүлээн авсны дараа манай ажилтан  тантай холбогдож, баталгаажуулалт хийх болно.
             </p>
 
             <button type="submit" class="button-submit">БҮРТГЭЛИЙГ ИЛГЭЭХ</button>
