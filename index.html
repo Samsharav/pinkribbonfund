@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ягаан Тууз Сан</title>
+    <title>ЯГААН ТУУЗ САН</title>
     <style>
         /* [Одоо байгаа CSS-ийг хадгална] */
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #fce4ec; color: #333; }
@@ -51,11 +51,11 @@
         nav { background-color: #c2185b; text-align: center; padding: 10px 0; }
         nav a { color: white; text-decoration: none; padding: 10px 20px; margin: 0 5px; font-weight: bold; }
         .container { width: 80%; margin: 20px auto; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
-        .main-callout { text-align: center; padding: 40px 20px; background-color: #ffccbc; border-radius: 8px; margin-bottom: 30px; }
-        .main-callout h2 { color: #d81b60; margin-bottom: 15px; }
-        .donate-button { display: inline-block; background-color: #e91e63; color: white; padding: 15px 30px; text-decoration: none; font-size: 1.2em; font-weight: bold; border-radius: 5px; margin-top: 20px; transition: background-color 0.3s; }
+        .main-callout { text-align: center; padding: 20px 20px; background-color: #f1e0d3; border-radius: 8px; margin-bottom: 30px; }
+        .main-callout h2 { color: #c2185b; margin-bottom: 15px; }
+        .donate-button { display: inline-block; background-color: #DA6888; color: white; padding: 15px 30px; text-decoration: none; font-size: 1.2em; font-weight: bold; border-radius: 5px; margin-top: 20px; transition: background-color 0.3s; }
         .donate-button:hover { background-color: #c2185b; }
-        section h2 { color: #d81b60; border-bottom: 2px solid #e91e63; padding-bottom: 5px; }
+        section h2 { color: #DA6888; border-bottom: 2px solid #e91e63; padding-bottom: 5px; font-size: 1.6em; }
         .image-container { text-align: center; margin-bottom: 0; padding: 10px; } /* Center removed for flex layout, added padding */
         .image-container img { max-width: 100%; height: auto; border-radius: 8px; }
         .video-container { margin: 0; text-align: center; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; } /* Responsive embed setup */
@@ -104,9 +104,9 @@
             top: 10px; /* Гарчиг ба навигацийн доор зай авч байрлуулах */
             right: 10px; /* Баруун ирмэгээс зай */
             z-index: 1000; /* Бусад элементүүдийн дээгүүр байрлуулах */
-            width: 370px; /* Оновчтой өргөн */
-            height: 520px; /* Оновчтой өндөр */
-            overflow: auto;
+            width: 360px; /* Оновчтой өргөн */
+            height: 500px; /* Оновчтой өндөр */
+            overflow: hidden;
             background-color: white;
             border-radius: 8px; /* Булангуудыг дугуйлах */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Сүүдэр нэмэх */
@@ -125,13 +125,20 @@
 <body>
 
     <div class="facebook-embed-container">
-       <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fyagaantuuzsan%2Fposts%2Fpfbid02oadydV7p5LoMU5TuiN8LNFgL6w1SDbfBNM7k1pjwzypxoHdCK2BUttAX4LSzg9Sql&width=50&show_text=true&height=621&appId" width="50" height="621" style="border:none;overflow:auto" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-    </div>
+
+    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fyagaantuuzsan%2Fposts%2Fpfbid02oadydV7p5LoMU5TuiN8LNFgL6w1SDbfBNM7k1pjwzypxoHdCK2BUttAX4LSzg9Sql&width=340&show_text=false&height=350&appId" 
+            width="360" 
+            height="100" 
+            frameborder="0" 
+            allowfullscreen="false" 
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+    </iframe>
+</div>
 
     <header>
         <div class="logo-container">
             <a href="index.html">
-                <img src="images/logo.jpg" alt="Ягаан Тууз Сангийн Лого">
+                <img src="images/2025prplogo.png" alt="Ягаан Тууз Сангийн Лого">
             </a>
         </div>
         
@@ -151,10 +158,10 @@
     <div class="container">
         
         <div class="main-callout" id="home">
-            <h2>ХОРТ ХАВДРЫГ ХАМТДАА ДАВАН ТУУЛЪЯ...</h2>
+            <h2>ХӨХНИЙ ХОРТ ХАВДРЫГ ХАМТДАА ДАВАН ТУУЛЪЯ...</h2>
 
-            <p>Таны хандив хөхний хорт хавдрыг даван туулагчдад дэмжлэг үзүүлэх, шаардлагатай судалгаа, арга хэмжээнд зарцуулагдана.</p>
-            <a href="donate.html" class="donate-button">ОДОО ХАНДИВ ӨГӨХ</a>
+            <p><strong>Таны өгсөн хандив хөхний хорт хавдрыг даван туулагчдад дэмжлэг үзүүлэх, шаардлагатай судалгаа, арга хэмжээнд зарцуулагдах болно.</strong></p>
+            <a href="donate.html" class="donate-button">ХАНДИВ ӨГӨХ</a>
         </div>
         
         <div class="flex-row">
@@ -173,7 +180,7 @@
         </div>
         <section id="about-summary">
             <h2>Бидний эрхэм зорилго</h2>
-            <p>Тус сан нь хөхний хорт хавдраар өвчилсөн иргэдэд боломжит дэмжлэг үзүүлэх... <a href="about.html">Дэлгэрэнгүй унших &rarr;</a></p>
+            <p><strong>Тус сан нь хөхний хорт хавдраас урьдчилан сэргийлэх, хавдрыг даван туулахад тусламж, дэмжлэг үзүүлэх... </strong><a href="about.html">Дэлгэрэнгүй унших &rarr;</a></p>
         </section>
 
     </div>
