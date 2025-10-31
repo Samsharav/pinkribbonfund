@@ -86,8 +86,31 @@ h2 {
 	margin-bottom: 30px;
 }
 
-        nav { background-color: #c2185b; text-align: center; padding: 10px 0; }
-        nav a { color: white; text-decoration: none; padding: 10px 20px; margin: 0 5px; font-weight: bold; }
+       nav {
+  text-align: center;
+  background-color: #c2185b;  /* зөөлөн ягаавтар фон */
+  padding: 12px 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;             /* энгийн үед гүн ягаан */
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 18px;
+  margin: 0 8px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: all 0.3s ease;  /* зөөлөн шилжилт — өнгө + хэмжээ */
+}
+
+nav a:hover {
+  background-color: #DA6888;  /* hover үед тод ягаан фон */
+  color: #fff;                /* үсэг цагаан болно */
+  transform: scale(1.08);     /* үсэг болон товч бага зэрэг томорно */
+}
+
         .container { width: 80%; margin: 20px auto; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
         h2 { color: #DA6888; border-bottom: 2px solid #e91e63; padding-bottom: 5px; }
         .image-container { text-align: center; margin-bottom: 20px; }
@@ -97,7 +120,7 @@ h2 {
         .team-grid { display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px; }
         .team-member { width: 45%; text-align: center; margin-bottom: 20px; }
         .team-member img { width: 100%; border-radius: 8px; max-width: 250px; }
-        footer { text-align: center; padding: 20px 0; background-color: #e91e63; color: white; margin-top: 30px; }
+        footer { text-align: center; padding: 20px 0; background-color: #DA6888; color: white; margin-top: 30px; }
     </style>
 </head>
 <body>

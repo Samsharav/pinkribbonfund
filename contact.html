@@ -21,7 +21,7 @@
             justify-content: center; 
             flex-direction: column; 
         }
-/* HEADER-ИЙН P ТАГИЙГ ХЯЗГААРЛАХ НЭМЭЛТ */
+    /* HEADER-ИЙН P ТАГИЙГ ХЯЗГААРЛАХ НЭМЭЛТ */
         header p {
             max-width: 600px; 
             /* Зайг 10px-ээс 5px болгон ойртуулж, голд төвлөрүүлнэ */
@@ -40,55 +40,160 @@
             padding: 5px;
             border-radius: 50%; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-object-fit: contain;
+    object-fit: contain;
         }
         /* ---------------------------------------------------- */
         
-  header h1 {
+        header h1 {
             margin: 5px 0;
         }
         /* ---------------------------------------------------- */
 
-        nav { background-color: #c2185b; text-align: center; padding: 10px 0; }
-        nav a { color: white; text-decoration: none; padding: 10px 20px; margin: 0 5px; font-weight: bold; }
-        .container { width: 80%; margin: 20px auto; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+     nav {
+  text-align: center;
+  background-color: #c2185b;  /* зөөлөн ягаавтар фон */
+  padding: 12px 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;             /* энгийн үед гүн ягаан */
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 18px;
+  margin: 0 8px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: all 0.3s ease;  /* зөөлөн шилжилт — өнгө + хэмжээ */
+}
+
+nav a:hover {
+  background-color: #DA6888;  /* hover үед тод ягаан фон */
+  color: #fff;                /* үсэг цагаан болно */
+  transform: scale(1.08);     /* үсэг болон товч бага зэрэг томорно */
+}
+
+        
+        /* 🚩 ШИНЭЧЛЭЛ: Контейнерийн өргөнийг 80%-аас 85% болгож өөрчлөв */
+        .container { 
+            width: 80%; 
+            margin: 20px auto; 
+            padding: 20px; 
+            background-color: white; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            border-radius: 8px; 
+        }
         h2 { color: #DA6888; border-bottom: 2px solid #e91e63; padding-bottom: 5px; font-size: 1.6em}
         .contact-info p { font-size: 1.1em; margin: 15px 0; }
         .contact-info strong { color: #e91e63; }
         .image-container { text-align: center; margin-bottom: 20px; }
         .image-container img { max-width: 100%; height: auto; border-radius: 8px; }
         .video-container { margin: 20px 0; text-align: center; }
-        .video-container iframe { width: 100%; max-width: 700px; height: 394px; border: none; border-radius: 8px; }
-        footer { text-align: center; padding: 20px 0; background-color: #e91e63; color: white; margin-top: 30px; }
+        .video-container iframe { width: 100%; max-width: 100%; height: 394px; border: none; border-radius: 10px; }
+        footer { text-align: center; padding: 20px 0; background-color: #DA6888; color: white; margin-top: 30px; }
         
-        /* ТУСЛАМЖ ХҮСЭХ ХЭСГИЙН CSS (өмнөх хариултаас) */
+        /* ТУСЛАМЖ ХҮСЭХ ХЭСГИЙН CSS */
         .help-callout {
-            background-color: #f0f4c3; 
-            border: 2px solid #afb42b;
-            padding: 25px;
-            border-radius: 8px;
+            background-color: #fff5fa; 
+            border: 2px solid #fff5fa;
+            padding: 20px;
+            border-radius: 10px;
             margin-top: 40px;
-            text-align: center;
+            text-align: justify;
         }
         .help-callout h2 {
-            color: #afb42b; 
-            border-bottom: 2px solid #afb42b;
+            color: #DA6888; 
+            border-bottom: 3px solid #DA6888;
             padding-bottom: 10px;
+            margin-top: 0;
         }
         .register-button {
             display: inline-block;
-            background-color: #afb42b; 
+            background-color: #DA6888; 
             color: white;
-            padding: 12px 25px;
+            padding: 5px 50px;
             text-decoration: none;
-            font-size: 1.1em;
+            font-size: 1.0em;
             font-weight: bold;
-            border-radius: 5px;
-            margin-top: 15px;
+            border-radius: 10px;
+            margin-top: 0px;
             transition: background-color 0.3s;
+ box-shadow: 0 4px 8px rgba(218, 104, 136, 0.4);
         }
         .register-button:hover {
-            background-color: #827717;
+            background-color: #c2185b;
+transform: scale(1.05);     
+   }
+
+        /* ---------------------------------------------------- */
+        /* ШИНЭЧИЛСЭН: 2 БАГАНАНЫ CSS - 50PX ЗАЙ ОРУУЛСАН */
+        /* ---------------------------------------------------- */
+        .contact-columns {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px; /* Багануудын хоорондох зайг нэмсэн */
+            margin-top: 5px; 
+            align-items: stretch; 
+        }
+
+        .col-50 {
+            flex: 1; 
+            min-width: 300px;
+        }
+
+        /* 🚩 50PX ЗАЙ: Баруун талын баганад 50px-ийн гадаад зай (margin) өгөв. */
+        .contact-columns .col-50:last-child { 
+            margin-right: 50px; 
+            padding-right: 0; 
+        }
+
+        .facebook-page-embed {
+            text-align: center; 
+            width: 100%; 
+            height: 100%; 
+            margin-top: 10px;
+        }
+        .facebook-page-embed iframe {
+            width: 100%; 
+            height: 400px; 
+            max-width: 100%;
+            border: 1px solid #ccc; 
+            border-radius: 8px;
+        }
+        
+        /* help-callout-ийг col-50-ийн өндрийг тэнцүүлэхэд ашигласан */
+        .col-50 .help-callout { 
+            height: 475px; 
+            box-sizing: border-box; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+margin-top: 10px;
+        }
+
+
+        /* Жижиг дэлгэц дээр нэг багана болгох (Responsive Design) */
+        @media (max-width: 768px) {
+            .contact-columns {
+                flex-direction: column; 
+                gap: 0;
+            }
+            .col-50 {
+                flex: 0 0 100%; 
+                margin-bottom: 30px; 
+            }
+            /* Жижиг дэлгэц дээр баруун талын зайг устгав */
+            .contact-columns .col-50:last-child { 
+                margin-right: 0px; 
+            }
+            .facebook-page-embed iframe {
+                height: 300px; 
+            }
+            /* Жижиг дэлгэц дээр container-ийг буцааж 90% болгож болно */
+            .container {
+                width: 90%; 
+            }
         }
     </style>
 </head>
@@ -115,44 +220,50 @@ object-fit: contain;
 
     <div class="container">
         <section>
-            <h2>Бидний байршил ба Хаяг</h2>
-            <div class="contact-info">
-                <p><strong>Албан ёсны нэр:</strong> Ягаан Тууз Сан</p>
-                <p><strong>Хаяг:</strong> [Дэлгэрэнгүй хаяг]</p>
-            </div>
-
-            <div class="image-container">
-                <img src="images/office-map.jpg" alt="Ягаан Тууз Сангийн байршлын зураг" style="max-width: 600px;">
-            </div>
-
+           
             <h2>Бидэнтэй холбогдох</h2>
             <div class="contact-info">
                 <p><strong>Утас:</strong> <a href="tel:[Утасны дугаар]" style="color:#c2185b;">[Утасны дугаар]</a></p>
                 <p><strong>И-мэйл:</strong> <a href="mailto:[И-мэйл хаяг]" style="color:#c2185b;">[И-мэйл хаяг]</a></p>
-                <p><strong>Сошиал Медиа: "FACEBOOK" хуудас</strong></p>
             </div>
             
-            <div class="facebook-page-embed">
-                <iframe 
-                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fyagaantuuzsan&tabs=timeline&width=500&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
-                    width="500" 
-                    height="331" 
-                    style="border:none;overflow:hidden" 
-                    scrolling="no" 
-                    frameborder="0" 
-                    allowfullscreen="true" 
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                </iframe>
-            </div>
-            
-            <div class="help-callout">
+            <div class="contact-columns">
 
-                <h2>Хорт Хавдрын дэмжлэг хүсэх</h2>
-                <p>Хэрэв та эсвэл таны гэр бүлийн хүн хөхний хорт хавдартай бөгөөд санхүүгийн, сэтгэл зүйн болон бусад дэмжлэг авахыг хүсвэл бүртгүүлнэ үү. Бид тантай эргэн холбогдож, шаардлагатай мэдээллийг авч хамтран ажиллах болно.</p>
-                <a href="application.html" class="register-button">ТУСЛАМЖ ХҮСЭХ БҮРТГЭЛ ҮҮСГЭХ</a>
-                <p style="margin-top: 10px; font-size: 0.9em; color: #555;">*Таны мэдээлэл нууц байна.</p>
+                <div class="col-50">
+                    <p style="text-align: left; font-weight: bold; color: #DA6888; font-size: 1.6em;">Сошиал Медиа: "FACEBOOK" хуудас</p>
+                    <div class="facebook-page-embed">
+                        <iframe 
+                            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fyagaantuuzsan&tabs=timeline&width=600&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
+                            width="600" 
+                            height="600" 
+                            style="border:none;overflow:hidden" 
+                            scrolling="no" 
+                            frameborder="0" 
+                            allowfullscreen="true" 
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <div class="col-50">
+                    <div class="help-callout">
+                        <div>
+                            <h2>Хорт хавдрын эрсэг дэмжлэг хүсэх</h2>
+                            <p>Бид хөхний хорт хавдраас урьдчилан сэргийлэх, өвчнийг даван туулах үйл хэрэгт бодит дэмжлэг үзүүлэх зорилготой байгууллага юм.
+Энэхүү зорилгоо хэрэгжүүлэхийн тулд бид гадаад, дотоодын байгууллага болон хувь хүмүүстэй хамтран ажиллаж, хандив, тусламжийн үйл ажиллагааг зохион байгуулдаг.
+Мөн тусгай зориулалтын хөхний даруулга, хөх орлуулагч, малгай зэрэг ховор бараа бүтээгдэхүүнийг гадаадаас худалдан авахад зуучлан туслахын зэрэгцээ, хорт хавдартай тэмцэж буй эмэгтэйчүүдийн гараар урласан бүтээлүүдийг борлуулахад дэмжлэг үзүүлдэг.
+Үүнээс гадна, өвчнөөс урьдчилан сэргийлэх, эмчилгээний өмнөх болон дараах үеийн асаргаа, сэтгэлзүйн дэмжлэг, зөвлөгөө, мэдээлэл өгөх ажлыг тасралтгүй хэрэгжүүлж байна.
+Бид мөн хөхний хорт хавдрын талаарх мэдлэгийг олон нийтэд түгээх зорилгоор сургалт, семинар, уулзалт зохион байгуулахын зэрэгцээ судалгаа, шинжилгээний ажлыг тогтмол хийж, хамтын хүчээр илүү олон эмэгтэйчүүдийн амьдралд итгэл, гэрэл авчрахыг зорьдог.</p>
+
+                        </div>
+                        <div style="margin-top: 20px;">
+                            <a href="application.html" class="register-button">БҮРТГЭЛ ҮҮСГЭХ</a>
+                            <p style="margin-top: 10px; font-size: 0.9em; color: #555;">*Таны мэдээлэл нууц байна.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            
             <section style="margin-top: 30px;">
                 <h2>Бидэнтэй нэгдээрэй</h2>
                 <div class="video-container">

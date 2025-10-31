@@ -49,9 +49,33 @@ object-fit: contain;
         }
         /* ---------------------------------------------------- */
 
-        nav { background-color: #c2185b; text-align: center; padding: 10px 0; }
-        nav a { color: white; text-decoration: none; padding: 10px 20px; margin: 0 5px; font-weight: bold; }
-        .container { width: 80%; margin: 20px auto; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+       nav {
+  text-align: center;
+  background-color: #c2185b;  /* зөөлөн ягаавтар фон */
+  padding: 12px 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;             /* энгийн үед гүн ягаан */
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 18px;
+  margin: 0 8px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: all 0.3s ease;  /* зөөлөн шилжилт — өнгө + хэмжээ */
+}
+
+nav a:hover {
+  background-color: #DA6888;  /* hover үед тод ягаан фон */
+  color: #fff;                /* үсэг цагаан болно */
+  transform: scale(1.08);     /* үсэг болон товч бага зэрэг томорно */
+}
+
+        
+	.container { width: 80%; margin: 20px auto; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
         h2 { color: #DA6888; border-bottom: 2px solid #e91e63; padding-bottom: 5px; font-size: 1.6em; }
         .statistic { text-align: center; margin: 20px 0; padding: 15px; background-color: #fff8e1; border-left: 5px solid #ffccbc; }
         .statistic h3 { color: #e91e63; font-size: 2em; margin: 5px 0; }
@@ -59,7 +83,7 @@ object-fit: contain;
         .image-container img { max-width: 100%; height: auto; border-radius: 8px; }
         .video-container { margin: 20px 0; text-align: center; }
         .video-container iframe { width: 100%; max-width: 700px; height: 394px; border: none; border-radius: 8px; }
-        footer { text-align: center; padding: 20px 0; background-color: #e91e63; color: white; margin-top: 30px; }
+        footer { text-align: center; padding: 20px 0; background-color: #DA6888; color: white; margin-top: 30px; }
     
 /* ШИНЭЭР НЭМСЭН: Текстийн өнгө, зайг тохируулах */
         .impact-text {
@@ -133,10 +157,23 @@ object-fit: contain;
 
             <div class="project-list">
                 <div class="project-item">
-                    <img src="images/placeholder_project1.jpg" alt="Төслийн зураг">
+                    <img src="images/emmasurp.jpg" alt="Төслийн зураг">
                     <div class="project-content">
                         <h3>Төсөл 1</h3>
-                        <p>Бүх аймаг, нийслэлийн дүүргүүдэд хөхний хорт хавдрын эрт илрүүлгийн үзлэг, оношилгоог үнэ төлбөргүй зохион байгуулж, нийт 50,000 гаруй эмэгтэйчүүдийг хамруулсан.</p>
+                        <p>2017/06/16 - 2017/07/20 өдрийн хооронд зохион байгуулсан хандивын урамшуулалт аян амжилттай болж өнгөрлөө. Аяны хүрээнд Англи улсад тусгайлан бэлтгэсэн "Emma's goody bag" нэртэйсюрпризтэй бяцхан цvнхээр оролцогчдыг урамшуулав. 
+
+Сюрприз цүнхэнд:
+
+1) Жvvс шахагчтай усны сав
+2) Омега 3, загасны тостой хүнсний нэмэлт бүтээгдэхүүн /60 ширхэгтэй/ 
+3) Темер, мульти витаминаар баялаг хүнсний нэмэлт бүтээгдэхүүн /60 ширхэгтэй/ 
+4) Фитнес дээс болон резин
+5) Эрч хvч нэмэгдvvлэгч Energy bar амттан
+6) Органик хатаасан жимс
+
+Нийт 9 азтанг 2017/07/24 едер хандив өгсөн, фэйсбvvк хуудсаар дэмжсэн оролцогчдоос тодруулсан. 
+
+Бидний  сайн vйлсийн төлөөх vйл ажиллагааг чин сэтгэлээр дэмжин Урамшуулалт аяныг ивээн тэтгэсэн Emma Sharav (Ш.Баярцэцэг)-д маш их баярлалаа.</p>
                     </div>
                 </div>
 
