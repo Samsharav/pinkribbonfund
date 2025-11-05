@@ -4,124 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Бидний тухай - Ягаан Тууз Сан</title>
-    <style>
-        /* [Одоо байгаа CSS-ийг хадгална] */
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #fce4ec; color: #333; }
-        
-        /* ---------------------------------------------------- */
-        /* ШИНЭЧИЛСЭН HEADER БА LOGO-НЫ ХЭСЭГ */
-        /* ---------------------------------------------------- */
-        header {
-            background-color: #DA6888;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            flex-direction: column; 
-        }
-/* HEADER-ИЙН P ТАГИЙГ ХЯЗГААРЛАХ НЭМЭЛТ */
-        header p {
-            max-width: 600px; 
-            /* Зайг 10px-ээс 5px болгон ойртуулж, голд төвлөрүүлнэ */
-            margin: 5px auto 0 auto; 
-            padding: 0 10px; 
-        }
-
-        .logo-container {
-            margin-bottom: 5px; 
-        }
-        
-        .logo-container img {
-            width: 150px; 
-            height: 150px;
-            background-color: white; 
-            padding: 5px;
-            border-radius: 50%; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-object-fit: contain;
-        }
-        /* ---------------------------------------------------- */
-        
-  header h1 {
-            margin: 5px 0;
-        }
-        /* ---------------------------------------------------- */
-
-/* Одоо байгаа h2-ийн өнгө, доогуур зураасыг хэвээр үлдээнэ */
-h2 { 
-    color: #DA6888; 
-    border-bottom: 2px solid #e91e63; 
-    padding-bottom: 5px; 
-    font-size: 1.6em; /* Гарчгийн хэмжээг тохируулав */
-}
-
-/* ШИНЭЭР НЭМСЭН/САЙЖРУУЛСАН P ТАГИЙН ТОХИРГОО */
-.about-text {
-    color: #DA6888;        /* Текстийн өнгийг бараан саарал болгож, унших чадварыг сайжруулав */
-    line-height: 1.6;      /* Мөр хоорондын зайг нэмэгдүүлэв (1.5-аас 1.6 болгов) */
-    margin-bottom: 20px;   /* Доогуур зайг нэмэгдүүлэв */
-    font-size: 1.2em;     /* Үсгийн хэмжээг бага зэрэг томруулав */
-    text-align: justify;   /* Текстийг хоёр тал руу нь тэгшлэв (Justify) */
-    padding: 0 5px;        /* Хүрээнээс бага зэрэг зай авав */
-}
-
-/* Алсын хараа (Vision) хэсгийг тодотгох нэмэлт загвар */
-.vision-header {
-    font-weight: bold;
-    color: #c2185b; /* Тод ягаан өнгөөр ялгаруулав */
-    font-size: 1.2em;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 5px;
-}
-.vision-content {
-    	color: #c2185b;
-    	line-height: 1.6;
- 	font-style: italic;
-	font-weight: bold;
-	font-size: 1.2em;    
-	text-align: center;
-	margin-bottom: 30px;
-}
-
-       nav {
-  text-align: center;
-  background-color: #c2185b;  /* зөөлөн ягаавтар фон */
-  padding: 12px 0;
-}
-
-nav a {
-  text-decoration: none;
-  color: white;             /* энгийн үед гүн ягаан */
-  background-color: transparent;
-  font-weight: 600;
-  font-size: 15px;
-  padding: 10px 18px;
-  margin: 0 8px;
-  border-radius: 8px;
-  display: inline-block;
-  transition: all 0.3s ease;  /* зөөлөн шилжилт — өнгө + хэмжээ */
-}
-
-nav a:hover {
-  background-color: #DA6888;  /* hover үед тод ягаан фон */
-  color: #fff;                /* үсэг цагаан болно */
-  transform: scale(1.08);     /* үсэг болон товч бага зэрэг томорно */
-}
-
-        .container { width: 80%; margin: 20px auto; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
-        h2 { color: #DA6888; border-bottom: 2px solid #e91e63; padding-bottom: 5px; }
-        .image-container { text-align: center; margin-bottom: 20px; }
-        .image-container img { max-width: 100%; height: auto; border-radius: 8px; }
-        .video-container { margin: 20px 0; text-align: center; }
-        .video-container iframe { width: 100%; max-width: 700px; height: 394px; border: none; border-radius: 8px; }
-        .team-grid { display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px; }
-        .team-member { width: 45%; text-align: center; margin-bottom: 20px; }
-        .team-member img { width: 100%; border-radius: 8px; max-width: 250px; }
-        footer { text-align: center; padding: 20px 0; background-color: #DA6888; color: white; margin-top: 30px; }
-    </style>
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
 
@@ -160,11 +43,11 @@ nav a:hover {
 
             <h2>Баг хамт олон</h2>
             <div class="team-grid">
-                <div class="team-member">
+                <div class="team-member" style="width: 45%;">
                     <img src="images/member1.jpg" alt="Багийн гишүүн 1">
                     <p><strong>[Гишүүн 1-ийн Нэр]</strong><br>Үүсгэн байгуулагч</p>
                 </div>
-                <div class="team-member">
+                <div class="team-member" style="width: 45%;">
                     <img src="images/member2.jpg" alt="Багийн гишүүн 2">
                     <p><strong>[Гишүүн 2-ийн Нэр]</strong><br>Гүйцэтгэх захирал</p>
                 </div>

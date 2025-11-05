@@ -4,125 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тусламж Хүсэх - Ягаан Тууз Сан</title>
-    <style>
-        /* Ерөнхий CSS нь бусад хуудастайгаа ижил байна */
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #fce4ec; color: #333; }
-        
-        /* ---------------------------------------------------- */
-        /* HEADER БА LOGO-НЫ ХЭСЭГ (Үндсэн загвар) */
-        /* ---------------------------------------------------- */
-        header {
-            background-color: #DA6888;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            flex-direction: column; 
-        }
 
-/* HEADER-ИЙН P ТАГИЙГ ХЯЗГААРЛАХ НЭМЭЛТ */
-        header p {
-            max-width: 600px; 
-            /* Зайг 10px-ээс 5px болгон ойртуулж, голд төвлөрүүлнэ */
-            margin: 5px auto 0 auto; 
-            padding: 0 10px; 
-        }
-
-        .logo-container { margin-bottom: 5px; }
-        .logo-container img {
-            width: 150px; 
-            height: 150px;
-            background-color: white; 
-            padding: 5px;
-            border-radius: 50%; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-object-fit: contain;
-        }
-        
-
-  header h1 {
-            margin: 5px 0;
-        }
-        /* ---------------------------------------------------- */
-
-       nav {
-  text-align: center;
-  background-color: #c2185b;  /* зөөлөн ягаавтар фон */
-  padding: 12px 0;
-}
-
-nav a {
-  text-decoration: none;
-  color: white;             /* энгийн үед гүн ягаан */
-  background-color: transparent;
-  font-weight: 600;
-  font-size: 15px;
-  padding: 10px 18px;
-  margin: 0 8px;
-  border-radius: 8px;
-  display: inline-block;
-  transition: all 0.3s ease;  /* зөөлөн шилжилт — өнгө + хэмжээ */
-}
-
-nav a:hover {
-  background-color: #DA6888;  /* hover үед тод ягаан фон */
-  color: #fff;                /* үсэг цагаан болно */
-  transform: scale(1.08);     /* үсэг болон товч бага зэрэг томорно */
-}
-
-        .container { width: 80%; max-width: 800px; margin: 20px auto; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
-        h2 { color: #DA6888; border-bottom: 2px solid #e91e63; padding-bottom: 5px; }
-
-        /* ---------------------------------------------------- */
-        /* МАЯГТЫН (FORM) CSS */
-        /* ---------------------------------------------------- */
-        .application-form label {
-            display: block;
-            margin-bottom: 5px;
-            margin-top: 15px;
-            font-weight: bold;
-            color: #DA6888;
-        }
-        .application-form input[type="text"],
-        .application-form input[type="email"],
-        .application-form input[type="tel"],
-        .application-form textarea,
-        .application-form select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box; /* padding нь нийт өргөнд багтах */
-        }
-        .application-form textarea {
-            resize: vertical;
-        }
-        .application-form .checkbox-group label {
-            display: inline;
-            font-weight: normal;
-            margin-right: 20px;
-            color: #333;
-        }
-        .application-form .button-submit {
-            background-color: #e91e63;
-            color: white;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1em;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-        }
-        .application-form .button-submit:hover {
-            background-color: #c2185b;
-        }
-
-        footer { text-align: center; padding: 20px 0; background-color: #DA6888; color: white; margin-top: 30px; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -147,81 +30,97 @@ nav a:hover {
 
     <div class="container">
         
-        <p style="text-align: center; font-size: 1.1em; color: #e91e63; font-weight: bold;">
-            Энэхүү маягтыг бөглөснөөр та Ягаан Тууз Сангаас дэмжлэг, зөвлөгөө авах боломжтой. Бид тантай ажлын 3 хоногт багтаан холбогдоно.
+        <p class="notice">
+            Энэхүү маягтыг бөглөснөөр та дэмжлэг, зөвлөгөө авах боломжтой. Бид тантай ажлын 3 хоногт багтаан холбогдоно.
         </p>
 
         <form action="/submit-application" method="POST" class="application-form">
             
             <fieldset>
-                <legend style="color: #d81b60; font-size: 1.3em; margin-top: 20px;">I. Үндсэн Мэдээлэл</legend>
+                <legend>I. Үндсэн Мэдээлэл</legend>
                 
-                <label for="full_name">Овог нэр (Бүрэн):</label>
-                <input type="text" id="full_name" name="full_name" required>
+                <div class="form-control">
+                    <label for="full_name">Овог нэр (Бүрэн):</label>
+                    <input type="text" id="full_name" name="full_name" required>
+                </div>
 
-                <label for="phone">Утасны дугаар:</label>
-                <input type="tel" id="phone" name="phone" required placeholder="Жишээ: 99xxxxxx">
+                <div class="form-control">
+                    <label for="phone">Утасны дугаар:</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="Жишээ: 99xxxxxx">
+                </div>
 
-                <label for="email">И-мэйл хаяг (Хэрэв байгаа бол):</label>
-                <input type="email" id="email" name="email">
+                <div class="form-control">
+                    <label for="email">И-мэйл хаяг (Хэрэв байгаа бол):</label>
+                    <input type="email" id="email" name="email">
+                </div>
 
-                <label for="register_number">Регистрийн дугаар:</label>
-                <input type="text" id="register_number" name="register_number" required placeholder="Иргэний үнэмлэх дээрх">
+                <div class="form-control">
+                    <label for="register_number">Регистрийн дугаар:</label>
+                    <input type="text" id="register_number" name="register_number" required placeholder="Иргэний үнэмлэх дээрх">
+                </div>
 
             </fieldset>
 
-            <fieldset style="margin-top: 30px;">
-                <legend style="color: #d81b60; font-size: 1.3em;">II. Эрүүл Мэндийн Төлөв</legend>
+            <fieldset>
+                <legend>II. Эрүүл Мэндийн Төлөв</legend>
 
-                <label for="diagnosis_year">Онош батлагдсан огноо:</label>
-                <input type="text" id="diagnosis_year" name="diagnosis_year" required placeholder="Жишээ: 2023">
+                <div class="form-control">
+                    <label for="diagnosis_year">Онош батлагдсан огноо:</label>
+                    <input type="text" id="diagnosis_year" name="diagnosis_year" required placeholder="Жишээ: 2023">
+                </div>
+                
+                <div class="form-control">
+                    <label for="stage">Хавдрын үе шат (Хэрэв мэдэх бол):</label>
+                    <select id="stage" name="stage">
+                        <option value="">-- Сонгоно уу --</option>
+                        <option value="I">I (Эхний) үе шат</option>
+                        <option value="II">II (Дунд) үе шат</option>
+                        <option value="III">III (Хүндэвтэр) үе шат</option>
+                        <option value="IV">IV (Тархалттай) үе шат</option>
+                        <option value="unknown">Мэдэхгүй / Онош шалгагдаж байгаа</option>
+                    </select>
+                </div>
 
-                <label for="stage">Хавдрын үе шат (Хэрэв мэдэх бол):</label>
-                <select id="stage" name="stage">
-                    <option value="">-- Сонгоно уу --</option>
-                    <option value="I">I (Эхний) үе шат</option>
-                    <option value="II">II (Дунд) үе шат</option>
-                    <option value="III">III (Хүндэвтэр) үе шат</option>
-                    <option value="IV">IV (Тархалттай) үе шат</option>
-                    <option value="unknown">Мэдэхгүй / Онош шалгагдаж байгаа</option>
-                </select>
-
-                <label for="treatment_status">Одоогийн эмчилгээний төлөв:</label>
-                <textarea id="treatment_status" name="treatment_status" rows="4" placeholder="Хими, туяа, мэс засал, дааврын эмчилгээний аль нь хийгдэж байгаа эсвэл дууссан талаар товч бичнэ үү."></textarea>
+                <div class="form-control">
+                    <label for="treatment_status">Одоогийн эмчилгээний төлөв:</label>
+                    <textarea id="treatment_status" name="treatment_status" rows="4" placeholder="Хими, туяа, мэс засал, дааврын эмчилгээний аль нь хийгдэж байгаа эсвэл дууссан талаар товч бичнэ үү."></textarea>
+                </div>
             
             </fieldset>
 
-            <fieldset style="margin-top: 30px;">
-                <legend style="color: #d81b60; font-size: 1.3em;">III. Хүсэж буй Тусламжийн Төрөл</legend>
+            <fieldset>
+                <legend>III. Хүсэж буй Тусламжийн Төрөл</legend>
 
-                <p style="margin-top: 10px;">Ямар төрлийн дэмжлэг, тусламж авахыг хүсэж байна вэ? (Олон сонголт хийж болно)</p>
-                <div class="checkbox-group">
+                <p style="margin-top: 10px; font-weight: 500;">Ямар төрлийн дэмжлэг, тусламж авахыг хүсэж байна вэ? (Олон сонголт хийж болно)</p>
+                <div class="form-control"> 
                     <input type="checkbox" id="financial" name="help_type" value="financial">
-                    <label for="financial">Санхүүгийн тусламж</label><br>
+                    <label for="financial">Санхүүгийн тусламж</label>
                     
                     <input type="checkbox" id="counseling" name="help_type" value="counseling">
-                    <label for="counseling">Сэтгэл зүйн зөвлөгөө</label><br>
+                    <label for="counseling">Сэтгэл зүйн зөвлөгөө</label>
                     
                     <input type="checkbox" id="info" name="help_type" value="info">
-                    <label for="info">Мэдээлэл (Эмчилгээ, эрх зүй)</label><br>
+                    <label for="info">Мэдээлэл (Эмчилгээ, эрх зүй)</label>
                     
                     <input type="checkbox" id="nutrition" name="help_type" value="nutrition">
-                    <label for="nutrition">Тэжээлийн дэмжлэг</label><br>
+                    <label for="nutrition">Тэжээлийн дэмжлэг</label>
                     
                     <input type="checkbox" id="other" name="help_type" value="other">
-                    <label for="other">Бусад (Доор тайлбарлана уу)</label>
+                    <label for="other">Бусад</label>
                 </div>
 
-                <label for="details">Тусламж хүсэх болсон шалтгаан (Дэлгэрэнгүй):</label>
-                <textarea id="details" name="details" rows="5" placeholder="Таны нөхцөл байдал, тусламжийн хэрэгцээг дэлгэрэнгүй бичнэ үү."></textarea>
+                <div class="form-control">
+                    <label for="details">Тусламж хүсэх болсон шалтгаан (Дэлгэрэнгүй):</label>
+                    <textarea id="details" name="details" rows="5" placeholder="Таны нөхцөл байдал, тусламжийн хэрэгцээг дэлгэрэнгүй бичнэ үү."></textarea>
+                </div>
 
             </fieldset>
 
-            <p style="margin-top: 20px; font-size: 0.9em;">
-                **Анхаарах:** Энэхүү маягт нь зөвхөн бүртгэл үүсгэх зорилготой. Таны мэдээллийг хүлээн авсны дараа манай ажилтан  тантай холбогдож, баталгаажуулалт хийх болно.
+            <p style="margin-top: 20px; font-size: 0.9em; text-align: center;">
+                **Анхаарах:** Энэхүү маягт нь зөвхөн бүртгэл үүсгэх зорилготой. Таны мэдээллийг хүлээн авсны дараа манай ажилтан тантай холбогдож, баталгаажуулалт хийх болно.
             </p>
 
-            <button type="submit" class="button-submit">БҮРТГЭЛИЙГ ИЛГЭЭХ</button>
+            <button type="submit" class="submit-button">БҮРТГЭЛИЙГ ИЛГЭЭХ</button>
 
         </form>
     </div>

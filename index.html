@@ -4,178 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ЯГААН ТУУЗ САН</title>
-  <style>
-    /* ----- Үндсэн хэв маяг ----- */
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #fce4ec; color: #333; }
-    header {
-      background-color: #DA6888; color: white; padding: 20px 0; text-align: center;
-      display:flex; align-items:center; justify-content:center; flex-direction:column;
-    }
-    header p { max-width: 600px; margin: 5px auto 0; padding: 0 10px; }
-    .logo-container { margin-bottom: 5px; }
-    .logo-container img {
-      width: 150px; height: 150px; background-color: #fff; padding: 5px; border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2); object-fit: contain;
-    }
-    header h1 { margin: 5px 0; }
 
-    nav {
-      text-align: center;
-      background-color: #c2185b;
-      padding: 12px 0;
-    }
-    nav a {
-      text-decoration: none;
-      color: white;
-      background-color: transparent;
-      font-weight: 600;
-      font-size: 15px;
-      padding: 10px 18px;
-      margin: 0 8px;
-      border-radius: 8px;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-    nav a:hover {
-      background-color: #DA6888;
-      color: #fff;
-      transform: scale(1.08);
-    }
-
-    .container {
-      width: 80%; margin: 20px auto; padding: 20px; background-color: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 8px;
-    }
-
-    .main-callout {
-      text-align: center; padding: 10px 10px; background-color: #fff5fa;
-      border-radius: 10px; margin-bottom: 20px;
-    }
-    .main-callout h2 { color: #c2185b; margin-bottom: 20px; }
-    .donate-button {
-      display: inline-block; background-color: #DA6888; color: white; padding: 10px 30px;
-      text-decoration: none; font-size: 1.2em; font-weight: bold; border-radius: 100px;
-      margin-top: 0px; transition: transform 0.3s, background-color 0.3s;
-    }
-    .donate-button:hover { background-color: #c2185b; transform: scale(1.05);}
-
-    section h2 { color: #DA6888; border-bottom: 2px solid #e91e63; padding-bottom: 5px; font-size: 1.5em; }
-
-    /* ----- Баруун-зүүн 2 багана (шинэ) ----- */
-    .two-column {
-      display: flex; gap: 20px; align-items: stretch; justify-content: space-between; margin-top: 20px; margin-bottom: 10px;
-    }
-    .left-col, .right-col {
-      flex: 1 1 50%;
-      min-width: 300px;
-	display: flex;
-    }
-
-    /* Зүүн баганын карт (мэдээлэл) */
-    .info-banner{
-      background:#fff;
-      border:1px solid #ffd6e7;
-      border-radius:10px;
-      padding:20px;
-      height:340px
-      box-shadow:0 2px 6px rgba(0,0,0,0.05);
-    }
-    .info-banner h3{
-      margin:0 0 10px 0;
-      color:#DA6888;
-      font-size:1.2rem;
-    }
-    .info-banner p{
-      margin:0;
-      color:#DA6888;
-      font-size:1.0em;
-      line-height:1.5;
-      text-align:justify;
-    }
-
-    /* Баруун баганын карт (шинж тэмдэг) */
-    .symptoms-card{
-      background:#fff;
-      border:1px solid #ffd6e7;
-      border-radius:10px;
-      padding:20px;
-      height:500px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.05);
-	margin-bottom:0px;
-    }
-    .symptoms-card h2{
-      border-bottom:none;
-      color:#DA6888;
-      margin:0 0 10px 0;
-      font-size:1.2em;
-    }
-    .symptoms-lead{
-      margin: 10px 0 12px 0;
-      color:#DA6888;
-      line-height:1.5;
-	text-align:justify;
-
-    }
-    .symptoms-list{
-      padding-left: 60px; margin: 10px 0 16px 0; color:#DA6888;
-    }
-    .symptoms-list li{ margin: 15px 0; }
-    .symptoms-cta{ text-align:justify; }
-    .btn-screening{
-      display:inline-block; padding:20px 100px; border-radius:8px; text-decoration:none;
-      background:#DA6888; color:#fff; font-weight:600;
-      transition: transform 0.2s ease, background-color 0.2s ease;
-    }
-    .btn-screening:hover{ background:#c2185b; transform: translateY(-1px); }
-
-    /* ----- Зураг (зүүн) + Видео (баруун) хэвтээ 2 багана ----- */
- 	.flex-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 20px;      /* өмнөхөөс илүү холдуулна */
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-    .flex-item { flex:1 1 48%; min-width:300px; }
-
-    .image-container { text-align:center; }
-    .image-container img{
-      width:100%; height:100%; border-radius:10px;
-      box-shadow:0 3px 8px rgba(0,0,0,0.1);
-      aspect-ratio:auto;
-      object-fit:cover;
-    }
-
-    .video-container{
-      position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px;
-      box-shadow:0 3px 8px rgba(0,0,0,0.1);
-    }
-    .video-container iframe{
-      position:absolute; top:0; left:0; width:100%; height:100%; border:none; border-radius:8px;
-    }
-
-    footer { text-align: center; padding: 20px 0; background-color: #DA6888; color: white; margin-top: 30px; }
-
-    .facebook-embed-container {
-      display: none;    		/* none -г устгаснаар fb content харагдана */
-      position: fixed; top: 10px; right: 10px; z-index: 1000;
-      width: 360px; height: 500px; overflow: hidden; background-color: white;
-      border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-    .facebook-embed-container iframe { width: 100%; height: 100%; border: none; }
-
-    /* ----- Responsive ----- */
-    @media (max-width: 900px){
-      .two-column{ flex-direction: column; }
-    }
-    @media (max-width: 768px){
-      .info-banner h3{ font-size:1.15rem; }
-      .info-banner p{ font-size:16px; line-height:1.7; }
-      .flex-item{ flex:1 1 100%; }
-    }
-  </style>
+<link rel="stylesheet" href="styles.css">
+ 
 </head>
 <body>
 
@@ -200,71 +31,83 @@
     <a href="donate.html">Хандив өгөх</a>
     <a href="contact.html">Холбоо барих</a>
   </nav>
+ 
 
   <div class="container">
 
-    <div class="main-callout" id="home">
-      <h2>ХӨХНИЙ ХОРТ ХАВДРЫГ ХАМТДАА ДАВАН ТУУЛЪЯ...</h2>
-      <p>Таны хандив хөхний хорт хавдраас урьдчилан сэргийлэх, даван туулагчдад дэмжлэг үзүүлэх, шаардлагатай арга хэмжээнд зарцуулагдах болно. </p>
-      <a href="donate.html" class="donate-button">ХАНДИВ ӨГӨХ</a>
-    </div>
+<!-- Эрхэм зорилго -->
+    <section id="about-summary">
+      <h2>Бидний эрхэм зорилго</h2>
+      <p><strong>Бидний үндсэн зорилго бол хөхний хорт хавдрын талаархи мэдлэгийг нэмэгдүүлж, эмэгтэйчүүд болон гэр бүлүүдийг айдас, ганцаардалгүйгээр энэ сорилтыг даван туулахад дэмжих явдал юм. Бид эрт илрүүлэлт, урьдчилан сэргийлэх дадал, эмчилгээний үеийн сэтгэлзүйн болон нийгмийн туслалцааг бэхжүүлж, хамтдаа итгэл найдвар, урам зориг, амьдралын чанарыг хамгаалахад чиглэн ажиллах болно.</strong>
+       </p>
+    </section>
 
-    <!-- ✅ ШИНЭ: Зэрэгцээ 2 багана -->
-    <div class="two-column" id="breast-columns">
-      <!-- Зүүн: Хөхний бүтэц болон үүсэл -->
-      <div class="left-col">
-        <div class="info-banner" id="breast-info">
-          <h3>Хөхний бүтэц болон хорт хавдрын үүсэл:</h3>
-          <p>
-           
-Хөх нь сүү боловсруулах булчирхай (хэлтэнцэр), сүү дамжуулах нарийн сувгууд (цоргонцор), тэдгээрийг дэмжих өөхөн ба холбогч эдээс бүрддэг нарийн бүтэцтэй. Эдгээр булчирхай нь жирэмсэн болон хөхүүл үеийн эмэгтэйчүүдийн хөхөөр сүү ялгаруулах үндсэн үүрэгтэй бөгөөд ялгарсан сүү нь нарийн сувгуудын сүлжээгээр дамжин хөхний толгойд хүрч, хүүхэд сүү хөхөх үед гадагшилдаг.
+<section>
 
-Хөхний эд нь хэвийн үед олон тэрбум жижиг эсээс тогтдог ба эдгээр эсүүд биеийн хэрэгцээ, нөхөн төлжилтийн хариу урвалын дагуу тодорхой дэг журамтайгаар хуваагддаг, дааврын болон эсийн зохицуулалттай маш нарийн тэнцвэрт систем юм.
+   <div class="symptoms-cta">
 
-Харин хөхний хорт хавдрын үед энэхүү зохицуулалт алдагдаж, эсүүд генийн түвшний гэмтлээс шалтгаалан хяналтгүйгээр хуваагдаж, өсөлт нь хязгааргүй болдог. Ийнхүү үүссэн хэвийн бус эсүүд (malignant cells) нь эрүүл эдийг шахаж гэмтээх, улмаар цус болон тунгалгийн замаар бусад эрхтэнд тархах аюултай. Хөхний хорт хавдрын 90 гаруй хувь нь сүү дамжуулах сувгийн дотор эсвэл булчирхайн хэсэгт үүсдэг байна.  Хавдар үүсэх гол молекул шалтгаан нь BRCA1, BRCA2, TP53 зэрэг генийн мутаци, мөн дааврын нөлөө (эстроген, прогестерон), орчны хүчин зүйл (архины хэрэглээ, илүүдэл жин, стресс, хөдөлгөөний дутагдал)-тай холбоотой гэж Дэлхийн эрүүл мэндийн байгууллага (WHO) онцолсон.
-
-Хөхний эдийн эсүүдийн хэт өсөлт нь дааврын хэт өртөлт, архаг үрэвсэл, эсийн гэмтэл зэрэгт урт хугацаанд өртөхөд эрсдэлтэй.
-
-Хөхний хорт хавдар бол нэг эсийн генийн түвшний өөрчлөлтөөс эхэлж, үе шаттайгаар хөгждөг өвчин юм. Эрүүл эсүүдийн амьдралын мөчлөгийн хяналт алдагдсанаар хавдрын эсүүд бий болж, эдийн бүтцийг эвдэн, биеийн бусад хэсэгт тархах чадвартай болдог байна.
-          </p>
-        </div>
-      </div>
-
-      <!-- Баруун: Хөхний хорт хавдрын шинж тэмдэг -->
-      <div class="right-col">
-        <section class="symptoms-section" id="breast-cancer-signs">
-          <div class="symptoms-card">
-            <h2>Хөхний хорт хавдрын шинж тэмдэг</h2>
-
-            <p class="symptoms-lead">
-              Хөхний хорт хавдар анхан үедээ илт өвдөлтгүй, зовиургүй байх нь түгээмэл.
-              Хэрэв доорх <strong>шинж тэмдгийн аль нэг</strong> илэрвэл
-              <strong>нэн даруй мэргэжлийн эмчид хандаж</strong>,
-              шинжилгээнд <strong>цаг алдалгүй</strong> хамрагдаарай.
-            </p>
-
-            <ul class="symptoms-list">
-              <li>Суганы хонхор, өвчүүний дээгүүр зангирсан/хавдсан зүйл тэмтрэгдэх</li>
-              <li>Хөхний аль нэг хэсэгт бэрсүү маягийн хатуувтар зүйл мэдрэгдэх</li>
-              <li>Хөх, суганы орчимд шалтгаангүйгээр хөндүүрлэх, өвдөх</li>
-              <li>Хөхний орчмын арьс улайх, үрчийх, атираа үүсэх</li>
-              <li>Хоёр хөхний хэлбэр, хэмжээний ялгаа мэдэгдэхүйц өөрчлөгдөх</li>
-              <li>Хөхнөөс цусархаг, идээрхэг эсвэл тодорхойгүй шингэн гарах</li>
-              <li>Хөхний толгой эргэх, хонхойх, эсвэл татагдах</li>
-            </ul>
-
-
- 
-            <div class="symptoms-cta">
-
-<h2>Та бүхэн хөхний хорт хавдрын тухай мэдлэг, хандлага,  амьдралын хэв маяг ба урьдчилан сэргийлэх талаарх дараах судалгаанд хамрагдаж бидний ажилд тус дэм болно уу... </h2>
+<h2>Та бүхэн хөхний хорт хавдрын тухай мэдлэг, хандлага болон урьдчилан сэргийлэх судалгаанд хамрагдаж бидний ажилд туслана уу. Баярлалаа.</h2>
 
               <a href="https://forms.gle/NRq16STUhZbC9AHZ8" class="btn-screening">Судалгаанд хамрагдах</a>
             </div>
-          </div>
-        </section>
+</section>
+
+    <!-- ✅ ШИНЭ: Зэрэгцээ 2 багана -->
+    <div class="two-column" id="breast-columns">
+
+<!-- Зүүн: Хөхний бүтэц болон үүсэл -->
+      <div class="left-col">
+        <div class="info-banner" id="breast-info">
+          <h3>Хөхний бүтэц болон хавдрын үүсэл:</h3>
+          
+<p>
+Хөх нь сүү боловсруулах булчирхай (хэлтэнцэр), сүү дамжуулах сувгууд (цоргонцор), эдгээрийг дэмжих өөхөн болон холбогч эдээс бүрддэг нарийн бүтэцтэй эрхтэн юм. Хэлтэнцэр нь сүү ялгаруулах үндсэн үүрэгтэй бол, ялгарсан сүү нь сувгийн сүлжээгээр дамжин хөхний толгой руу хүрч, хүүхэд хөхөх үед гадагшилдаг.
+</p>
+
+<p>
+Хөхний эд нь олон тэрбум эсээс тогтдог бөгөөд эдгээр эсүүд биеийн хэрэгцээнд тулгуурлан тогтмол шинэчлэгдэж, нөхөн төлждөг. Энэ үйл явц нь даавар болон эсийн түвшний нарийн зохицуулалтаар явагддаг.
+</p>
+
+<p>
+Харин хөхний хорт хавдрын үед энэхүү зохицуулалт алдагдаж, эсүүд генийн түвшний гэмтлийн улмаас хяналтгүйгээр хуваагдаж эхэлдэг. Ийнхүү хэвийн бус эсүүд олшрон, эрүүл эдийг шахаж гэмтээдэг бөгөөд улмаар цус болон тунгалгийн замаар биеийн бусад эрхтэнд тархаж болзошгүй.
+</p>
+
+<p>
+Хөхний хорт хавдрын 90 гаруй хувь нь сүү дамжуулах сувгийн доторх эсүүдэд болон булчирхайн хэсэгт үүсдэг. Хавдрын үүсэлд BRCA1, BRCA2, TP53 зэрэг генийн мутаци, дааврын нөлөө (эстроген, прогестерон), амьдралын хэв маяг (архины хэрэглээ, илүүдэл жин, стресс, хөдөлгөөний дутагдал) нөлөөлөх боломжтой гэж Дэлхийн Эрүүл Мэндийн Байгууллага (WHO) онцолдог.
+</p>
+
+<p>
+Товчхондоо, хөхний хорт хавдар нь нэг л эсийн генийн өөрчлөлтөөс эхэлж, үе шаттайгаар хөгждөг өвчин юм. Энэ өөрчлөлтээс үүдэн эсүүд хяналтаа алдаж, эрүүл эдийн бүтцийг эвдэн, тархах чадвартай болдог байна.
+</p>
+
+        </div>
       </div>
-    </div>
+
+<!-- Баруун: Хөхний хорт хавдрын шинж тэмдэг -->
+      <div class="right-col">
+        <section class="symptoms-section" id="breast-cancer-signs">
+          
+<div class="symptoms-card">         
+<h2>Хавдрын шинж тэмдэг</h2>
+            <p class="symptoms-lead">
+              <strong>Хөхний хорт хавдар анхан үедээ ихэвчлэн өвдөлт болон илт зовиургүй байдаг тул өөрчлөлтүүдийг анзааралгүй өнгөрөөх тохиолдол элбэг. Хэрэв та доорх шинж тэмдгийн аль нэгийг анзаарсан бол мэргэжлийн эмчид хандаж, эрт үеийн үзлэг, шинжилгээнд цаг алдалгүй оролцохыг зөвлөж байна. Үүнд:</strong> 
+            </p>
+
+            <ol class="symptoms-list">
+             <li>Суганы хонхор болон хөхний орчимд зангирсан, хатуувтар эсвэл хавдсан зүйл мэдрэгдэх;</li>
+<li>Хөхний тодорхой хэсэгт бэрсүү шиг хатуу бүтэцтэй зүйл тогтвортой мэдрэгдэх;</li>
+<li>Хөх эсвэл суганы орчимд шалтгаангүйгээр хөндүүрлэх, зовиурлах, өвдөх;</li>
+<li>Хөхний арьс улайх, хатуурах, үрчийх, атираа үүсэх эсвэл “жүржийн хальс” мэт ширхэглэх;</li>
+<li>Хоёр хөхний хэлбэр, хэмжээ, байрлалын ялгаа огцом, мэдэгдэхүйц өөрчлөгдөх;</li>
+<li>Хөхний толгойноос цусархаг, идээрхэг эсвэл тодорхойгүй өнгө, үнэртэй шингэн гарах;</li>
+<li>Хөхний толгой дотогш татагдах, хонхойх, хэлбэрийн өөрчлөлт илрэх.</li>
+
+            </ol>
+       </div>
+       </section>
+      </div>
+     </div>
+
     <!-- ✅ ШИНЭ: Зэрэгцээ 2 багана END -->
 
     <!-- Зураг (зүүн) + Видео (баруун) -->
@@ -290,13 +133,11 @@
       </section>
     </div>
 
-    <!-- Эрхэм зорилго -->
-    <section id="about-summary">
-      <h2>Бидний эрхэм зорилго</h2>
-      <p><strong>Тус сан нь хөхний хорт хавдраас урьдчилан сэргийлэх, хавдрыг даван туулахад тусламж, дэмжлэг үзүүлэх...</strong>
-        <a href="about.html">Дэлгэрэнгүй унших &rarr;</a></p>
-    </section>
-
+   <div class="main-callout" id="home">
+      <h2>ХӨХНИЙ ХОРТ ХАВДРЫГ ХАМТДАА ДАВАН ТУУЛЪЯ...</h2>
+      <p>Таны хандив хөхний хорт хавдраас урьдчилан сэргийлэх, даван туулагчдад дэмжлэг үзүүлэх, шаардлагатай арга хэмжээнд зарцуулагдах болно. </p>
+      <a href="donate.html" class="donate-button">ХАНДИВ ӨГӨХ</a>
+    </div>
   </div>
 
   <footer>
@@ -305,4 +146,3 @@
 
 </body>
 </html>
-
