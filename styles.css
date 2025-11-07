@@ -1,796 +1,537 @@
-/* ================================================= */
-/* ЭЦСИЙН НЭГДСЭН CSS (Анхны загварыг сэргээж, Responsive болгосон) */
-/* ================================================= */
 
-/* ----- I. ЕРӨНХИЙ БА ҮНДСЭН ЭЛЕМЕНТҮҮД ----- */
+/* ===============================================
+   Pink Ribbon Fund – Unified, Cleaned CSS (v2025-11-07)
+   - Consolidated from styles.css and styles old.css
+   - Fixed: duplicate/competing rules, invalid values, and layout drift
+   - Standardized: colors, spacing, typography, responsive behavior
+   =============================================== */
 
-body { 
-    font-family: Arial, sans-serif; 
-    margin: 0; 
-    padding: 0; 
-    background-color: #fce4ec; /* Light Pink Background */
-    color: #333; 
-    font-size: 16px; 
-}
-img { max-width: 100%; height: auto; }
-section { margin-bottom: 30px; }
+/* ---------- 0) CSS Variables ---------- */
+:root{
+  --pink-primary: #DA6888;
+  --pink-dark: #c2185b;
+  --pink-accent: #e91e63;
+  --pink-bg: #fce4ec;
+  --pink-border: #ffd6e7;
 
-/* Бүх хуудсанд зориулсан нийтлэг гарчиг */
-h2 { 
-    color: #DA6888; /* Primary Pink */
-    border-bottom: 2px solid #e91e63; 
-    padding-bottom: 5px; 
-    font-size: 1.6em;
-    margin-top: 30px; 
-    margin-bottom: 20px;
-}
-/* Анхны өргөн, зайг хадгалсан */
-.container { 
-    width: 80%; 
-    max-width: 1200px; 
-    margin: 20px auto; 
-    padding: 20px; 
-    background-color: white; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-    border-radius: 8px; 
-}
+  --text-main: #333;
+  --text-muted: #444;
 
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
 
-/* ----- II. HEADER, LOGO, NAV (Бүх хуудсанд ижил) ----- */
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.05);
+  --shadow-md: 0 0 10px rgba(0,0,0,0.1);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.15);
 
-header {
-    background-color: #DA6888;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-header h1 { margin: 5px 0; }
-header p {
-    max-width: 600px; margin: 5px auto 0 auto; padding: 0 10px;
-}
-.logo-container { margin-bottom: 5px; }
-.logo-container img {
-    width: 150px; height: 150px; background-color: white;
-    padding: 5px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    object-fit: contain;
+  --space-0: 0;
+  --space-1: 5px;
+  --space-2: 10px;
+  --space-3: 15px;
+  --space-4: 20px;
+  --space-5: 25px;
+  --space-6: 30px;
+  --space-7: 40px;
+
+  --font-base: 16px;
+  --font-scale-1: 1rem;
+  --font-scale-2: 1.1rem;
+  --font-scale-3: 1.2rem;
+  --font-scale-4: 1.4rem;
+  --font-scale-5: 1.6rem;
 }
 
-nav {
-    text-align: center; background-color: #c2185b; /* Darker Pink */
-    padding: 12px 0;
-}
-nav a {
-    text-decoration: none; color: white; background-color: transparent;
-    font-weight: 600; font-size: 15px; padding: 10px 18px;
-    margin: 0 8px; border-radius: 8px; display: inline-block;
-    transition: all 0.3s ease;
-}
-nav a:hover {
-    background-color: #DA6888; color: #fff; transform: scale(1.08);
-}
-
-
-
-/* ----- III. INDEX.HTML (Нүүр хуудас) ТУСГАЙ ЗАСВАР ----- */
-
-
-#about-summary h2 {
-  color: #DA6888;     /* гарчгийн өнгө */
-}
-
-#about-summary p {
-  color: #DA6888;    
+/* ---------- 1) Base ---------- */
+*{ box-sizing: border-box; }
+html{ font-size: var(--font-base); }
+body{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--pink-bg);
+  color: var(--text-main);
   line-height: 1.5;
-  text-align: justify;
+}
+img{ max-width:100%; height:auto; display:block; }
+section{ margin-bottom: var(--space-6); }
+h1,h2,h3{ margin: var(--space-3) 0; line-height: 1.25; }
+h2{
+  color: var(--pink-primary);
+  border-bottom: 2px solid var(--pink-accent);
+  padding-bottom: var(--space-1);
+  font-size: var(--font-scale-5);
+}
+p{ margin: var(--space-2) 0; }
+
+/* ---------- 2) Container ---------- */
+.container{
+  width: 80%;
+  max-width: 1200px;
+  margin: var(--space-4) auto;   /* fixed invalid '20 auto' => 20px auto */
+  padding: var(--space-4);
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
 }
 
-.info-banner,.symptoms-card {
+/* ---------- 3) Header / Logo ---------- */
+header{
+  background: var(--pink-primary);
+  color: #fff;
+  padding: var(--space-4) 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+header h1{ margin: var(--space-1) 0; }
+header p{
+  max-width: 600px;
+  margin: var(--space-1) auto 0 auto;
+  padding: 0 var(--space-2);
+}
+.logo-container{ margin-bottom: var(--space-1); }
+.logo-container img{
+  width:150px; height:150px; background:#fff;
+  padding: var(--space-1);
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  object-fit: contain;
+}
+
+/* ---------- 4) Nav ---------- */
+nav{
+  text-align:center;
+  background: var(--pink-dark);
+  padding: 12px 0;
+}
+nav a{
+  text-decoration:none;
+  color:#fff;
+  background: transparent;
+  font-weight:600;
+  font-size:15px;
+  padding:10px 18px;
+  margin:0 8px;
+  border-radius:8px;
+  display:inline-block;
+  transition: all .3s ease;
+}
+nav a:hover{
+  background: var(--pink-primary);
+  color:#fff;
+  transform: scale(1.08);
+}
+
+/* ---------- 5) Generic Flex Utilities ---------- */
+.flex-row{ display:flex; flex-wrap:wrap; gap: var(--space-4); margin-top: var(--space-4); justify-content: space-between; }
+.two-col-block{ display:flex; flex-wrap:wrap; gap: var(--space-4); align-items: stretch; }
+.two-col-block > *{ flex: 1 1 48%; min-width:0; }
+.flex-item{ flex:1 1 48%; min-width:0; }
+
+/* ---------- 6) Reusable Content Blocks ---------- */
+.info-banner,
+.symptoms-card,
+.text-content{
   width: 100%;
-  box-sizing: border-box;
-  /* flex-grow: 1;  <-- сунгаж байсан, болиулна */
-  flex: 0 1 auto;
-  color: #DA6888 ;
+  color: var(--pink-primary);
   text-align: justify;
   background: #fff;
   border: 1px solid var(--pink-border);
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-sm);
 }
+.info-banner h3,
+.symptoms-card h2{ font-size: var(--font-scale-5); margin: var(--space-4) 0; }
+.symptoms-card{ display:flex; flex-direction:column; }
+.text-content{ justify-content:center; }
+.text-content p{ margin: 0 0 var(--space-1) 0; }
 
-.info-banner h3 {
- font-size: 1.5em; margin: 20px 0;
-}
+/* Index summary */
+#about-summary h2{ color: var(--pink-primary); }
+#about-summary p{ color: var(--pink-primary); line-height:1.5; text-align:justify; }
 
-.info-banner p {
-text-align: justify;
-margin: 10px 0;
-line-height: 1.5;
-}
-
-#breast-info p {
-  line-height: 1.7;
-  font-size: 1.0em;
-  color: #DA6888;
-  text-align: justify;
-
-}
-
-#breast-info h3 {
-  color: #DA6888;
-margin-top: 20px;  
-margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.symptoms-card {
-  display: flex;
-  flex-direction: column;
-}
-.symptoms-card h2 {
- font-size: 1.5em; margin: 20px 0;
-}
-
-.symptoms-card p {
- font-size: 1.0em; line-height: 1.5em; margin: 10px 0;
-
-}
-
-/* Тоо бүхий тойрог хэв маяг байгаа гэж үзээд */
-.symptoms-list {
-  counter-reset: num;
-  list-style: none;
-  padding-left: 0;
-}
-
-.symptoms-list li {
-  counter-increment: num;
-  margin: 10px 0;
-  position: relative;
+/* Symptoms list */
+.symptoms-list{ counter-reset:num; list-style:none; padding-left:0; }
+.symptoms-list li{
+  counter-increment:num;
+  margin: var(--space-2) 0;
+  position:relative;
   padding-left: 40px;
 }
-
-.symptoms-list li::before {
+.symptoms-list li::before{
   content: counter(num);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  color: white;
+  position:absolute; left:0; top:0;
+  width:26px; height:26px; border-radius:50%;
+  color:#fff; font-weight:600;
+  display:flex; align-items:center; justify-content:center;
+  background: var(--pink-primary);
+}
+
+/* CTA */
+.symptoms-cta{ margin-top:auto; }
+.symptoms-cta h2{ color: var(--pink-dark); border-bottom: none; margin-top: var(--space-4); font-size: var(--font-scale-5); padding-bottom:0; }
+.btn-screening{
+  display:inline-block; background: var(--pink-primary); color:#fff;
+  padding: 15px 50px; text-decoration:none; font-size: var(--font-scale-3);
+  font-weight:bold; border-radius:5px; margin-top:0;
+  transition: transform .3s, background-color .3s;
+}
+.btn-screening:hover{ background: var(--pink-dark); cursor:pointer; transform: scale(1.05); }
+
+/* Donate button (with pulse hearts) */
+@keyframes pulse{ from{ transform: translateY(2px) scale(1);} to{ transform: translateY(2px) scale(1.25);} }
+.donate-button{
+  display:inline-block; background: var(--pink-primary); color:#fff; padding: 10px 30px;
+  text-decoration:none; font-size: var(--font-scale-3); font-weight:bold; border-radius:100px;
+  margin: 0 0 var(--space-3) 0; transition: transform .3s, background-color .3s;
+}
+.donate-button::before,
+.donate-button::after{ content: "💗"; font-size: 1.8em; display:inline-block; transform: translateY(2px); }
+.donate-button::before{ margin-right:30px; }
+.donate-button::after{ margin-left:30px; }
+.donate-button:hover{ background: var(--pink-dark); transform: scale(1.05); }
+.donate-button:hover::before,
+.donate-button:hover::after{ animation: pulse .6s ease-in-out infinite alternate; }
+
+/* ---------- 7) Imagery ---------- */
+.image-container{ display:flex; flex-direction:column; justify-content:flex-start; text-align:center; margin: 20px auto; }
+.image-container img{ width:100%; height:auto; border-radius: var(--radius-lg); }
+.image-container iframe{ width:100%; max-width:500px; height:600px; border:1px solid #ddd; border-radius: var(--radius-md); display:block; margin:0 auto; }
+.image-label{ color: var(--pink-primary); font-size: var(--font-scale-3); line-height:1.2; text-align:justify; opacity:.85; margin-bottom:12px; }
+
+/* ---------- 8) About Page ---------- */
+.about-text{
+  color: var(--text-main);
+  line-height:1.6;
+  margin-bottom: var(--space-4);
+  font-size: var(--font-scale-2);
+  text-align: justify;
+  padding: 0 var(--space-1);
+}
+.vision-header{
+  font-weight:bold; color: var(--pink-dark);
+  font-size: var(--font-scale-3); text-align:center;
+  margin-top: var(--space-4); margin-bottom: var(--space-1);
+}
+.vision-content{
+  color: var(--pink-dark); line-height:1.6; font-style:italic; font-weight:bold;
+  font-size: var(--font-scale-2); text-align:center; margin-bottom: var(--space-6);
+}
+.team-grid{ display:flex; gap: var(--space-4); flex-wrap:wrap; justify-content:space-around; margin-top: var(--space-4); }
+.team-member{
+  text-align:center; padding: 15px; border:1px solid var(--pink-border);
+  border-radius: var(--radius-md); flex:1 1 200px;
+}
+.team-member img{ width:150px; height:150px; border-radius:50%; object-fit:cover; margin-bottom:10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+/* ---------- 9) Donate Page ---------- */
+.donation-options{ display:flex; justify-content:space-around; flex-wrap:wrap; margin-top: var(--space-4); }
+.option{ background:#ffccbc; padding: var(--space-4); border-radius: var(--radius-md); text-align:center; width:30%; margin-bottom: var(--space-4); }
+.qr-section{ display:flex; justify-content:space-between; gap:30px; margin-top: var(--space-6); }
+.qr-box{ width:48%; background:#fff8e1; padding: var(--space-4); border-radius: var(--radius-md); text-align:center; }
+.qr-box img{ max-width:100%; height:auto; max-height:250px; border:1px solid var(--pink-dark); border-radius:5px; margin-top: var(--space-2); }
+.bank-info{ background:#fff5fa; padding: var(--space-4); border: 2px solid #fff5fa; border-radius: var(--radius-md); margin-top: var(--space-2); text-align:center; }
+.bank-details strong{ color: var(--pink-accent); }
+
+/* ---------- 10) Impact Page ---------- */
+.impact-text, .section p{ line-height:1.6; margin-bottom:15px; font-size:1.05em; color: var(--text-muted); }
+.statistic{
+  text-align:center; margin: var(--space-6) 0; padding: var(--space-4);
+  background: var(--pink-bg); border-radius: var(--radius-lg); box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.statistic h3{ color: var(--pink-primary); font-size: 3em; margin:0; font-weight:bold; line-height:1; }
+.statistic p{ font-size: var(--font-scale-2); margin-top: var(--space-2); font-weight:600; color: var(--pink-dark); }
+.event-gallery{ display:flex; flex-wrap:wrap; gap:15px; justify-content:center; margin-top: var(--space-4); }
+.event-gallery img{
+  width:100%; max-width:300px; height:auto; border-radius: var(--radius-md);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform .3s;
+}
+.event-gallery img:hover{ transform: scale(1.03); }
+
+/* QR кодыг багтаах үндсэн хэсэг */
+.qr-section {
+    display: flex; /* Элементүүдийг зэрэгцүүлнэ */
+    gap: 20px; /* Элементүүдийн хоорондын зай */
+    justify-content: center; /* Төвд байрлуулна */
+    flex-wrap: wrap; /* ⭐ Энэ бол гол шийдэл: Дэлгэц багасах үед доош унагах */
+    margin-top: 20px;
+}
+
+
+
+/* QR кодын хайрцаг бүр */
+.qr-box {
+    /* flex: 1; -ийг ашиглахын оронд илүү тогтвортой өргөнийг тодорхойлно */
+    min-width: 200px; /* Хамгийн багадаа 200px байлгана */
+    max-width: 48%; /* Хэрэв зэрэгцүүлж харуулах бол 50%-аас бага өгнө */
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    box-sizing: border-box; /* padding болон border-ийг өргөнд тооцно */
+}
+
+/* QR кодын зургийг container-т багтаах */
+.qr-box img {
+    max-width: 100%; /* ⭐ Гол шийдэл: Зургийг эцэг элементийнхээ 100%-иас хэтрүүлэхгүй */
+    height: auto;
+    display: block;
+    margin: 10px auto; /* Зургийг төвд байрлуулна */
+}
+
+/* ⭐ Дэлгэцний хэмжээ 600px-ээс бага бол (Утасны горим) */
+@media (max-width: 600px) {
+    .qr-box {
+        max-width: 90%; /* Бүх өргөнийг эзэлж, нэг нэгээрээ доош унана */
+        margin-bottom: 15px;
+    }
+}
+
+/* Donation Options - Container */
+.donation-options {
+    display: flex; /* Элементүүдийг зэрэгцүүлнэ */
+    justify-content: center; /* Төвд байрлуулна */
+    gap: 20px; /* Хайрцгуудын хоорондын зай */
+    margin-top: 15px; /* HTML дээрх margin-ийг энд зааж өгч болно */
+    flex-wrap: wrap; /* ⭐ Дэлгэц багасвал доош унагаах гол шийдэл */
+}
+
+/* Option Box - Big Screen Style */
+.option {
+    /* flex: 1-ийг ашиглан 50/50 хуваахыг баталгаажуулна, гэхдээ min-width-ийг нэмж өгнө */
+    flex: 1; 
+    min-width: 250px; /* Хамгийн багадаа 250px-ээс том байлгах */
+    max-width: 48%; /* 48% нь 50%-аас бага байж, хоорондын зай гаргана */
+    
+    /* Нэмэлт загвар */
+    padding: 20px;
+    border: 1px solid #c93b76;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.option:hover {
+    transform: translateY(-5px); /* Хуруугаар дарахад хөдөлгөөн оруулах */
+}
+
+/* Button style for the anchor tag */
+.option a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #c93b76;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+
+/* ⭐ Дэлгэц 650px-ээс бага бол (Утасны горим) */
+@media (max-width: 650px) {
+    .donation-options {
+        flex-direction: column; /* Хайрцгуудыг доош нь өрнө */
+        align-items: center; /* Төвд байрлуулна */
+    }
+
+    .option {
+        /* Утсан дээр бараг бүтэн өргөнийг эзлүүлнэ */
+        max-width: 90%; 
+        min-width: 90%; 
+        margin-bottom: 15px; /* Хайрцгуудын хооронд зай үүсгэнэ */
+    }
+}
+
+/* Table Styles for Clarity */
+table {
+    border: 1px solid #ddd;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #e0b0c2;
+    color: #333;
+    font-weight: bold;
+}
+
+/* For better readability of specific data */
+td:first-child {
+    text-align: left;
+}
+
+
+
+/* ---------- 11) Contact Page ---------- */
+/* Use the generic .two-col-block; keep elements semantic */
+.contact-info p{ font-size: var(--font-scale-2); margin: var(--space-2) 0; }
+.contact-info strong{ color: var(--pink-accent); }
+
+.two-col-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+/* FB iframe-ийг контейнерийн өргөнд тэнцүүлэх */
+.image-container iframe {
+  width: 100% !important;
+  height: 600;
+  min-height: 600px;
+  display: block;
+  border: none;
+}
+
+
+.help-callout{
+  background:#fff5fa;
+  border:2px solid var(--pink-primary);
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  margin-top: 0;
+  text-align: justify;
+  display:flex; flex-direction:column; justify-content:space-between;
+  box-shadow: 0 4px 8px rgba(218,104,136,0.4);
+max-width: 100%;
+overflow-wrap: break-word;
+}
+.help-callout h3{
+  color: var(--pink-primary);
+  border-bottom:3px solid var(--pink-primary);
+  padding-bottom: var(--space-2);
+  margin: 0 0 var(--space-3) 0;
+}
+.help-callout p:first-of-type{ flex-grow:1; margin-bottom: var(--space-4); }
+
+.register-button{
+  display:block; width:100%; max-width:450px;
+  background: var(--pink-primary); color:#fff; padding: 10px 0;
+  text-align:center; text-decoration:none; font-size: var(--font-scale-2); font-weight:bold;
+  border-radius:30px; margin: 15px auto 5px auto; transition: background-color .3s, transform .3s;
+}
+.register-button:hover{ background: var(--pink-dark); transform: scale(1.02); }
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1em;
+  color: #444;
+}
+
+.contact-info a {
+  color: #c2185b;
+  text-decoration: none;
   font-weight: 600;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.contact-info .icon {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* --- ЭНЭ ХЭСЭГ ӨНГӨ СОЛИХ --- */
-.symptoms-list li:nth-child(1)::before { background:#DA6888; } /* ЯГААН */
-.symptoms-list li:nth-child(2)::before { background:#DA6888; }
-.symptoms-list li:nth-child(3)::before { background:#DA6888; }
-.symptoms-list li:nth-child(4)::before { background:#DA6888; }
-.symptoms-list li:nth-child(5)::before { background:#DA6888; }
-.symptoms-list li:nth-child(6)::before { background:#DA6888; }
-.symptoms-list li:nth-child(7)::before { background:#DA6888; }
-
-.symptoms-cta {
- margin-top: auto; 
-}
-
-.symptoms-cta h2 {
-    color: #c2185b; /* Хүчтэй ягаан өнгөөр анхаарлыг татна */
-    border-bottom: none;
-    margin-top: 20px;
-    font-size: 1.5em;
-    padding-bottom: 0;
-}
-
-.btn-screening
-{
-    display: inline-block;
-    background-color: #DA6888; /* Үндсэн өнгө */
-    color: #fff;
-    padding: 15px 50px;
-    text-decoration: none;
-    font-size: 1.2em;
-    font-weight: bold;
-    border-radius: 5px;
-    margin-top:0px;
-    transition: transform 0.3s, background-color 0.3s;
-}
-.btn-screening:hover {
-    background-color: #c2185b; /* Хуучны өнгөнөөс арай бараан болгоно */
-    cursor: pointer; /* Хулгана дээгүүр аваачихад гарын дүрс гарна */
-transform: scale(1.05);
-}
-
-.flex-row { 
-    display: flex; flex-wrap: wrap; gap: 20px; 
-    margin-top: 20px; justify-content: space-between; 
-}
-
-.main-callout {
-    text-align: center; padding: 10px 10px; background-color: #fff5fa;
-    border-radius: 10px; margin-bottom: 20px;
-}
-
-.donate-button::before,
-.donate-button::after {
-  content: "💗";
-  font-size: 1.8em;
-  display: inline-block;
-  transform: translateY(2px);
-}
-
-.donate-button::before { margin-right: 30px; }
-.donate-button::after  { margin-left: 30px; }
-
-.donate-button:hover {
-  background-color: #c2185b;
-  transform: scale(1.05);
-}
-
-.donate-button:hover::before,
-.donate-button:hover::after {
-  animation: pulse 0.6s ease-in-out infinite alternate;
-}
-
-/* Pulse animation */
-@keyframes pulse {
-  from { transform: translateY(2px) scale(1); }
-  to   { transform: translateY(2px) scale(1.25); }
-}
-.donate-button {
-    display: inline-block; background-color: #DA6888; color: white; padding: 10px 30px;
-    text-decoration: none; font-size: 1.2em; font-weight: bold; border-radius: 100px;
-    margin-top: 0px; margin-bottom: 20px; transition: transform 0.3s, background-color 0.3s;
-}
-
-.donate-button:hover {
-    background-color: #c2185b;
- cursor: pointer; /* Хулгана дээгүүр аваачихад гарын дүрс гарна */
-    transform: scale(1.05);    
- 
-}
-.two-col-block {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: stretch; /* хоёр баганы өндөр таарна */
-}
-
-.flex-item {
-  flex: 1 1 48%;
-  min-width: 0;
-}
-
-.two-col-block > * {
-  flex: 1 1 48%; /* Дэлгэц том үед 2 багана */
-  min-width: 0;
-}
-
-
-.image-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
-}
-
-.image-container img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.image-label {
-  color: #DA6888;
-  font-size: 1.2em;
-  line-height: 1.2;
-  text-align: justify;
-  font-style: normal;
-opacity: 0.85;
-  margin-bottom: 12px;
-}
-
-
-.text-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; background: #fff;
-  border: 1px solid #ffd6e7;
-  border-radius: 10px;
-  padding: 20px;
-  color: #DA6888;
-  text-align: justify;
-  box-sizing: border-box;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-.text-content p {
-  margin-top: 0px;
-  margin-bottom: 5px; /* 10–14px бол хамгийн үзэмжтэй */
-  line-height: 1.5;   /* Уншихад амар, зай хэтэрхий том биш */
-}
-
-.video-container iframe {
-  width: 100%;
-  aspect-ratio: 16/9;
-  height: auto;
-}
-
-/* ✅ Гар утсанд 1 багана болгож уян хатан болгох */
+/* Жижиг дэлгэц дээр aside хальж гарахыг засах */
 @media (max-width: 768px) {
-  .two-col-block > * {
-    flex: 1 1 100%;
+  .two-col-block {
+    display: block; /* Хоёр баганыг нэг багана болгоно */
+  }
+
+  .image-container iframe {
+    width: 100% !important;
+    height: auto;
+  }
+
+  .help-callout {
+    margin-top: 20px;
+    width: 100% !important;
+    box-sizing: border-box;
   }
 }
 
 
-
-/* ----- V. ABOUT.HTML (Бидний тухай) ТУСГАЙ ЗАСВАР ----- */
-
-/* ШИНЭЭР НЭМСЭН/САЙЖРУУЛСАН P ТАГИЙН ТОХИРГОО */
-.about-text {
-    color: #333;           /* Текстийн өнгийг бараан саарал болгож, унших чадварыг сайжруулав */
-    line-height: 1.6;      /* Мөр хоорондын зайг нэмэгдүүлэв */
-    margin-bottom: 20px;   /* Доогуур зайг нэмэгдүүлэв */
-    font-size: 1.1em;      /* Үсгийн хэмжээг бага зэрэг томруулав */
-    text-align: justify;   /* Текстийг хоёр тал руу нь тэгшлэв (Justify) */
-    padding: 0 5px;        
+/* ---------- 12) Forms (Application) ---------- */
+.application-form{ max-width:800px; margin:0 auto; padding: var(--space-4); }
+fieldset{
+  border:1px solid var(--pink-border);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-5);
+  background:#fff5fa;
+}
+legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bold; padding: 0 10px; }
+.form-control{ margin-bottom: var(--space-4); }
+.form-control label{ display:block; margin-bottom: var(--space-2); font-weight:bold; color: var(--pink-primary); }
+.form-control input:not([type="checkbox"]), .form-control textarea, .form-control select{
+  width:100%; padding:12px; border:1px solid #ccc; border-radius:5px; transition: border-color .3s;
+}
+.form-control input:focus, .form-control textarea:focus, .form-control select:focus{ border-color: var(--pink-dark); outline:none; }
+.form-control:has(input[type="checkbox"]){ display:flex; flex-wrap:wrap; gap: 15px 25px; margin-bottom:5px; }
+.form-control label[for]{ display:inline-flex; align-items:center; font-weight:normal; margin-bottom:0; color:#333; }
+.form-control input[type="checkbox"]{ width:auto; margin-right:5px; }
+.submit-button{
+  background: var(--pink-primary); color:#fff; padding: 15px 30px; border:none; border-radius:5px; cursor:pointer;
+  font-size: var(--font-scale-2); width:100%; display:block; margin-top: var(--space-6); transition: background-color .3s;
+}
+.submit-button:hover{ background: var(--pink-dark); }
+.notice{
+  text-align:center; padding: var(--space-3); border:1px dashed var(--pink-primary); background:#fff5fa;
+  margin-top: var(--space-4); border-radius:5px; font-size:.95em;
 }
 
-/* Алсын хараа (Vision) хэсгийг тодотгох нэмэлт загвар */
-.vision-header {
-    font-weight: bold;
-    color: #c2185b; /* Тод ягаан өнгөөр ялгаруулав */
-    font-size: 1.2em;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 5px;
-}
-.vision-content {
-    color: #c2185b;
-    line-height: 1.6;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 1.1em;    
-    text-align: center;
-    margin-bottom: 30px;
+/* ---------- 13) Footer ---------- */
+footer{
+  text-align:center; padding: var(--space-4) 0; background: var(--pink-primary); color:#fff; margin-top: var(--space-6);
+  font-size:.9rem;
 }
 
-.team-grid {
-    display: flex; gap: 20px; flex-wrap: wrap; justify-content: space-around;
-    margin-top: 20px;
+/* ---------- 14) FB Floating Frame (opt-in) ---------- */
+.facebook-embed-container{
+  display:none; /* show: remove this line */
+  position:fixed; top:10px; right:10px; z-index:1000;
+  width:360px; height:500px; overflow:hidden; background:#fff;
+  border-radius: var(--radius-md); box-shadow: var(--shadow-lg);
 }
-.team-member {
-    text-align: center; padding: 15px; border: 1px solid #ffd6e7;
-    border-radius: 8px; flex: 1 1 200px; /* Responsive байдлыг хангах */
-}
-.team-member img {
-    width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
-    margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+.facebook-embed-container iframe{ width:100%; height:100%; border:none; }
 
-/* Жижиг дэлгэц дээр team-member-ийг 45% болгох media query-ийг styles.css-ийн хамгийн сүүлд байгаа media query дотор шалгана уу. */
-
-
-
-
-
-/* ----- IV. DONATE.HTML (Хандив) ТУСГАЙ ЗАСВАР ----- */
-
-.donation-options { 
-    display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px; 
-}
-.option { 
-    background-color: #ffccbc; padding: 20px; border-radius: 8px; 
-    text-align: center; width: 30%; margin-bottom: 20px; 
-}
-.qr-section { display: flex; justify-content: space-between; gap: 30px; margin-top: 30px; }
-.qr-box { 
-    width: 48%; background-color: #fff8e1; padding: 20px; 
-    border-radius: 8px; text-align: center;
-}
-.qr-box img { 
-    max-width: 100%; height: auto; max-height: 250px; 
-    border: 1px solid #c2185b; border-radius: 5px; margin-top: 10px; 
-}
-.bank-info { 
-    background-color: #fff5fa; padding: 20px; border: 2px solid #fff5fa; 
-    border-radius: 8px; margin-top: 10px; text-align: center;
-}
-.bank-details strong { color: #e91e63; }
-
-
-
-/* ----- VIII. IMPACT.HTML (Төсөл, арга хэмжээ) ТУСГАЙ ЗАСВАР ----- */
-
-/* Ерөнхий текст, түүх, тоо баримтын хэсгүүдэд зориулав */
-.impact-text, .section p {
-    line-height: 1.6;
-    margin-bottom: 15px;
-    font-size: 1.05em;
-    color: #444;
-}
-
-/* Статистик, тоо баримтыг тодотгох загвар */
-.statistic {
-    text-align: center;
-    margin: 30px 0;
-    padding: 20px;
-    background-color: #fce4ec; /* Background-ийн өнгөөр арай тод */
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.statistic h3 {
-    color: #DA6888; /* Тод ягаан */
-    font-size: 3em;
-    margin: 0;
-    font-weight: bold;
-    line-height: 1;
-}
-
-.statistic p {
-    font-size: 1.1em;
-    margin-top: 10px;
-    font-weight: 600;
-    color: #c2185b; /* Үндсэн ягаан */
-}
-
-/* Зургийн контейнерыг төвлөрүүлэх */
-.image-container {
-    text-align: center;
-    margin: 20px auto;
-}
-
-/* Томоохон арга хэмжээний зургуудыг байрлуулах (Хэрэв байгаа бол) */
-.event-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.event-gallery img {
-    width: 100%; /* Жижиг дэлгэц дээр бүтэн өргөнтэй */
-    max-width: 300px; /* Эхний загварын 30%-тай тэнцэхүйц */
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-.event-gallery img:hover {
-    transform: scale(1.03);
-}
-
-/* Хэрэглэсэн inline style-ийг CSS рүү шилжүүлэх */
-/* NOTE: Хэрэв таны HTML доторх <img style="max-width: 600px;"> үлдсэн бол, энэ загвар зөрчилдөж болзошгүй.
-   HTML-ээс inline style-ийг арилгахыг зөвлөж байна. */
-
-
-
-/* ----- VII. CONTACT.HTML (Холбоо барих) ТУСГАЙ ЗАСВАР ----- */
-
-/* ШИНЭЧИЛСЭН: 2 БАГАНАНЫ CSS */
-.contact-columns {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px; /* Багануудын хоорондох зай */
-    margin-top: 5px; 
-    align-items: stretch; 
-}
-
-.col-50 {
-    flex: 1; 
-    min-width: 300px;
-
-}
-
-/* col-50-д зориулсан тохиргоо (Холбоо барих мэдээлэл) */
-.contact-info p { 
-    font-size: 1.1em; 
-    margin: 10px 0; 
-}
-.contact-info strong { 
-    color: #e91e63; 
-}
-
-/* Тусламж хүсэх хэсгийн тохиргоо */
-.help-callout {
-    background-color: #fff5fa; 
-    border: 2px solid #fff5fa;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 40px;
-    text-align: justify;
-}
-.help-callout h2 {
-    color: #DA6888; 
-    border-bottom: 3px solid #DA6888;
-    padding-bottom: 10px;
-    margin-top: 0;
-}
-
-.register-button {
-    display: inline-block;
-    background-color: #DA6888; 
-    color: white;
-    padding: 5px 180px;
-    text-decoration: none;
-    font-size: 1.0em;
-    font-weight: bold;
-    border-radius: 30px;
-    margin-top: 0px;
-    transition: background-color 0.3s;
-    box-shadow: 0 4px 8px rgba(218, 104, 136, 0.4);
-}
-.register-button:hover {
-    background-color: #c2185b;
-    transform: scale(1.05);     
-}
-
-/* help-callout-ийн өндрийг тэнцүүлэх flex тохиргоо */
-.col-50 .help-callout { 
-    height: 475px; /* Энэ нь өндрийг баруун багананд зааж өгсөн байна. */
-    box-sizing: border-box; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 10px auto 0 auto;
-	align-items: center;
-
-
-}
-
-/* ШИНЭЧИЛСЭН: Facebook Frame-ийн тохиргоо */
-
-.facebook-page-embed {
-    /* Хайрцгийг голд төвлөрүүлж, өргөнийг хязгаарлана */
-    display: block; 
-    text-align: center; /* Доторх элементийг төвлөрүүлэх (заримдаа хэрэгтэй) */
-    width: 100%; 
-    max-width: 500px; /* Хайрцгийн хамгийн их өргөнийг тогтоох */
-    margin: 20px auto 10px auto; /* Дээд, доод зай авч, голд төвлөрүүлэх */
-}
-
-.facebook-page-embed iframe {
-    width: 100%; /* Эцэг элементийн 100% өргөнтэй */
-    height: 400px; /* Өндрийг тодорхой зааж өгөх */
-    max-width: 100%;
-    border: 1px solid #ccc; 
-    border-radius: 8px;
-}
-
-/* contact.html-д 2 багана ашиглах үед, contact-columns-ийг өөрчилнө */
-.contact-columns {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px; 
-    margin-top: 5px; 
-    align-items: flex-start; /* Эхлэлээс эхлэх */
-}
-/* Facebook-ийг агуулж буй col-50-ийн flex-ийг багасгах */
-.contact-columns .col-50:last-child {
-    flex: 1 1 45%; /* Энэ баганын өргөнийг багасгаж, нөгөөд нь зай гаргана */
-}
-/* Холбогдох мэдээллийн баганыг томруулах */
-.contact-columns .col-50:first-child {
-    flex: 1 1 50%;
-}
-
-/* 🚩 Медиа Query-д нэмэлт өөрчлөлт (Холбоо барих хэсгийг responsive болгох) */
-
-@media (max-width: 768px) {
-    .contact-columns {
-        flex-direction: column; 
-        gap: 0;
-    }
-    .col-50 {
-        flex: 0 0 100%; 
-        margin-bottom: 30px; 
-    }
-    /* Жижиг дэлгэц дээр col-50:last-child-д байсан margin-right-ыг арилгав. */
-    .contact-columns .col-50:last-child { 
-        margin-right: 0px; 
-    }
-    .facebook-page-embed iframe {
-        height: 300px; 
-    }
-    /* Жижиг дэлгэц дээр өндрийг заах шаардлагагүй болгох */
-    .col-50 .help-callout { 
-        height: auto; 
-    }
-}
-
-
-
-
-/* ----- VI. APPLICATION.HTML (Маягт) ТУСГАЙ ЗАСВАР ----- */
-
-.application-form { 
-    max-width: 800px; 
-    margin: 0 auto; 
-    padding: 20px; 
-}
-
-fieldset {
-    border: 1px solid #ffd6e7; 
-    padding: 20px; 
-    border-radius: 8px;
-    margin-bottom: 25px; 
-    background-color: #fff5fa;
-}
-
-legend { 
-    color: #c2185b; 
-    font-size: 1.2em; 
-    font-weight: bold; 
-    padding: 0 10px; 
-}
-
-/* Style for standard form controls (Input/Select/Textarea) */
-.form-control { 
-    margin-bottom: 20px; 
-}
-
-.form-control label { 
-    display: block; 
-    margin-bottom: 8px; 
-    font-weight: bold; 
-    color: #DA6888; 
-}
-
-.form-control input:not([type="checkbox"]), 
-.form-control textarea, 
-.form-control select {
-    width: 100%; 
-    padding: 12px; 
-    border: 1px solid #ccc; 
-    border-radius: 5px;
-    box-sizing: border-box; 
-    transition: border-color 0.3s;
-}
-
-.form-control input:focus, 
-.form-control textarea:focus, 
-.form-control select:focus {
-    border-color: #c2185b; 
-    outline: none;
-}
-
-/* Special styling for Checkbox Group */
-/* The checkbox fieldset contains a single .form-control div, which contains all labels/checkboxes */
-.form-control:has(input[type="checkbox"]) {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 15px 25px; 
-    /* Remove original margin-bottom if it was causing too much space */
-    margin-bottom: 5px; 
-}
-
-/* Ensure checkbox labels and inputs sit inline for each option */
-.form-control label[for] {
-    display: inline-flex;
-    align-items: center;
-    font-weight: normal; 
-    margin-bottom: 0;
-    color: #333; 
-}
-
-.form-control input[type="checkbox"] {
-    width: auto; 
-    margin-right: 5px;
-}
-
-/* Style the submit button */
-.submit-button {
-    background-color: #DA6888; 
-    color: white; 
-    padding: 15px 30px;
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    font-size: 1.1em;
-    width: 100%; 
-    display: block;
-    margin-top: 30px;
-    transition: background-color 0.3s;
-}
-
-.submit-button:hover {
-    background-color: #c2185b;
-}
-
-/* Style for the notice text */
-.notice {
-    text-align: center;
-    padding: 15px;
-    border: 1px dashed #DA6888;
-    background-color: #fff5fa;
-    margin-top: 20px;
-    border-radius: 5px;
-    font-size: 0.95em;
-}
-
-
-/* ----- IX. FOOTER, FB FRAME & RESPONSIVE ----- */
-
-footer { 
-    text-align: center; 
-    padding: 20px 0; 
-    background-color: #DA6888; 
-    color: white; 
-    margin-top: 30px; 
-    font-size: 0.9rem; 
-}
-
-/* Facebook Frame */
-.facebook-embed-container { 
-
-display: none; /* -----if none Post hidden ----- */
-
-
-    position: fixed; top: 10px; right: 10px; z-index: 1000;
-    width: 360px; height: 500px; overflow: hidden; background-color: white;
-    border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-.facebook-embed-container iframe { width: 100%; height: 100%; border: none; }
-
-
-/* ----- MEDIA QUERIES (Responsive) ----- */
-
+/* ---------- 15) Media Queries ---------- */
 @media (max-width: 950px){
-    .container { 
-        width: 90%; 
-        padding: 20px; 
-    } 
-    /* Бүх 2 баганат/Flex layouts-ийг босоо болгох */
-    .two-column, .flex-row, .qr-section, .contact-grid { 
-        flex-direction: column; 
-    }
-    .left-col, .right-col, .flex-item, .qr-box, .contact-info, .map-container { 
-        flex: 1 1 100%; width: 100%; 
-    }
-    
-    /* Хандивын сонголтыг босоо болгож, өргөнийг 100% болгосон */
-    .donation-options { flex-direction: column; }
-    .option { width: 100%; margin-bottom: 15px; }
+  .container{ width:90%; padding: var(--space-4); }
+  .two-column, .flex-row, .qr-section, .contact-grid{ flex-direction:column; }
+  .left-col, .right-col, .flex-item, .qr-box, .contact-info, .map-container{ flex: 1 1 100%; width:100%; }
+  .donation-options{ flex-direction:column; }
+  .option{ width:100%; margin-bottom: var(--space-3); }
+  .team-grid{ justify-content:space-around; }
+  .team-member{ flex: 1 1 45%; max-width:45%; }
+  .facebook-embed-container{ display:none; }
+}
 
-    /* Багийн гишүүдийг томруулж, хоёр баганатай болгоно (650px хүртэл) */
-    .team-grid { justify-content: space-around; } 
-    .team-member { flex: 1 1 45%; max-width: 45%; } 
-
-    /* Жижиг дэлгэц дээр Facebook Frame-ийг нуух */
-    .facebook-embed-container { display: none; }
+@media (max-width: 768px){
+  .two-col-block > *{ flex: 1 1 100%; }
+  .image-container iframe{ height:350px; }
+  .register-button{ max-width:100%; }
 }
 
 @media (max-width: 650px){
-    .container { 
-        width: 95%; padding: 15px; 
-    } 
-    
-    /* Цэсийг босоо болгож, уншигдах байдлыг сайжруулах */
-    nav { padding: 10px 0; }
-    nav a {
-        display: block; margin: 5px auto; width: 90%; font-size: 1rem;
-    }
-
-    /* Багийн гишүүдийг нэг баганатай болгох */
-    .team-member { flex: 1 1 90%; max-width: 90%; }
-    
-    /* Нүүр хуудасны товчийг дэлгэцээр дүүргэх */
-    .btn-screening{ 
-        display: block; width: 90%; margin: 15px auto; padding: 15px 10px;
-    }
-    
-    .symptoms-list{ padding-left: 20px; }
+  .container{ width:95%; padding: var(--space-3); }
+  nav{ padding:10px 0; }
+  nav a{ display:block; margin:5px auto; width:90%; font-size: 1rem; }
+  .team-member{ flex: 1 1 90%; max-width:90%; }
+  .btn-screening{ display:block; width:90%; margin:15px auto; padding: 15px 10px; }
+  .symptoms-list{ padding-left:20px; }
 }
