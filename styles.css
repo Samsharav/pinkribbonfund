@@ -601,14 +601,24 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
   nav a{ display:block; margin:5px auto; width:90%; font-size: 1rem; }
   .team-member{ flex: 1 1 90%; max-width:90%; }
 
+.main-callout, .symptoms-card, .symptoms-cta {
+      display: block !important; 
+  }
+
+.two-col-block > *{
+      flex: 1 1 100%;
+      max-width: 100%;
+  }
+
 .donate-button, .btn-screening {
 display: block; 
 width: 100%;
 max-width: 100%;
-margin: var(--space-3) auto; /* Дээд доод зай нэмэх */
+margin: var(--space-3) auto; 
 padding: 10px 10px; 
  }
-  .btn-screening { 
+
+.btn-screening { 
       padding: 15px 10px; /* Padding-ийг хэвээр үлдээх */
       margin-top: var(--space-3); /* Дээд зайг тохируулах */
       margin-bottom: var(--space-3); /* Доод зайг тохируулах */
@@ -616,7 +626,7 @@ padding: 10px 10px;
 .donate-button::before,
 .donate-button::after{ 
     font-size: 1em; 
-    margin: 0 5px; /* Зайг багасгасан */
+    margin: 0 5px; 
   }
 
 .btn-screening::before {
