@@ -217,8 +217,8 @@ cursor: zoom-in; /* Хулганы курсорыг өөрчилж, томруу
 }
 .donate-button::before,
 .donate-button::after{ content: "💗""💗""💗"; font-size: 1.2em; display:inline-block; transform: translateY(2px);     animation: pulse .6s ease-in-out infinite alternate;}
-.donate-button::before{ margin-right:20px; }
-.donate-button::after{ margin-left:20px; animation-delay: 0.3s; }
+.donate-button::before{ margin-right:10px; }
+.donate-button::after{ margin-left:10px; animation-delay: 0.3s; }
 .donate-button:hover{ background: var(--pink-dark); transform: scale(1.05); }
 
 /* Floating FB Embed (opt-in) */
@@ -347,7 +347,7 @@ margin-top: var(--space-4); /* Дээд талын элементээс зай �
 
 .btn-screening::before {
   content: "💗"; /* Зүрхний дүрс */
-  font-size: 1em;
+  font-size: 1.2em;
   display: inline-block;
   vertical-align: middle;
   margin: 0 10px;
@@ -600,22 +600,36 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
   nav{ padding:10px 0; }
   nav a{ display:block; margin:5px auto; width:90%; font-size: 1rem; }
   .team-member{ flex: 1 1 90%; max-width:90%; }
+
 .donate-button, .btn-screening {
 display: block; 
 width: 100%;
 max-width: 100%;
 margin: var(--space-3) auto; /* Дээд доод зай нэмэх */
-  }
+padding: 10px 10px; 
+ }
   .btn-screening { 
       padding: 15px 10px; /* Padding-ийг хэвээр үлдээх */
       margin-top: var(--space-3); /* Дээд зайг тохируулах */
       margin-bottom: var(--space-3); /* Доод зайг тохируулах */
   }
+.donate-button::before,
+.donate-button::after{ 
+    font-size: 1em; 
+    margin: 0 5px; /* Зайг багасгасан */
+  }
 
-  .donation-options {
+.btn-screening::before {
+      font-size: 1em;
+      margin: 0 5px;
+  }
+.symptoms-list{ padding-left:20px; }
+
+.donation-options {
     flex-direction: column;
     align-items: center;
   }
+
   .option {
     max-width: 90%;
     min-width: 90%;
