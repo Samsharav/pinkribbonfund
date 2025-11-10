@@ -313,7 +313,7 @@ animation: slideIn 0.8s ease-out forwards; /* Анимацийг хэрэглэ�
 
 .symptoms-list li::before{
   content: counter(num);
-  position:absolute; left:20px; top:5px;
+  position:absolute; left:20px; top:20%;
   transform: translateY(-50%);
   width:30px; height:30px; border-radius:50%;
   color:#fff; font-weight:600;
@@ -612,11 +612,13 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 
 .donate-button, .btn-screening {
 display: block; 
-width: 100%;
-max-width: 100%;
+width: 100% !important;
+max-width: 100% !important;
 margin: var(--space-3) auto; 
-padding: 10px 10px; 
  }
+
+.donate-button{
+      padding: 10px 10px !important;
 
 .btn-screening { 
       padding: 15px 10px; /* Padding-ийг хэвээр үлдээх */
@@ -634,6 +636,12 @@ padding: 10px 10px;
       margin: 0 5px;
   }
 .symptoms-list{ padding-left:20px; }
+.symptoms-list li{
+      padding-left: 50px; /* 80px-ийг 50px болгож багасгаснаар текстэд илүү зай үлдэнэ */
+  }
+.symptoms-list li::before{
+      left: 0; /* 20px-ийг 0 болгож, тоог li-ийн эхлэлд наасан */
+  }
 
 .donation-options {
     flex-direction: column;
