@@ -1,12 +1,15 @@
-
 /* ===============================================
-   Pink Ribbon Fund – Unified, Cleaned CSS (v2025-11-07)
-   - Consolidated from styles.css and styles old.css
-   - Fixed: duplicate/competing rules, invalid values, and layout drift
-   - Standardized: colors, spacing, typography, responsive behavior
+   Pink Ribbon Fund – Grouped CSS (v2025-11-10)
+   - Grouped by intended HTML page (Index, About, Donate, etc.)
+   - Base/Utility classes remain at the top for global use.
    =============================================== */
 
-/* ---------- 0) CSS Variables ---------- */
+/* ===============================================
+   A) GLOBAL & UTILITIES (All Pages)
+   =============================================== */
+
+/* ---------- A.0) CSS Variables ---------- */
+
 :root{
   --pink-primary: #DA6888;
   --pink-dark: #c2185b;
@@ -42,7 +45,8 @@
   --font-scale-5: 1.6rem;
 }
 
-/* ---------- 1) Base ---------- */
+/* ---------- A.1) Base Elements & Reset ---------- */
+
 *{ box-sizing: border-box; }
 html{ font-size: var(--font-base); }
 body{
@@ -64,18 +68,46 @@ h2{
 }
 p{ margin: var(--space-2) 0; }
 
-/* ---------- 2) Container ---------- */
+/* symptoms-list-д зориулсан шинэ анимац */
+@keyframes slideIn {
+  0% { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes blinkPulse {
+  0% { 
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(218, 104, 136, 0.5); /* Зөөлөн сүүдэр */
+  }
+  50% { 
+    transform: scale(1.1); /* Бага зэрэг томруулах */
+    box-shadow: 0 0 10px 4px rgba(218, 104, 136, 1); /* Гэрэлтэж тодрох */
+  }
+  100% { 
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(218, 104, 136, 0.5);
+  }
+}
+
+/* ---------- A.2) Layout & Container ---------- */
+
 .container{
   width: 80%;
   max-width: 1200px;
-  margin: var(--space-4) auto;   /* fixed invalid '20 auto' => 20px auto */
+  margin: var(--space-4) auto;
   padding: var(--space-4);
   background: #fff;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
 }
 
-/* ---------- 3) Header / Logo ---------- */
+/* ---------- A.3) Header / Nav / Footer ---------- */
 header{
   background: var(--pink-primary);
   color: #fff;
@@ -101,7 +133,6 @@ header p{
   object-fit: contain;
 }
 
-/* ---------- 4) Nav ---------- */
 nav{
   text-align:center;
   background: var(--pink-dark);
@@ -125,13 +156,18 @@ nav a:hover{
   transform: scale(1.08);
 }
 
-/* ---------- 5) Generic Flex Utilities ---------- */
+footer{
+  text-align:center; padding: var(--space-4) 0; background: var(--pink-primary); color:#fff; margin-top: var(--space-6);
+  font-size:.9rem;
+}
+
+/* ---------- A.4) Generic Layout & Components ---------- */
+
 .flex-row{ display:flex; flex-wrap:wrap; gap: var(--space-4); margin-top: var(--space-4); justify-content: space-between; }
 .two-col-block{ display:flex; flex-wrap:wrap; gap: var(--space-4); align-items: stretch; }
 .two-col-block > *{ flex: 1 1 48%; min-width:0; }
 .flex-item{ flex:1 1 48%; min-width:0; }
 
-/* ---------- 6) Reusable Content Blocks ---------- */
 .info-banner,
 .symptoms-card,
 .text-content{
@@ -148,9 +184,101 @@ nav a:hover{
 .symptoms-card h2{ font-size: var(--font-scale-5); margin: var(--space-4) 0; }
 .symptoms-card{ display:flex; flex-direction:column; }
 .text-content{ justify-content:center; }
-.text-content p{ margin: 0 0 var(--space-1) 0; }
+.text-content p:last-child { margin-bottom: 0; }
 
+.image-container{ 
+  display:flex; 
+  flex-direction:column; 
+  justify-content:flex-start; 
+  text-align:center; 
+  margin: 0; 
+  border: 1px solid var(--pink-border); /* Цагаан ягаан нимгэн хүрээ */
+  border-radius: var(--radius-lg);       /* Булангуудыг дугуйлах */
+  padding: var(--space-4);               /* Доторх агуулгад зай гаргах */
+  box-shadow: var(--shadow-sm);          /* Зөөлөн сүүдэр нэмэх */
+}
+.image-container img{ width:100%; height:auto; border-radius: var(--radius-lg); }
+.image-container iframe{ width:100%; height:auto; border:1px solid #ddd; border-radius: var(--radius-md); display:block; margin:0 auto; }
+.image-label{ color: var(--pink-primary); font-size: var(--font-scale-3); line-height:1.2; text-align:justify; opacity:.85; margin-bottom:0px; }
+
+/* Donate button (used on Index/Donate) */
+@keyframes pulse{ from{ transform: translateY(2px) scale(1);} to{ transform: translateY(2px) scale(1.25);} }
+.donate-button{
+  display:block; max-width: 550px; text-align: center; background: var(--pink-primary); color:#fff; padding: 10px 30px; text-decoration:underline; font-size: var(--font-scale-3); font-weight:bold; border-radius:100px;
+  margin: 0 auto var(--space-3) auto; transition: transform .3s, background-color .3s;
+}
+.donate-button::before,
+.donate-button::after{ content: "💗""💗""💗"; font-size: 1.6em; display:inline-block; transform: translateY(2px);     animation: pulse .6s ease-in-out infinite alternate;}
+.donate-button::before{ margin-right:20px; }
+.donate-button::after{ margin-left:20px; animation-delay: 0.3s; }
+.donate-button:hover{ background: var(--pink-dark); transform: scale(1.05); }
+
+/* Floating FB Embed (opt-in) */
+.facebook-embed-container{
+  display:none; /* show: remove this line */
+  position:fixed; top:10px; right:10px; z-index:1000;
+  width:360px; height:500px; overflow:hidden; background:#fff;
+  border-radius: var(--radius-md); box-shadow: var(--shadow-lg);
+}
+.facebook-embed-container iframe{ width:100%; height:100%; border:none; }
+
+/* Responsive Embeds */
+.image-container iframe,
+.video-container iframe,
+.fb-embed iframe {
+  width: 100% !important;
+  height: auto;
+  display: block;
+  border: none;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+}
+.video-container iframe {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.fb-embed {
+  max-height: 600px;
+  overflow: hidden;
+}
+
+@keyframes heart-pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* ===============================================
+   B) INDEX/HOME PAGE
+   =============================================== */
 /* Index summary */
+
+.main-callout {
+    /* Доод талд зураас нэмэх */
+    border-bottom: 10px solid var(--pink-border); 
+    
+    /* Доод талын зураас болон товчлуур хооронд зай үүсгэх */
+    padding-bottom: var(--space-1); 
+    
+    /* Дараагийн two-col-block хэсгээс зай авах */
+    margin-bottom: var(--space-2); 
+}
+.main-callout p {
+    color: var(--pink-primary); /* Жишээ: Текстийн өнгийг бараан ягаан болгосон */
+    font-size: var(--font-scale-2); /* Текстийн хэмжээг бага зэрэг томруулах (Нэмэлт өөрчлөлт) */
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: var(--space-4);
+}
+
 #about-summary h2{ color: var(--pink-primary); }
 #about-summary p{ color: var(--pink-primary); line-height:1.5; text-align:justify; }
 
@@ -160,50 +288,73 @@ nav a:hover{
   counter-increment:num;
   margin: var(--space-2) 0;
   position:relative;
-  padding-left: 40px;
+  padding-left: 100px;
+opacity: 0; /* Анхны байдлыг нуух */
+animation: slideIn 0.8s ease-out forwards; /* Анимацийг хэрэглэх */
 }
+
+/* Эхний элементээс эхлэн 0.2 секундын зайтай гаргаж ирэх */
+.symptoms-list li:nth-child(1) { animation-delay: 0.1s; }
+.symptoms-list li:nth-child(2) { animation-delay: 0.3s; }
+.symptoms-list li:nth-child(3) { animation-delay: 0.5s; }
+.symptoms-list li:nth-child(4) { animation-delay: 0.7s; }
+.symptoms-list li:nth-child(5) { animation-delay: 0.9s; }
+.symptoms-list li:nth-child(6) { animation-delay: 1.1s; }
+.symptoms-list li:nth-child(7) { animation-delay: 1.3s; }
+.symptoms-list li:nth-child(8) { animation-delay: 1.5s; }
+
 .symptoms-list li::before{
   content: counter(num);
-  position:absolute; left:0; top:0;
-  width:26px; height:26px; border-radius:50%;
+  position:absolute; left:40px; top:5px;
+  transform: translateY(-50%);
+  width:30px; height:30px; border-radius:50%;
   color:#fff; font-weight:600;
   display:flex; align-items:center; justify-content:center;
   background: var(--pink-primary);
+z-index: 10;
+animation: blinkPulse 1.8s ease-in-out infinite;
 }
+/* === НЭМЭЛТ: Дарааллын хойшлуулалт (Sequential Delay) === */
+/* Зөвхөн li::before-д хэрэглэнэ. 0.2 секундын зайтай анивчих дараалал үүсгэнэ. */
+.symptoms-list li:nth-child(1)::before { animation-delay: 0.1s; }
+.symptoms-list li:nth-child(2)::before { animation-delay: 0.3s; }
+.symptoms-list li:nth-child(3)::before { animation-delay: 0.5s; }
+.symptoms-list li:nth-child(4)::before { animation-delay: 0.7s; }
+.symptoms-list li:nth-child(5)::before { animation-delay: 0.9s; }
+.symptoms-list li:nth-child(6)::before { animation-delay: 1.1s; }
+.symptoms-list li:nth-child(7)::before { animation-delay: 1.3s; }
 
 /* CTA */
 .symptoms-cta{ margin-top:auto; }
-.symptoms-cta h2{ color: var(--pink-dark); border-bottom: none; margin-top: var(--space-4); font-size: var(--font-scale-5); padding-bottom:0; }
+.symptoms-cta h2{ color: var(--pink-dark); border-bottom: none; margin-top: var(--space-4); font-size: var(--font-scale-4); padding-bottom:0; 
+border-top: 5px solid var(--pink-primary); /* Ягаан өнгийн 3px зузаантай зураас нэмэв */
+padding-top: var(--space-1); /* Зурааснаас дээш текст хүртэлх зай */
+margin-top: var(--space-4); /* Дээд талын элементээс зай авах */}
 .btn-screening{
-  display:inline-block; background: var(--pink-primary); color:#fff;
-  padding: 15px 50px; text-decoration:none; font-size: var(--font-scale-3);
+  display:block; background: var(--pink-primary); color:#fff;
+  padding: 15px 0; width: 100%; text-decoration:none; font-size: var(--font-scale-3);
   font-weight:bold; border-radius:5px; margin-top:0;
-  transition: transform .3s, background-color .3s;
+  transition: transform .3s, background-color .3s; text-align: center;
 }
+
+.btn-screening::before {
+  content: "💗"; /* Зүрхний дүрс */
+  font-size: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 20px;
+  vertical-align: bottom;
+  
+  /* === Хөдөлгөөн: Тогтмол анивчих хөдөлгөөнийг нэмэв === */
+  animation: heart-pulse 1.2s infinite ease-in-out; 
+}
+
 .btn-screening:hover{ background: var(--pink-dark); cursor:pointer; transform: scale(1.05); }
 
-/* Donate button (with pulse hearts) */
-@keyframes pulse{ from{ transform: translateY(2px) scale(1);} to{ transform: translateY(2px) scale(1.25);} }
-.donate-button{
-  display:inline-block; background: var(--pink-primary); color:#fff; padding: 10px 30px;
-  text-decoration:none; font-size: var(--font-scale-3); font-weight:bold; border-radius:100px;
-  margin: 0 0 var(--space-3) 0; transition: transform .3s, background-color .3s;
-}
-.donate-button::before,
-.donate-button::after{ content: "💗"; font-size: 1.8em; display:inline-block; transform: translateY(2px); }
-.donate-button::before{ margin-right:30px; }
-.donate-button::after{ margin-left:30px; }
-.donate-button:hover{ background: var(--pink-dark); transform: scale(1.05); }
-.donate-button:hover::before,
-.donate-button:hover::after{ animation: pulse .6s ease-in-out infinite alternate; }
 
-/* ---------- 7) Imagery ---------- */
-.image-container{ display:flex; flex-direction:column; justify-content:flex-start; text-align:center; margin: 20px auto; }
-.image-container img{ width:100%; height:auto; border-radius: var(--radius-lg); }
-.image-container iframe{ width:100%; max-width:500px; height:600px; border:1px solid #ddd; border-radius: var(--radius-md); display:block; margin:0 auto; }
-.image-label{ color: var(--pink-primary); font-size: var(--font-scale-3); line-height:1.2; text-align:justify; opacity:.85; margin-bottom:12px; }
-
-/* ---------- 8) About Page ---------- */
+/* ===============================================
+   C) ABOUT PAGE
+   =============================================== */
 .about-text{
   color: var(--text-main);
   line-height:1.6;
@@ -228,16 +379,97 @@ nav a:hover{
 }
 .team-member img{ width:150px; height:150px; border-radius:50%; object-fit:cover; margin-bottom:10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 
-/* ---------- 9) Donate Page ---------- */
-.donation-options{ display:flex; justify-content:space-around; flex-wrap:wrap; margin-top: var(--space-4); }
-.option{ background:#ffccbc; padding: var(--space-4); border-radius: var(--radius-md); text-align:center; width:30%; margin-bottom: var(--space-4); }
-.qr-section{ display:flex; justify-content:space-between; gap:30px; margin-top: var(--space-6); }
-.qr-box{ width:48%; background:#fff8e1; padding: var(--space-4); border-radius: var(--radius-md); text-align:center; }
-.qr-box img{ max-width:100%; height:auto; max-height:250px; border:1px solid var(--pink-dark); border-radius:5px; margin-top: var(--space-2); }
+
+/* ===============================================
+   D) DONATE PAGE
+   =============================================== */
+
+/* QR Section Container */
+.qr-section {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--space-6);
+}
+
+/* QR Box */
+.qr-box {
+    min-width: 200px;
+    max-width: 48%;
+    background:#fff8e1;
+    text-align: center;
+    padding: var(--space-4);
+    border: 1px solid #ddd;
+    border-radius: var(--radius-md);
+    box-sizing: border-box;
+}
+
+/* QR Image */
+.qr-box img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: var(--space-2) auto;
+    border:1px solid var(--pink-dark);
+    border-radius:5px;
+    max-height:250px;
+}
+
+/* Donation Options - Container */
+.donation-options {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+    flex-wrap: wrap;
+}
+
+/* Option Box */
+.option {
+    flex: 1;
+    min-width: 250px;
+    max-width: 48%;
+    padding: var(--space-4);
+    background:#ffccbc;
+    border: 1px solid #c93b76;
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    margin-bottom: var(--space-4);
+}
+
+.option:hover {
+    transform: translateY(-5px);
+}
+
+/* Option Button */
+.option a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #c93b76;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Bank Info */
 .bank-info{ background:#fff5fa; padding: var(--space-4); border: 2px solid #fff5fa; border-radius: var(--radius-md); margin-top: var(--space-2); text-align:center; }
 .bank-details strong{ color: var(--pink-accent); }
 
-/* ---------- 10) Impact Page ---------- */
+/* Table Styles for Clarity */
+table { border: 1px solid #ddd; width: 100%; margin-bottom: 20px; }
+th, td { padding: 12px; border: 1px solid #ddd; text-align: center; }
+th { background-color: #e0b0c2; color: #333; font-weight: bold; }
+td:first-child { text-align: left; }
+
+
+/* ===============================================
+   E) IMPACT PAGE
+   =============================================== */
 .impact-text, .section p{ line-height:1.6; margin-bottom:15px; font-size:1.05em; color: var(--text-muted); }
 .statistic{
   text-align:center; margin: var(--space-6) 0; padding: var(--space-4);
@@ -252,147 +484,36 @@ nav a:hover{
 }
 .event-gallery img:hover{ transform: scale(1.03); }
 
-/* QR кодыг багтаах үндсэн хэсэг */
-.qr-section {
-    display: flex; /* Элементүүдийг зэрэгцүүлнэ */
-    gap: 20px; /* Элементүүдийн хоорондын зай */
-    justify-content: center; /* Төвд байрлуулна */
-    flex-wrap: wrap; /* ⭐ Энэ бол гол шийдэл: Дэлгэц багасах үед доош унагах */
-    margin-top: 20px;
-}
 
-
-
-/* QR кодын хайрцаг бүр */
-.qr-box {
-    /* flex: 1; -ийг ашиглахын оронд илүү тогтвортой өргөнийг тодорхойлно */
-    min-width: 200px; /* Хамгийн багадаа 200px байлгана */
-    max-width: 48%; /* Хэрэв зэрэгцүүлж харуулах бол 50%-аас бага өгнө */
-    text-align: center;
-    padding: 15px;
-    border: 1px solid #ddd;
-    box-sizing: border-box; /* padding болон border-ийг өргөнд тооцно */
-}
-
-/* QR кодын зургийг container-т багтаах */
-.qr-box img {
-    max-width: 100%; /* ⭐ Гол шийдэл: Зургийг эцэг элементийнхээ 100%-иас хэтрүүлэхгүй */
-    height: auto;
-    display: block;
-    margin: 10px auto; /* Зургийг төвд байрлуулна */
-}
-
-/* ⭐ Дэлгэцний хэмжээ 600px-ээс бага бол (Утасны горим) */
-@media (max-width: 600px) {
-    .qr-box {
-        max-width: 90%; /* Бүх өргөнийг эзэлж, нэг нэгээрээ доош унана */
-        margin-bottom: 15px;
-    }
-}
-
-/* Donation Options - Container */
-.donation-options {
-    display: flex; /* Элементүүдийг зэрэгцүүлнэ */
-    justify-content: center; /* Төвд байрлуулна */
-    gap: 20px; /* Хайрцгуудын хоорондын зай */
-    margin-top: 15px; /* HTML дээрх margin-ийг энд зааж өгч болно */
-    flex-wrap: wrap; /* ⭐ Дэлгэц багасвал доош унагаах гол шийдэл */
-}
-
-/* Option Box - Big Screen Style */
-.option {
-    /* flex: 1-ийг ашиглан 50/50 хуваахыг баталгаажуулна, гэхдээ min-width-ийг нэмж өгнө */
-    flex: 1; 
-    min-width: 250px; /* Хамгийн багадаа 250px-ээс том байлгах */
-    max-width: 48%; /* 48% нь 50%-аас бага байж, хоорондын зай гаргана */
-    
-    /* Нэмэлт загвар */
-    padding: 20px;
-    border: 1px solid #c93b76;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-.option:hover {
-    transform: translateY(-5px); /* Хуруугаар дарахад хөдөлгөөн оруулах */
-}
-
-/* Button style for the anchor tag */
-.option a {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #c93b76;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-
-/* ⭐ Дэлгэц 650px-ээс бага бол (Утасны горим) */
-@media (max-width: 650px) {
-    .donation-options {
-        flex-direction: column; /* Хайрцгуудыг доош нь өрнө */
-        align-items: center; /* Төвд байрлуулна */
-    }
-
-    .option {
-        /* Утсан дээр бараг бүтэн өргөнийг эзлүүлнэ */
-        max-width: 90%; 
-        min-width: 90%; 
-        margin-bottom: 15px; /* Хайрцгуудын хооронд зай үүсгэнэ */
-    }
-}
-
-/* Table Styles for Clarity */
-table {
-    border: 1px solid #ddd;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-th, td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: center;
-}
-
-th {
-    background-color: #e0b0c2;
-    color: #333;
-    font-weight: bold;
-}
-
-/* For better readability of specific data */
-td:first-child {
-    text-align: left;
-}
-
-
-
-/* ---------- 11) Contact Page ---------- */
-/* Use the generic .two-col-block; keep elements semantic */
+/* ===============================================
+   F) CONTACT PAGE
+   =============================================== */
 .contact-info p{ font-size: var(--font-scale-2); margin: var(--space-2) 0; }
 .contact-info strong{ color: var(--pink-accent); }
 
-.two-col-block {
+.contact-info p {
   display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1em;
+  color: #444;
 }
 
-/* FB iframe-ийг контейнерийн өргөнд тэнцүүлэх */
-.image-container iframe {
-  width: 100% !important;
-  height: 600;
-  min-height: 600px;
-  display: block;
-  border: none;
+.contact-info a {
+  color: #c2185b;
+  text-decoration: none;
+  font-weight: 600;
 }
 
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.contact-info .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .help-callout{
   background:#fff5fa;
@@ -422,50 +543,17 @@ overflow-wrap: break-word;
 }
 .register-button:hover{ background: var(--pink-dark); transform: scale(1.02); }
 
-.contact-info p {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 1.1em;
-  color: #444;
-}
-
-.contact-info a {
-  color: #c2185b;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.contact-info a:hover {
-  text-decoration: underline;
-}
-
-.contact-info .icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Жижиг дэлгэц дээр aside хальж гарахыг засах */
-@media (max-width: 768px) {
-  .two-col-block {
-    display: block; /* Хоёр баганыг нэг багана болгоно */
-  }
-
-  .image-container iframe {
-    width: 100% !important;
-    height: auto;
-  }
-
-  .help-callout {
-    margin-top: 20px;
-    width: 100% !important;
-    box-sizing: border-box;
-  }
+/* Contact Page specific iframe/FB embed styles */
+.image-container iframe {
+  aspect-ratio: 1 /1.2;
+  min-width: 100%;
+  border: none;
 }
 
 
-/* ---------- 12) Forms (Application) ---------- */
+/* ===============================================
+   G) APPLICATION PAGE (Form)
+   =============================================== */
 .application-form{ max-width:800px; margin:0 auto; padding: var(--space-4); }
 fieldset{
   border:1px solid var(--pink-border);
@@ -494,39 +582,11 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
   margin-top: var(--space-4); border-radius:5px; font-size:.95em;
 }
 
-/* ---------- 13) Footer ---------- */
-footer{
-  text-align:center; padding: var(--space-4) 0; background: var(--pink-primary); color:#fff; margin-top: var(--space-6);
-  font-size:.9rem;
-}
+/* ===============================================
+   H) MEDIA QUERIES (Responsive Behavior)
+   =============================================== */
 
-/* ---------- 14) FB Floating Frame (opt-in) ---------- */
-.facebook-embed-container{
-  display:none; /* show: remove this line */
-  position:fixed; top:10px; right:10px; z-index:1000;
-  width:360px; height:500px; overflow:hidden; background:#fff;
-  border-radius: var(--radius-md); box-shadow: var(--shadow-lg);
-}
-.facebook-embed-container iframe{ width:100%; height:100%; border:none; }
-
-/* ---------- 15) Media Queries ---------- */
-@media (max-width: 950px){
-  .container{ width:90%; padding: var(--space-4); }
-  .two-column, .flex-row, .qr-section, .contact-grid{ flex-direction:column; }
-  .left-col, .right-col, .flex-item, .qr-box, .contact-info, .map-container{ flex: 1 1 100%; width:100%; }
-  .donation-options{ flex-direction:column; }
-  .option{ width:100%; margin-bottom: var(--space-3); }
-  .team-grid{ justify-content:space-around; }
-  .team-member{ flex: 1 1 45%; max-width:45%; }
-  .facebook-embed-container{ display:none; }
-}
-
-@media (max-width: 768px){
-  .two-col-block > *{ flex: 1 1 100%; }
-  .image-container iframe{ height:350px; }
-  .register-button{ max-width:100%; }
-}
-
+/* Mobile Mode: max-width 650px */
 @media (max-width: 650px){
   .container{ width:95%; padding: var(--space-3); }
   nav{ padding:10px 0; }
@@ -534,4 +594,52 @@ footer{
   .team-member{ flex: 1 1 90%; max-width:90%; }
   .btn-screening{ display:block; width:90%; margin:15px auto; padding: 15px 10px; }
   .symptoms-list{ padding-left:20px; }
+
+  .donation-options {
+    flex-direction: column;
+    align-items: center;
+  }
+  .option {
+    max-width: 90%;
+    min-width: 90%;
+    margin-bottom: var(--space-3);
+  }
+
+  .qr-box {
+    max-width: 90%;
+    margin-bottom: var(--space-3);
+  }
+}
+
+/* Tablet/Structural Adjustments: max-width 768px */
+@media (max-width: 768px){
+  .two-col-block { display: block; }
+  .two-col-block > *{ flex: 1 1 100%; }
+  .image-container iframe{ height:350px; }
+  .register-button{ max-width:100%; }
+
+  .image-container iframe,
+  .fb-embed iframe {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .help-callout {
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Tablet/Small Desktop Mode: max-width 950px */
+@media (max-width: 950px){
+  .container{ width:90%; padding: var(--space-4); }
+  .flex-row, .qr-section, .contact-grid{ flex-direction:column; }
+  .flex-item, .qr-box, .contact-info, .map-container{ flex: 1 1 100%; width:100%; }
+
+  .donation-options{ gap: var(--space-3); }
+  .option{ max-width: 100%; }
+  .team-grid{ justify-content:space-around; }
+  .team-member{ flex: 1 1 45%; max-width:45%; }
+  .facebook-embed-container{ display:none; }
 }
