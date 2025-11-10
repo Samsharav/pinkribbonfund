@@ -131,6 +131,14 @@ header p{
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   object-fit: contain;
+transition: transform 0.3s ease-in-out; 
+cursor: pointer;
+}
+
+/* === ШИНЭ ДҮРЭМ: Hover хийх үед томруулах === */
+.logo-container img:hover{
+  transform: scale(1.1); /* Логог 10% томруулна */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Томрох үед сүүдрийг тодруулж эффект өгөх */
 }
 
 nav{
@@ -469,11 +477,37 @@ margin-top: var(--space-4); /* Дээд талын элементээс зай �
 .bank-details strong{ color: var(--pink-accent); }
 
 /* Table Styles for Clarity */
-table { border: 1px solid #ddd; width: 100%; margin-bottom: 20px; }
-th, td { padding: 12px; border: 1px solid #ddd; text-align: center; }
+table { border: 1px solid #ddd; width: 100%; margin-bottom:5px; }
+th, td { padding: 6px; border: 1px solid #ddd; text-align: center; }
 th { background-color: #e0b0c2; color: #333; font-weight: bold; }
 td:first-child { text-align: left; }
 
+.point-box ol li {
+    color: #DA6888; 
+    font-weight: 700;
+ 
+}
+
+/* 2. Ховер хийх үед effect нэмэх */
+.point-box {
+    transition: all 0.3s ease; /* Зөөлөн шилжилт хийх */
+}
+
+.point-box:hover {
+    transform: translateY(-5px); /* Дээшээ бага зэрэг хөдөлгөх */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Сүүдрийг тодотгох */
+}
+
+/* 3. Жагсаалтын зайг цэвэрлэх */
+.point-box ol {
+    padding-left: 25px; /* Стандарт жагсаалтын зайг тохируулах */
+    margin-left: 40px;
+}
+
+.point-box ol li {
+    margin: 5px 0; /* Мөр хоорондын зайг бага зэрэг нэмсэн */
+    line-height: 1.6;
+}
 
 /* ===============================================
    E) IMPACT PAGE
