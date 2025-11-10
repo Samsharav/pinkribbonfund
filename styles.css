@@ -197,7 +197,15 @@ footer{
   padding: var(--space-4);               /* Доторх агуулгад зай гаргах */
   box-shadow: var(--shadow-sm);          /* Зөөлөн сүүдэр нэмэх */
 }
-.image-container img{ width:100%; height:auto; border-radius: var(--radius-lg); }
+.image-container img
+{ width:100%; height:auto; border-radius: var(--radius-lg); 
+transition: transform 0.4s ease-in-out; 
+cursor: zoom-in; /* Хулганы курсорыг өөрчилж, томруулж болно гэсэн санаа өгөх */
+}
+.image-container img:hover{
+  transform: scale(1.5); /* Зургийг 10% томруулна */
+  box-shadow: var(--shadow-lg); /* Томрох үед сүүдэр нэмж тодруулна */
+}
 .image-container iframe{ width:100%; height:auto; border:1px solid #ddd; border-radius: var(--radius-md); display:block; margin:0 auto; }
 .image-label{ color: var(--pink-primary); font-size: var(--font-scale-3); line-height:1.2; text-align:justify; opacity:.85; margin-bottom:0px; }
 
@@ -288,7 +296,7 @@ footer{
   counter-increment:num;
   margin: var(--space-2) 0;
   position:relative;
-  padding-left: 100px;
+  padding-left: 80px;
 opacity: 0; /* Анхны байдлыг нуух */
 animation: slideIn 0.8s ease-out forwards; /* Анимацийг хэрэглэх */
 }
@@ -305,7 +313,7 @@ animation: slideIn 0.8s ease-out forwards; /* Анимацийг хэрэглэ�
 
 .symptoms-list li::before{
   content: counter(num);
-  position:absolute; left:40px; top:5px;
+  position:absolute; left:20px; top:5px;
   transform: translateY(-50%);
   width:30px; height:30px; border-radius:50%;
   color:#fff; font-weight:600;
@@ -592,6 +600,13 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
   nav{ padding:10px 0; }
   nav a{ display:block; margin:5px auto; width:90%; font-size: 1rem; }
   .team-member{ flex: 1 1 90%; max-width:90%; }
+.donate-button, .btn-screening {
+/* Дахин блок болгож, 100% өргөнтэй болгох */
+display: block; 
+width: 100%;
+max-width: 100%;
+margin: var(--space-2) auto; /* Дээд доод зай нэмэх */
+  }
   .btn-screening{ display:block; width:90%; margin:15px auto; padding: 15px 10px; }
   .symptoms-list{ padding-left:20px; }
 
