@@ -206,12 +206,22 @@ footer{
   box-shadow: var(--shadow-sm);          /* Зөөлөн сүүдэр нэмэх */
 }
 .image-container img
-{ width:100%; height:auto; border-radius: var(--radius-lg); 
-transition: transform 0.4s ease-in-out; 
+{ width:100%; height:auto; border-radius: var(--radius-lg); }
+
+.zoomable-img {
+ transition: transform 0.4s ease-in-out; 
 cursor: zoom-in; /* Хулганы курсорыг өөрчилж, томруулж болно гэсэн санаа өгөх */
 }
+.static-img {
+transition: none !important;;  
+cursor: default !important;; 
+}
+.static-img:hover {
+  transform: none !important;; 
+}
+
 .image-container img:hover{
-  transform: scale(1.5); /* Зургийг 10% томруулна */
+  transform: scale(1.5); /* Зургийг 50% томруулна */
   box-shadow: var(--shadow-lg); /* Томрох үед сүүдэр нэмж тодруулна */
 }
 .image-container iframe{ width:100%; height:auto; border:1px solid #ddd; border-radius: var(--radius-md); display:block; margin:0 auto; }
@@ -219,10 +229,7 @@ cursor: zoom-in; /* Хулганы курсорыг өөрчилж, томруу
 
 /* Donate button (used on Index/Donate) */
 @keyframes pulse{ from{ transform: translateY(2px) scale(1);} to{ transform: translateY(2px) scale(1.25);} }
-.donate-button{
-  display:block; max-width: 550px; text-align: center; background: var(--pink-primary); color:#fff; padding: 10px 30px; text-decoration:underline; font-size: var(--font-scale-3); font-weight:bold; border-radius:100px;
-  margin: 0 auto var(--space-3) auto; transition: transform .3s, background-color .3s;
-}
+.donate-button {display:block; max-width: 550px; text-align: center; background: var(--pink-primary); color:#fff; padding: 10px 30px; text-decoration:underline; font-size: var(--font-scale-3); font-weight:bold; border-radius:100px; margin: 0 auto var(--space-3) auto; transition: transform .3s, background-color .3s;}
 .donate-button::before,
 .donate-button::after{ content: "💗""💗""💗"; font-size: 1.2em; display:inline-block; transform: translateY(2px);     animation: pulse .6s ease-in-out infinite alternate;}
 .donate-button::before{ margin-right:10px; }
@@ -346,6 +353,7 @@ animation: blinkPulse 1.8s ease-in-out infinite;
 border-top: 5px solid var(--pink-primary); /* Ягаан өнгийн 3px зузаантай зураас нэмэв */
 padding-top: var(--space-1); /* Зурааснаас дээш текст хүртэлх зай */
 margin-top: var(--space-4); /* Дээд талын элементээс зай авах */}
+
 .btn-screening{
   display:block; background: var(--pink-primary); color:#fff;
   padding: 15px 0; width: 100%; text-decoration:none; font-size: var(--font-scale-3);
@@ -653,7 +661,7 @@ margin: var(--space-3) auto;
  }
 
 .donate-button{
-      padding: 15px 10px !important;
+      padding: 15px 10px !important;}
 
 .btn-screening { 
       padding: 15px 10px; /* Padding-ийг хэвээр үлдээх */
@@ -726,4 +734,129 @@ margin: var(--space-3) auto;
   .team-grid{ justify-content:space-around; }
   .team-member{ flex: 1 1 45%; max-width:45%; }
   .facebook-embed-container{ display:none; }
+}
+
+
+/* ===============================================
+   ТӨСӨЛ, СТАТИСТИК (GRID/FLEXBOX) - ЭЦСИЙН БАТАЛГААТАЙ ЗАСВАР
+   =============================================== */
+
+/* Ягаан Тууз Сангийн өнгөний код: #c2185b (Deep Pink) */
+:root {
+    --pink-ribbon-color: #c2185b;
+    --light-pink: #f8c0d1; 
+}
+
+/* СТАТИСТИКИЙГ ОНЦЛОХ (FLEXBOX) */
+.statistics-grid {
+    display: flex !important; /* Grid-ийг албадан ажиллуулж байгаа */
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    gap: 20px; 
+    margin: 40px 0;
+    padding: 20px;
+    background-color: #fff9fa;
+    border-radius: 12px;
+}
+.statistic {
+    flex: 1; 
+    min-width: 250px; 
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border: 1px solid var(--light-pink);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.statistic h3 {
+    font-size: 3.5em;
+    font-weight: 700;
+    color: var(--pink-ribbon-color);
+    margin-bottom: 5px;
+    line-height: 1.1;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); 
+}
+.statistic p {
+    font-size: 1.1em;
+    color: #333;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* ТӨСЛИЙН ЖАГСААЛТ (GRID CARD) */
+.project-list {
+    display: grid !important; /* Grid-ийг АЛБАДАН ажиллуулсан */
+    /* Эгнээний тоог 300px-ээс багагүй өргөнөөр тохируулж, 2-3 баганатай болгоно */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important; 
+    gap: 30px !important; 
+    margin: 30px 0 !important;
+}
+
+.project-item {
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    overflow: hidden; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex; 
+    flex-direction: column;
+    height: 100%; /* Бүх картууд ижил өндөртэй байх */
+    flex: none !important; /* Бусад Flexbox тохиргоог цуцалсан */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.3s ease;
+}
+
+.project-content {
+    padding: 15px;
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.project-content h3 {
+    color: var(--pink-ribbon-color, #c2185b); 
+    margin-top: 0;
+    font-size: 1.25em;
+}
+
+.project-item:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px); 
+}
+.project-item:hover img {
+    transform: scale(1.05); 
+}
+
+.project-content p {
+    /* Текстийг 4 мөрөөр хязгаарлах */
+    display: -webkit-box;
+    -webkit-line-clamp: 4; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    margin-bottom: 15px;
+    flex-grow: 1; /* Товчлуурыг доош түлхэнэ */
+}
+
+.btn-detail {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: var(--pink-ribbon-color, #c2185b);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-top: auto; /* Товчлуурыг картын хамгийн доод талд байрлуулна */
+    align-self: flex-start;
+    transition: background-color 0.2s;
+}
+.btn-detail:hover {
+    background-color: #a7144e;
 }
