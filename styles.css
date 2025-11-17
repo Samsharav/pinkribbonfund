@@ -407,116 +407,190 @@ margin-top: var(--space-4); /* Дээд талын элементээс зай �
 /* ===============================================
    D) DONATE PAGE
    =============================================== */
-
-/* QR Section Container */
-.qr-section {
+.bank-info-wrapper {
     display: flex;
-    gap: var(--space-4);
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: var(--space-6);
-}
-
-/* QR Box */
-.qr-box {
-    min-width: 200px;
-    max-width: 48%;
-    background:#fff8e1;
-    text-align: center;
+    gap: var(--space-5); /* Баганууд хоорондын зай */
+    align-items: flex-start; /* Элементүүдийг дээд талаар нь тэгшлэх */
     padding: var(--space-4);
-    border: 1px solid #ddd;
+    border: 1px solid var(--pink-border);
     border-radius: var(--radius-md);
-    box-sizing: border-box;
+    background-color: #ffffff;
+    box-shadow: var(--shadow-sm);
+    flex-wrap: wrap; /* Жижиг дэлгэц дээр нэг багана болгох */
 }
 
-/* QR Image */
-.qr-box img {
-    max-width: 100%;
+/* Дансны мэдээллийн зүүн талын хэсэг */
+.bank-info-details {
+    flex: 1 1 55%; /* Зүүн хэсэг нийт өргөний 55%-ийг эзэлнэ */
+}
+
+.bank-info-details h3 {
+    color: var(--pink-dark);
+    border-bottom: 2px solid var(--pink-accent);
+    padding-bottom: var(--space-2);
+    margin-top: 0;
+}
+
+/* Мэдээллийн мөр тус бүрийн загвар */
+.bank-details-line {
+    display: flex;
+    justify-content: space-between; /* Текст болон утгыг хоёр тийш нь түлхэх */
+    align-items: baseline;
+    padding: var(--space-1) 0;
+    border-bottom: 1px dotted var(--pink-border);
+}
+
+.detail-label {
+    font-weight: 300;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.detail-value {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+}
+
+/* Дансны дугаарыг илүү тодруулах */
+.detail-iban {
+    font-size: 1.6em; /* Томруулсан */
+    color: var(--pink-primary); /* Ягаанаар тодруулсан */
+    font-family: monospace; /* Хуулж авахад хялбар фонт */
+    background-color: var(--pink-bg);
+    padding: var(--space-1);
+    border-radius: var(--radius-sm);
+}
+
+.bank-note {
+    margin-top: var(--space-3);
+    color: var(--text-muted);
+}
+
+/* QR кодны баруун талын хэсэг */
+.qr-code-area {
+    flex: 1 1 35%; /* Баруун хэсэг нийт өргөний 35%-ийг эзэлнэ */
+    text-align: center;
+    background-color: var(--pink-bg);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+}
+
+.qr-code-area .qr-title {
+    color: var(--pink-dark);
+    margin-top: 0;
+    font-size: 1.2em;
+}
+
+.qr-image {
+    max-width: 200px; /* Зургийн хамгийн их өргөн */
     height: auto;
-    display: block;
-    margin: var(--space-2) auto;
-    border:1px solid var(--pink-dark);
-    border-radius:5px;
-    max-height:250px;
+    border: 3px solid #ffffff;
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--space-1);
 }
 
-/* Donation Options - Container */
-.donation-options {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-4);
-    margin-top: var(--space-4);
-    flex-wrap: wrap;
+.qr-note {
+    font-size: 0.8em;
+    color: var(--text-muted);
+    margin: 0;
 }
 
-/* Option Box */
-.option {
-    flex: 1;
-    min-width: 250px;
-    max-width: 48%;
-    padding: var(--space-4);
-    background:#ffccbc;
-    border: 1px solid #c93b76;
-    border-radius: var(--radius-md);
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-    margin-bottom: var(--space-4);
+/* Утасны дэлгэцийн тохируулга */
+@media (max-width: 768px) {
+    .bank-info-wrapper {
+        flex-direction: column; /* Утасны дэлгэц дээр нэг багана болгох */
+    }
+
+    .bank-info-details, .qr-code-area {
+        flex: 1 1 100%; /* Бүх өргөнийг эзэлнэ */
+    }
 }
 
-.option:hover {
-    transform: translateY(-5px);
+.source-note {
+    text-align: right;
+    font-style: italic;
+    font-size: 0.8em;
+    color: var(--text-muted); /* 444 */
+    margin-top: var(--space-1); /* 5px */
+    margin-bottom: var(--space-2); /* 10px */
+}
+.source-note a {
+    color: var(--pink-dark); /* c2185b */
+    text-decoration: underline;
 }
 
-/* Option Button */
-.option a {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #c93b76;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/* Bank Info */
-.bank-info{ background:#fff5fa; padding: var(--space-4); border: 2px solid #fff5fa; border-radius: var(--radius-md); margin-top: var(--space-2); text-align:center; }
-.bank-details strong{ color: var(--pink-accent); }
 
 /* Table Styles for Clarity */
-table { border: 1px solid #ddd; width: 100%; margin-bottom:5px; }
-th, td { padding: 6px; border: 1px solid #ddd; text-align: center; }
+table { border: 1px solid #ddd; width: 100%; margin-bottom:2px; }
+th, td { padding: 1px; border: 1px solid #ddd; text-align: center; }
 th { background-color: #e0b0c2; color: #333; font-weight: bold; }
-td:first-child { text-align: left; }
+td:first-child { text-align: left; padding-left: 10px; } /* Зүүн талаас 5px дотогш түлхэж, баруун тийш зөөв */
 
 
-.point-box ol li {
-    color: #DA6888; 
+/* 1. Эргэн тойрон дахь Flexbox-ийн зайг нэмэх */
+.treatment-points {
+    display: flex;
+    gap: var(--space-4); /* 20px зай нэмэв (Одоогийн 0px-ийн оронд) */
+    flex-wrap: wrap;
+    font-size: 1.0em;
+    margin-bottom: var(--space-5); /* Доороо зайтай болгов */
+}
+
+/* 2. Картын үндсэн загвар (point-box) */
+.treatment-card {
+    flex: 1; 
+    min-width: 300px;
+    
+    background-color: #ffffff; 
+    padding: var(--space-4); /* 60px-ээс 20px болгож багасгав (сажируулав) */
+    
+    border-left: 20px solid var(--pink-primary);
+    border-radius: var(--radius-md); /* Зөөлөн булан нэмэв */
+    box-shadow: var(--shadow-md); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.treatment-card:hover { /* Hover effect */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 3. Гарчгийг (h3) сайжруулах */
+.treatment-card .card-title {
+    color: var(--pink-dark); /* Ягаан өнгийг тодотгов */
     font-weight: 700;
- 
+    font-size: 1.6em; /* Бага зэрэг багасгав */
+    
+    /* Зайг багасгав (сажируулав) */
+    margin-top: 0; 
+    margin-bottom: var(--space-1); 
+    border-bottom: 1px solid var(--pink-border); /* Тусгаарлах шугам нэмэв */
+    padding-bottom: var(--space-1); /* 5px дотоод зай */
 }
 
-/* 2. Ховер хийх үед effect нэмэх */
-.point-box {
-    transition: all 0.3s ease; /* Зөөлөн шилжилт хийх */
+/* 4. Жагсаалтыг (ol) нягтруулах */
+.treatment-list {
+    margin: 0; 
+    padding-left: var(--space-7); /* Зүүн зайг 40px болгов */
+    list-style-type: decimal;
 }
 
-.point-box:hover {
-    transform: translateY(-5px); /* Дээшээ бага зэрэг хөдөлгөх */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Сүүдрийг тодотгох */
+/* 5. Жагсаалтын элементүүдийг (li) нягтруулах */
+.treatment-list li {
+    margin-bottom: var(--space-2); /* 10px зайтай болгов */
+    line-height: 1.2; /* Текстийн уншигдах байдлыг сайжруулав */
+    color: var(--pink-primary);
+    text-align: justify;
+    font-weight: 600; /* Үндсэн текст хэвийн */
 }
 
-/* 3. Жагсаалтын зайг цэвэрлэх */
-.point-box ol {
-    padding-left: 25px; /* Стандарт жагсаалтын зайг тохируулах */
-    margin-left: 40px;
+.treatment-list li strong {
+    color: var(--pink-dark); /* Үндсэн ойлголтыг тод ягаанаар тодруулав */
+    font-weight: 700;
 }
 
-.point-box ol li {
-    margin: 5px 0; /* Мөр хоорондын зайг бага зэрэг нэмсэн */
-    line-height: 1.6;
-}
 
 /* ===============================================
    E) IMPACT PAGE
