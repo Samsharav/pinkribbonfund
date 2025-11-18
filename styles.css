@@ -171,6 +171,39 @@ footer{
 
 /* ---------- A.4) Generic Layout & Components ---------- */
 
+/* ---------- Хандив цэс холбоотой  ---------- */
+
+/* Дансны дугаар (IBAN) -д зориулсан гэрэлтэх/томрох хөдөлгөөн */
+@keyframes glowPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(218, 104, 136, 0.5); /* pink-primary-н 50% тунгалаг сүүдэр */
+    }
+    50% {
+        transform: scale(1.02); /* 2%-иар бага зэрэг томрох */
+        box-shadow: 0 0 10px 3px rgba(218, 104, 136, 1); /* Тод гэрэлтэх */
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(218, 104, 136, 0.5);
+    }
+}
+
+.highlight-statement {
+    font-size: 1.0em;
+    color: #FF68BC;
+    display: block;
+    margin-bottom: var(--space-3); /* 15px */
+    font-style: italic;
+/* Байрлал, зайны тохиргоо */
+    display: block;
+    margin-bottom: var(--space-3); /* 15px */
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+
+
 .flex-row{ display:flex; flex-wrap:wrap; gap: var(--space-4); margin-top: var(--space-4); justify-content: space-between; }
 .two-col-block{ display:flex; flex-wrap:wrap; gap: var(--space-4); align-items: stretch; }
 .two-col-block > *{ flex: 1 1 48%; min-width:0; }
@@ -277,6 +310,28 @@ cursor: default !important;;
   0% { transform: scale(1); opacity: 0.8; }
   50% { transform: scale(1.1); opacity: 1; }
   100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* Мэдээллийн эх сурвалжийн холбоос (GLOBOCAN link) */
+.source-link {
+    /* HTML дээрх inline style-ийг энд аваачиж, transition нэмнэ */
+    font-size: 1.0em;
+    color: var(--pink-primary); /* #DA6888 (pink-primary-г ашиглав) */
+    text-decoration: underline;
+    /* Холбоосыг inline-block болгож, transform ажиллах нөхцөлийг бүрдүүлнэ */
+    display: inline-block;
+    /* Зөөлөн солигдох анимац нэмэх (Нэмэлт) */
+    transition: color 0.3s ease, text-decoration 0.3s ease, font-weight 0.3s ease; transform 0.3s ease; /* Зүүм эффектийг нэмэв */
+}
+
+/* Ховер үед өөрчлөгдөх загвар */
+.source-link:hover {
+    color: var(--pink-dark); /* #c2185b (Бараан ягаан болгох) */
+    text-decoration: none; /* Доогуур зураасыг арилгах */
+    font-weight: bold;     /* Текстийг тод болгох */
+    cursor: pointer;
+/* Зөөлөн зүүм эффект нэмэх (5%-иар томруулна) */
+    transform: scale(1.05);
 }
 
 /* ===============================================
@@ -407,6 +462,30 @@ margin-top: var(--space-4); /* Дээд талын элементээс зай �
 /* ===============================================
    D) DONATE PAGE
    =============================================== */
+/* Дансны дугаарыг илүү тодруулах үндсэн загвар */
+.detail-iban {
+    /* Transform ажиллахын тулд inline-block эсвэл block болгох */
+    display: inline-block; 
+    
+    font-size: 1.6em; 
+    color: var(--pink-primary);
+    padding: var(--space-1); /* Хөдөлгөөн дээр эвгүй харагдахгүй байхын тулд дотоод зай нэмэв */
+    border-radius: var(--radius-sm); 
+    
+    /* Хөдөлгөөн зөөлөн хийгдэх transition нэмэх */
+    transition: all 0.3s ease-in-out; 
+    cursor: pointer; /* Энэ нь идэвхтэйг илтгэнэ */
+}
+
+/* Hover үед хөдөлгөөн болон загварыг өөрчлөх */
+.detail-iban:hover {
+    color: var(--pink-dark); /* Өнгийг тодотгох */
+    background-color: var(--pink-bg); /* Сүүдэр болон гэрэлтэлтийг тодруулах суурь өнгө */
+    
+    /* Keyframes хөдөлгөөнийг нэмэх (0.8 секундын турш нэг удаа анивчина) */
+    animation: glowPulse 0.8s ease-in-out;
+}
+
 .bank-info-wrapper {
     display: flex;
     gap: var(--space-5); /* Баганууд хоорондын зай */
@@ -591,6 +670,17 @@ td:first-child { text-align: left; padding-left: 10px; } /* Зүүн талаа�
     font-weight: 700;
 }
 
+/* 6. Treatment Card доторх ЗУРГИЙН (SVG/IMG) ЗАГВАР */
+.treatment-card img {
+    /* SVG/PNG/JPEG зургийг картын өргөнөөр тааруулна */
+    width: 100%;             
+    height: auto;            
+    display: block;
+    margin: var(--space-3) 0 var(--space-2) 0; /* Гарчиг болон доороос зай авах */
+    border-radius: var(--radius-md); 
+    box-shadow: var(--shadow-sm); /* Зургийн сүүдэр нэмэх (Нэмэлт) */
+}
+
 
 /* ===============================================
    E) IMPACT PAGE
@@ -756,6 +846,11 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     nav{ padding:10px 0; }
     nav a{ display:block; margin:5px auto; width:90%; font-size: 1rem; }
     .team-member{ flex: 1 1 90%; max-width:90%; }
+
+/* Treatment Card доторх чухал мэдээллийн зайг багасгах */
+    .treatment-card strong[style] {
+        margin-bottom: 10px !important; /* 15px-ийг 10px болгож багасгана */
+    }
 
 .main-callout, .symptoms-card, .symptoms-cta {
     display: block !important; 
@@ -973,3 +1068,4 @@ margin: var(--space-3) auto;
 .btn-detail:hover {
     background-color: #a7144e;
 }
+ 
