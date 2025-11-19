@@ -45,6 +45,45 @@
   --font-scale-5: 1.6rem;
 }
 
+/* 1. Илүүдэл маржинг хаах, Box Model-ийг зөв тооцох */
+*, *::before, *::after {
+    box-sizing: border-box; /* Padding, Border-ийг Width/Height-д багтаана */
+    margin: 0; /* Бүх элементийн (h1, p, ul) default margin-ийг 0 болгоно */
+    padding: 0; /* Бүх элементийн default padding-ийг 0 болгоно */
+}
+
+/* 2. HTML/BODY-ийн үндсэн тохиргоо (Хөндлөн гүйлгэлт болон Footer-ийн байрлал) */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* === Хуудас баруун тийш нүүхийг зогсооно === */
+    overflow-x: hidden; 
+}
+
+/* 3. HTML болон BODY-ийн өндрийг 100% болгох */
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%; /* body-ийн өндрийг дэлгэцийн хамгийн бага өндрөөр авна */
+    /* Энэ нь хэрэггүй байж магадгүй, гэхдээ дараах Flexbox-ийг туршина уу: */
+}
+
+body {
+    /* 1. Flexbox-ийг идэвхжүүлнэ (Footer-ийг доош түлхэх зорилгоор) */
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh; /* Дэлгэцийн хэмжээний хамгийн бага өндөртэй болгоно */
+}
+
+/* 2. Header болон Nav-ийн дараах гол контентийг бүх зайг дүүргэхийг заана */
+main {
+    flex-grow: 1; 
+}
+
+
+
 /* ---------- A.1) Base Elements & Reset ---------- */
 
 *{ box-sizing: border-box; }
@@ -205,9 +244,32 @@ footer{
 
 
 .flex-row{ display:flex; flex-wrap:wrap; gap: var(--space-4); margin-top: var(--space-4); justify-content: space-between; }
+
 .two-col-block{ display:flex; flex-wrap:wrap; gap: var(--space-4); align-items: stretch; }
 .two-col-block > *{ flex: 1 1 48%; min-width:0; }
+
 .flex-item{ flex:1 1 48%; min-width:0; }
+
+.flex-45-item {
+    /* 45% өргөнөөс gap-ийн хагасыг хасч тооцно. Энэ нь 45% + gap + 50% = 100% болох боломжтой */
+    flex: 0 0 calc(48% - var(--space-4) / 2); 
+    max-width: calc(48% - var(--space-4) / 2);
+}
+
+.flex-55-item {
+    /* 55% өргөнөөс gap-ийн хагасыг хасч тооцно */
+    flex: 0 0 calc(52% - var(--space-4) / 2);
+    max-width: calc(52% - var(--space-4) / 2);
+}
+
+/* 768px-аас бага үед 100% өргөнтэй болгох (Media Query-д байгааг баталгаажуулах) */
+@media (max-width: 768px) {
+    .flex-45-item, .flex-55-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
 
 .info-banner,
 .symptoms-card,
@@ -238,36 +300,32 @@ footer{
   padding: var(--space-4);               /* Доторх агуулгад зай гаргах */
   box-shadow: var(--shadow-sm);          /* Зөөлөн сүүдэр нэмэх */
 }
-.image-container img
-{ width:100%; height:auto; border-radius: var(--radius-lg); }
 
-.zoomable-img {
- transition: transform 0.4s ease-in-out; 
-cursor: zoom-in; /* Хулганы курсорыг өөрчилж, томруулж болно гэсэн санаа өгөх */
-}
-.static-img {
-transition: none !important;;  
-cursor: default !important;; 
-}
-.static-img:hover {
-  transform: none !important;; 
-}
+/* НҮҮР ХУУДАСТ БАЙГАА Зургийг 50% томруулна */
 
-.image-container img:hover{
-  transform: scale(1.5); /* Зургийг 50% томруулна */
-  box-shadow: var(--shadow-lg); /* Томрох үед сүүдэр нэмж тодруулна */
+.image-container img { width:100%; height:auto; border-radius: var(--radius-lg); transition: transform 0.8s ease-in-out, box-shadow 0.3s ease-in-out; }
+
+.zoomable-img {cursor: zoom-in; /* Хулганы курсорыг өөрчилж, томруулж болно гэсэн санаа өгөх */ }
+
+.static-img { transition: none !important; cursor: default !important; }
+
+.static-img:hover {  transform: none !important; }
+
+.image-container img:hover {  transform: scale(1.5); box-shadow: var(--shadow-lg); /* Томрох үед сүүдэр нэмж тодруулна */
 }
 .image-container iframe{ width:100%; height:auto; border:1px solid #ddd; border-radius: var(--radius-md); display:block; margin:0 auto; }
 .image-label{ color: var(--pink-primary); font-size: var(--font-scale-3); line-height:1.2; text-align:justify; opacity:.85; margin-bottom:0px; }
 
-/* Donate button (used on Index/Donate) */
+
+/* НҮҮР ХУУДАСТ БАЙГАА Donate button (used on Index/Donate) */
+
 @keyframes pulse{ from{ transform: translateY(2px) scale(1);} to{ transform: translateY(2px) scale(1.25);} }
-.donate-button {display:block; max-width: 550px; text-align: center; background: var(--pink-primary); color:#fff; padding: 10px 30px; text-decoration:underline; font-size: var(--font-scale-3); font-weight:bold; border-radius:100px; margin: 0 auto var(--space-3) auto; transition: transform .3s, background-color .3s;}
+.donate-button {display:block; max-width: 400px; text-align: center; background: #fff; color:var(--pink-primary); padding: 10px 30px; text-decoration:underline; font-size: var(--font-scale-3); font-weight:bold; border-radius:100px; margin: 0 auto var(--space-3) auto; transition: transform .3s, background-color .3s;}
 .donate-button::before,
-.donate-button::after{ content: "💗""💗""💗"; font-size: 1.2em; display:inline-block; transform: translateY(2px);     animation: pulse .6s ease-in-out infinite alternate;}
+.donate-button::after{ content: "💗""💗""💗"; font-size: 1.0em; display:inline-block; transform: translateY(2px); animation: pulse .6s ease-in-out infinite alternate;}
 .donate-button::before{ margin-right:10px; }
 .donate-button::after{ margin-left:10px; animation-delay: 0.3s; }
-.donate-button:hover{ background: var(--pink-dark); transform: scale(1.05); }
+.donate-button:hover{ background: var(--pink-border); transform: scale(1.05); }
 
 /* Floating FB Embed (opt-in) */
 .facebook-embed-container{
@@ -312,7 +370,8 @@ cursor: default !important;;
   100% { transform: scale(1); opacity: 0.8; }
 }
 
-/* Мэдээллийн эх сурвалжийн холбоос (GLOBOCAN link) */
+/* МЭДЭЭЛЛИЙН САН ХУУДАСТ Мэдээллийн эх сурвалжийн холбоос (GLOBOCAN link) */
+
 .source-link {
     /* HTML дээрх inline style-ийг энд аваачиж, transition нэмнэ */
     font-size: 1.0em;
@@ -321,7 +380,7 @@ cursor: default !important;;
     /* Холбоосыг inline-block болгож, transform ажиллах нөхцөлийг бүрдүүлнэ */
     display: inline-block;
     /* Зөөлөн солигдох анимац нэмэх (Нэмэлт) */
-    transition: color 0.3s ease, text-decoration 0.3s ease, font-weight 0.3s ease; transform 0.3s ease; /* Зүүм эффектийг нэмэв */
+    transition: color 0.3s ease, text-decoration 0.8s ease-in-out, font-weight 0.3s ease; transform 0.3s ease; /* Зүүм эффектийг нэмэв */
 }
 
 /* Ховер үед өөрчлөгдөх загвар */
@@ -458,6 +517,124 @@ margin-top: var(--space-4); /* Дээд талын элементээс зай �
 }
 .team-member img{ width:150px; height:150px; border-radius:50%; object-fit:cover; margin-bottom:10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 
+
+/* Логонуудын хэсгийн ерөнхий загвар */
+#logos-section {
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid #eee; 
+    margin-top: 30px;
+}
+
+#logos-section h2 {
+    margin-bottom: 25px;
+    font-size: 1.5em;
+    color: #c90076; 
+}
+
+/* Grid-ийг идэвхжүүлж, 5 тэнцүү баганатай болгох */
+.partners-container.grid-layout {
+    display: grid;
+    /* 5 тэнцүү багана үүсгэж, хооронд нь 20px зай авах */
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px; 
+    align-items: center;
+    justify-items: center; /* Элементүүдийг нүднийхээ төвд байрлуулах */
+    max-width: 1200px; /* Контейнерийн дээд хязгаар */
+    margin: 0 auto; /* Төвд байрлуулах */
+}
+
+/* Нэг логоны хайрцаг (Нэг нүдний элемент) */
+.logo-item {
+    padding: 5px;
+    /* Логоны хайрцгийг тэгш өнцөгт эсвэл дөрвөлжин болгохын тулд тохируулж болно */
+    width: 100%; /* Грид нүдний өргөнийг дүүргэх */
+    max-width: 150px; /* Нэг логоны зургийн дээд хэмжээ */
+    height: 100px; /* Бүх логонуудын өндрийг ижил болгохын тулд тогтмол өндөр өгөх */
+    display: flex; /* Логоны зургийг төвлөрүүлэх */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Логоны зураг */
+.logo-item img {
+    max-width: 100%; /* Контейнерийн өргөнд багтаах */
+    max-height: 100%; /* Контейнерийн өндөрт багтаах */
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Хэлбэрийг алдагдуулахгүйгээр багтаах */
+    opacity: 0.7; 
+    transition: opacity 0.3s ease;
+}
+
+.logo-item img:hover {
+    opacity: 1;
+}
+
+/* Жижиг төхөөрөмжид зориулсан тохируулга (жишээ нь, 2 баганатай болгох) */
+@media (max-width: 768px) {
+    .partners-container.grid-layout {
+        /* Дэлгэц жижигрэхэд 2 баганатай болгох (5 мөр үүснэ) */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+    }
+    .logo-item {
+        max-width: 100%;
+        height: 80px;
+    }
+}
+
+/* ... Одоо байгаа бусад CSS кодууд ... */
+
+/* Видеонуудыг 3 баганатай болгох Grid загвар */
+.video-grid {
+    display: grid;
+    /* 3 тэнцүү багана (column) үүсгэх */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; /* Багана болон мөрүүдийн хоорондын зай */
+    max-width: 1000px; /* Контейнерийн дээд хэмжээг жижигрүүлэх (санал) */
+    margin: 0 auto; /* Төвд байрлуулах */
+    padding: 10px 0;
+}
+
+/* Нэг видеоны item */
+.video-item {
+    /* Видеонд харьцааг хадгалахын тулд padding ашиглана (16:9 харьцаа) */
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 = (9 / 16) * 100% = 56.25% */
+    height: 0;
+    overflow: hidden;
+}
+
+/* iframe-ийг item-дээ багтаах */
+.video-item iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Хоосон багана (Гурав дахь багана хоосон байвал) */
+.video-item.empty-col {
+    padding-bottom: 0;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-style: italic;
+    color: #666;
+}
+
+/* Бага төхөөрөмж дээрх зохион байгуулалт (1 баганатай болгох) */
+@media (max-width: 768px) {
+    .video-grid {
+        /* Дэлгэц жижигрэхэд 1 баганатай болгох */
+        grid-template-columns: 1fr; 
+    }
+}
 
 /* ===============================================
    D) DONATE PAGE
