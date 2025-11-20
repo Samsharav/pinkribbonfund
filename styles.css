@@ -269,8 +269,6 @@ footer{
         max-width: 100%;
     }
 }
-
-
 .info-banner,
 .symptoms-card,
 .text-content{
@@ -295,7 +293,7 @@ footer{
   justify-content:flex-start; 
   text-align:center; 
   margin: 0; 
-  border: 1px solid var(--pink-border); /* Цагаан ягаан нимгэн хүрээ */
+  border: 1px solid var(--pink-border);  /* Цагаан ягаан нимгэн хүрээ */
   border-radius: var(--radius-lg);       /* Булангуудыг дугуйлах */
   padding: var(--space-4);               /* Доторх агуулгад зай гаргах */
   box-shadow: var(--shadow-sm);          /* Зөөлөн сүүдэр нэмэх */
@@ -316,7 +314,6 @@ footer{
 .image-container iframe{ width:100%; height:auto; border:1px solid #ddd; border-radius: var(--radius-md); display:block; margin:0 auto; }
 .image-label{ color: var(--pink-primary); font-size: var(--font-scale-3); line-height:1.2; text-align:justify; opacity:.85; margin-bottom:0px; }
 
-
 /* НҮҮР ХУУДАСТ БАЙГАА Donate button (used on Index/Donate) */
 
 @keyframes pulse{ from{ transform: translateY(2px) scale(1);} to{ transform: translateY(2px) scale(1.25);} }
@@ -328,12 +325,14 @@ footer{
 .donate-button:hover{ background: var(--pink-border); transform: scale(1.05); }
 
 /* Floating FB Embed (opt-in) */
+
 .facebook-embed-container{
   display:none; /* show: remove this line */
   position:fixed; top:10px; right:10px; z-index:1000;
   width:360px; height:500px; overflow:hidden; background:#fff;
   border-radius: var(--radius-md); box-shadow: var(--shadow-lg);
 }
+
 .facebook-embed-container iframe{ width:100%; height:100%; border:none; }
 
 /* Responsive Embeds */
