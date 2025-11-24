@@ -314,15 +314,6 @@ footer{
 .image-container iframe{ width:100%; height:auto; border:1px solid #ddd; border-radius: var(--radius-md); display:block; margin:0 auto; }
 .image-label{ color: var(--pink-primary); font-size: var(--font-scale-3); line-height:1.2; text-align:justify; opacity:.85; margin-bottom:0px; }
 
-/* НҮҮР ХУУДАСТ БАЙГАА Donate button (used on Index/Donate) */
-
-@keyframes pulse{ from{ transform: translateY(2px) scale(1);} to{ transform: translateY(2px) scale(1.25);} }
-.donate-button {display:block; max-width: 400px; text-align: center; background: #fff; color:var(--pink-primary); padding: 10px 30px; text-decoration:underline; font-size: var(--font-scale-3); font-weight:bold; border-radius:100px; margin: 0 auto var(--space-3) auto; transition: transform .3s, background-color .3s;}
-.donate-button::before,
-.donate-button::after{ content: "💗""💗""💗"; font-size: 1.0em; display:inline-block; transform: translateY(2px); animation: pulse .6s ease-in-out infinite alternate;}
-.donate-button::before{ margin-right:10px; }
-.donate-button::after{ margin-left:10px; animation-delay: 0.3s; }
-.donate-button:hover{ background: var(--pink-border); transform: scale(1.05); }
 
 /* Floating FB Embed (opt-in) */
 
@@ -488,6 +479,69 @@ margin-top: var(--space-4); /* Дээд талын элементээс зай �
 
 .btn-screening:hover{ background: var(--pink-dark); cursor:pointer; transform: scale(1.05); }
 
+.button-container {
+    /* Энэхүү div нь зөвхөн товчнуудыг агуулна. */
+    display: flex;             /* Flexbox-ийг идэвхжүүлнэ. */
+    justify-content: center;   /* Товчнуудыг төвд байрлуулна. */
+    align-items: center;       /* Босоо тэнхлэгээр голлуулах (хэрэв өөр өндөртэй байвал) */
+    margin-top: 20px;          /* Дээрээс нь зай үүсгэнэ. */
+    margin-bottom: 20px;
+}
+
+
+.donate-button {
+	display:inline-block; 
+	text-align: center; 
+	background: #fff; 
+	color:var(--pink-primary); 
+        border: 1px solid var(--pink-border);	
+        padding: 10px 30px; 
+	text-decoration:none; 
+	font-size: var(--font-scale-3); 
+	font-weight:bold; 
+	border-radius:100px; 
+	margin: 0 var(--space-3); 
+	position: relative;	
+	transition: transform .3s, background-color .3s;}
+	
+@keyframes pulse{ from{ transform: translateY(2px) scale(1);} to{ transform: translateY(2px) scale(1.25);} }
+
+.donate-button::before { 
+    content: "💗"; 
+    font-size: 1.2em; 
+    display:inline-block; 
+    transform: translateY(2px); 
+    animation: pulse .6s ease-in-out infinite alternate;
+    margin-right: 10px; 
+}
+.donate-button::after { 
+    content: "💗"; 
+    font-size: 1.2em; 
+    display:inline-block; 
+    transform: translateY(2px); 
+    animation: pulse .6s ease-in-out infinite alternate;
+    margin-left: 10px; 
+    animation-delay: 0.3s; 
+}
+
+.donate-button:hover {
+    background: var(--pink-border); 
+    cursor: pointer;
+    transform: scale(1.05); 
+}
+
+.collaborate-button {
+    background: #ffffff; 
+    color: var(--pink-primary); 
+    border: 1px solid var(--pink-border); 
+}
+
+/* Hover effect: Baby Blue дэвсгэр өнгө & Цагаан текст */
+.collaborate-button:hover {
+    background: #B2EBF2; /* Baby Blue-тэй ойролцоо Цэнхэр */
+    color: var(--pink-primary); /* Текст: Цагаан */
+    border-color: var(--pink-border); /* Хүрээ: Цэнхэр */
+}
 
 /* ===============================================
    C) ABOUT PAGE
