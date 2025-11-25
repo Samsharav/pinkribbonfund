@@ -533,7 +533,7 @@ margin-top: var(--space-4); /* Дээд талын элементээс зай �
 .collaborate-button {
     background: #ffffff; 
     color: var(--pink-primary); 
-    border: 1px solid var(--pink-border); 
+    border: 1px solid var(--pink-border);
 }
 
 /* Hover effect: Baby Blue дэвсгэр өнгө & Цагаан текст */
@@ -547,8 +547,8 @@ margin-top: var(--space-4); /* Дээд талын элементээс зай �
    C) ABOUT PAGE
    =============================================== */
 .about-text{
-  color: var(--text-main);
-  line-height:1.6;
+  color: var(--pink-primary);
+line-height:1.5;
   margin-bottom: var(--space-4);
   font-size: var(--font-scale-2);
   text-align: justify;
