@@ -86,6 +86,10 @@ main {
 
 /* ---------- A.1) Base Elements & Reset ---------- */
 
+/* Мэдээллийн сан доторх iframe тохиргоо  */
+
+
+
 *{ box-sizing: border-box; }
 html{ font-size: var(--font-base); }
 body{
@@ -138,7 +142,7 @@ p{ margin: var(--space-2) 0; }
 
 .container{
   width: 80%;
-  max-width: 1200px;
+  max-width: 100%;
   margin: var(--space-4) auto;
   padding: var(--space-4);
   background: #fff;
@@ -812,6 +816,16 @@ td:first-child { text-align: left; padding-left: 10px; } /* Зүүн талаа�
     margin-bottom: var(--space-5); /* Доороо зайтай болгов */
 }
 
+/* 2025 11 26 нэмж орсон */
+.point-box, .treatment-card { /* point-box нь treatment-card-аас илүү өргөн хүрээнд ашиглагдаж болно */
+    /* Хэт томрохоос сэргийлэх */
+    max-width: 100% !important; 
+    /* Доторх агуулга хальсан ч гаднах div-ийг нуух */
+    overflow-x: hidden; 
+    /* Жижиг дэлгэц дээр тогтмол өргөнийг хаах (min-width: 0 нь Flexbox-т чухал) */
+    min-width: 0 !important;
+}
+
 /* 2. Картын үндсэн загвар (point-box) */
 .treatment-card {
     flex: 1; 
@@ -1168,7 +1182,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     box-sizing: border-box;
     }
 
-    /* Гарчигт нэмэлт тохируулга */
+  /* Гарчигт нэмэлт тохируулга */
     h1 { font-size: 1.9rem; }
     h2 { font-size: 1.5rem; }
     h3 { font-size: 1.3rem; }
@@ -1180,9 +1194,16 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     .bank-info-details, .qr-code-area {
         flex: 1 1 100%; 
     }
-}
 
+/* 2025 11 26 нэмсэн  */
 
+   .treatment-card iframe {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+    }
+ }
+ 
 /* 3. Mobile Mode: max-width 650px (Багц товчлуур болон жагсаалтын зайны тохиргоо) */
 @media (max-width: 650px){
     /* Контейнерийн өргөн болон Nav Menu-г босоо болгох (Хэвээр) */
@@ -1316,4 +1337,10 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     .project-content h3 {
         font-size: 1.1rem !important;
     }
+
+/* 2025 11 26 нэмсэн  */
+    .treatment-card {
+        padding: var(--space-3) !important; /* 15px-ээр багасгах */
+    }
 }
+
