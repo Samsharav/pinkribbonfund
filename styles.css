@@ -262,13 +262,6 @@ footer{
     max-width: calc(52% - var(--space-4) / 2);
 }
 
-/* 768px-аас бага үед 100% өргөнтэй болгох (Media Query-д байгааг баталгаажуулах) */
-@media (max-width: 768px) {
-    .flex-45-item, .flex-55-item {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
-}
 .info-banner,
 .symptoms-card,
 .text-content{
@@ -624,18 +617,7 @@ line-height:1.5;
     opacity: 1;
 }
 
-/* Жижиг төхөөрөмжид зориулсан тохируулга (жишээ нь, 2 баганатай болгох) */
-@media (max-width: 768px) {
-    .partners-container.grid-layout {
-        /* Дэлгэц жижигрэхэд 2 баганатай болгох (5 мөр үүснэ) */
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 15px;
-    }
-    .logo-item {
-        max-width: 100%;
-        height: 80px;
-    }
-}
+
 
 /* ... Одоо байгаа бусад CSS кодууд ... */
 
@@ -681,13 +663,6 @@ line-height:1.5;
     color: #666;
 }
 
-/* Бага төхөөрөмж дээрх зохион байгуулалт (1 баганатай болгох) */
-@media (max-width: 768px) {
-    .video-grid {
-        /* Дэлгэц жижигрэхэд 1 баганатай болгох */
-        grid-template-columns: 1fr; 
-    }
-}
 
 /* ===============================================
    D) DONATE PAGE
@@ -806,16 +781,6 @@ line-height:1.5;
     margin: 0;
 }
 
-/* Утасны дэлгэцийн тохируулга */
-@media (max-width: 768px) {
-    .bank-info-wrapper {
-        flex-direction: column; /* Утасны дэлгэц дээр нэг багана болгох */
-    }
-
-    .bank-info-details, .qr-code-area {
-        flex: 1 1 100%; /* Бүх өргөнийг эзэлнэ */
-    }
-}
 
 .source-note {
     text-align: right;
@@ -1028,152 +993,6 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 }
 
 
-/* ===============================================
-    H) MEDIA QUERIES (Responsive Behavior)
-    =============================================== */
-
-/* 📱 Ultra-Small Screens (iPhone 14, SE, Mini-утаснууд): max-width 450px - НЭМЭГДЭЛ */
-@media (max-width: 450px){
-    /* 1. Бүхэл элементийн зайг багасгах */
-    .container{ 
-        width:98%; 
-        padding: var(--space-2); /* 650px-ийнхаас багасгав */
-    }
-    
-    /* 2. Фонтын хэмжээг жижигрүүлэх */
-    nav a{ 
-        font-size: 0.9rem; /* Бага зэрэг жижигрүүлэв */
-    }
-
-    /* 3. Жагсаалтын (Symptoms List) зайг нарийсгах */
-    .symptoms-list li{
-        padding-left: 35px; /* 50px-ийг 35px болгож багасгаснаар текстэд илүү зай үлдэнэ */
-        font-size: 0.95rem; 
-    }
-    
-    /* 4. Товч дээрх зайг багасгах (Хэтэрхий том харагдаж байвал) */
-    .donate-button, .btn-screening {
-        padding: 12px 5px !important; 
-    }
-    
-    .donate-button::before,
-    .donate-button::after,
-    .btn-screening::before {
-        font-size: 0.9em; /* Icon/Text-ийн хэмжээг багасгах */
-    }
-
-    /* 5. Донор болон QR кодыг бүрэн эзлүүлэх */
-    .option, .qr-box {
-        max-width: 98%;
-        min-width: 98%;
-    }
-}
-
-
-/* Mobile Mode: max-width 650px (Үндсэн тохиргоо хэвээр) */
-@media (max-width: 650px){
-    .container{ width:95%; padding: var(--space-3); }
-    nav{ padding:10px 0; }
-    nav a{ display:block; margin:5px auto; width:90%; font-size: 1rem; }
-    .team-member{ flex: 1 1 90%; max-width:90%; }
-
-/* Treatment Card доторх чухал мэдээллийн зайг багасгах */
-    .treatment-card strong[style] {
-        margin-bottom: 10px !important; /* 15px-ийг 10px болгож багасгана */
-    }
-
-.main-callout, .symptoms-card, .symptoms-cta {
-    display: block !important; 
-    }
-
-.two-col-block > *{
-    flex: 1 1 100%;
-    max-width: 100%;
-    }
-
-.donate-button, .btn-screening {
-display: block; 
-width: 100% !important;
-max-width: 100% !important;
-margin: var(--space-3) auto; 
-    }
-
-.donate-button{
-    padding: 15px 10px !important;}
-
-.btn-screening { 
-    padding: 15px 10px; 
-    margin-top: var(--space-3); 
-    margin-bottom: var(--space-3); 
-    }
-.donate-button::before,
-.donate-button::after{ 
-    font-size: 1em; 
-    margin: 0 5px; 
-    }
-
-.btn-screening::before {
-    font-size: 1em;
-    margin: 0 5px;
-    }
-.symptoms-list{ padding-left:20px; }
-.symptoms-list li{
-    padding-left: 50px; 
-    }
-.symptoms-list li::before{
-    left: 0; 
-    }
-
-.donation-options {
-    flex-direction: column;
-    align-items: center;
-    }
-
-    .option {
-    max-width: 90%;
-    min-width: 90%;
-    margin-bottom: var(--space-3);
-    }
-
-    .qr-box {
-    max-width: 90%;
-    margin-bottom: var(--space-3);
-    }
-}
-
-/* Tablet/Structural Adjustments: max-width 768px */
-@media (max-width: 768px){
-    .two-col-block { display: block; }
-    .two-col-block > *{ flex: 1 1 100%; }
-    .image-container iframe{ height:350px; }
-    .register-button{ max-width:100%; }
-
-    .image-container iframe,
-    .fb-embed iframe {
-    width: 100% !important;
-    height: auto !important;
-    }
-
-    .help-callout {
-    margin-top: 20px;
-    width: 100%;
-    box-sizing: border-box;
-    }
-}
-
-/* Tablet/Small Desktop Mode: max-width 950px */
-@media (max-width: 950px){
-    .container{ width:90%; padding: var(--space-4); }
-    .flex-row, .qr-section, .contact-grid{ flex-direction:column; }
-    .flex-item, .qr-box, .contact-info, .map-container{ flex: 1 1 100%; width:100%; }
-
-    .donation-options{ gap: var(--space-3); }
-    .option{ max-width: 100%; }
-    .team-grid{ justify-content:space-around; }
-    .team-member{ flex: 1 1 45%; max-width:45%; }
-    .facebook-embed-container{ display:none; }
-}
-
 
 /* ===============================================
    ТӨСӨЛ, СТАТИСТИК (GRID/FLEXBOX) - ЭЦСИЙН БАТАЛГААТАЙ ЗАСВАР
@@ -1299,3 +1118,202 @@ margin: var(--space-3) auto;
     background-color: #a7144e;
 }
  
+/* ===============================================
+    H) MEDIA QUERIES (Responsive Behavior) 2025 11 26
+    =============================================== */
+
+/* 1. Tablet/Small Desktop Mode: max-width 950px (Зөвхөн бүтцийн өөрчлөлт) */
+@media (max-width: 950px){
+    .container{ width:90%; padding: var(--space-4); }
+    .flex-row, .qr-section, .contact-grid{ flex-direction:column; }
+    .flex-item, .qr-box, .contact-info, .map-container{ flex: 1 1 100%; width:100%; }
+
+    .donation-options{ gap: var(--space-3); }
+    .option{ max-width: 100%; }
+    .team-grid{ justify-content:space-around; }
+    .team-member{ flex: 1 1 45%; max-width:45%; }
+    .facebook-embed-container{ display:none; }
+}
+
+
+/* 2. Tablet/Structural Adjustments: max-width 768px (Фонтыг бага зэрэг жижигрүүлнэ) */
+@media (max-width: 768px){
+
+    /* СУУРЬ ФОНТЫН ХЭМЖЭЭГ 16px-ээс 15px болгож БАГАСГАХ */
+    :root {
+        --font-base: 15px; 
+        --font-scale-4: 1.3rem; /* h3, товчлуурын гарчиг */
+        --font-scale-5: 1.5rem; /* h2 */
+    }
+    html {
+        font-size: var(--font-base);
+    }
+
+    /* Бүтцийн үндсэн өөрчлөлт */
+    .two-col-block { display: block; }
+    .two-col-block > *{ flex: 1 1 100%; }
+    
+    .image-container iframe{ height:350px; }
+    .register-button{ max-width:100%; }
+
+    .image-container iframe,
+    .fb-embed iframe {
+    width: 100% !important;
+    height: auto !important;
+    }
+
+    .help-callout {
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    }
+
+    /* Гарчигт нэмэлт тохируулга */
+    h1 { font-size: 1.9rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.3rem; }
+
+    /* Банкны мэдээлэл (QR-ийн хажууд) */
+    .bank-info-wrapper {
+        flex-direction: column; 
+    }
+    .bank-info-details, .qr-code-area {
+        flex: 1 1 100%; 
+    }
+}
+
+
+/* 3. Mobile Mode: max-width 650px (Багц товчлуур болон жагсаалтын зайны тохиргоо) */
+@media (max-width: 650px){
+    /* Контейнерийн өргөн болон Nav Menu-г босоо болгох (Хэвээр) */
+    .container{ width:95%; padding: var(--space-3); }
+    nav{ padding:10px 0; }
+    nav a{ display:block; margin:5px auto; width:90%; font-size: 1rem; }
+    .team-member{ flex: 1 1 90%; max-width:90%; }
+    .treatment-card strong[style] {
+        margin-bottom: 10px !important; 
+    }
+
+    .main-callout, .symptoms-card, .symptoms-cta {
+        display: block !important; 
+    }
+
+    /* Товчлууруудыг бүрэн дэлгэцээр ашиглах */
+    .donate-button, .btn-screening {
+        display: block; 
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: var(--space-3) auto; 
+        padding: 15px 10px !important;
+    }
+    .donate-button::before, .donate-button::after, .btn-screening::before { 
+        font-size: 1em; 
+        margin: 0 5px; 
+    }
+    
+    /* Жагсаалтын зай */
+    .symptoms-list{ padding-left:20px; }
+    .symptoms-list li{
+        padding-left: 50px; 
+    }
+    .symptoms-list li::before{
+        left: 0; 
+    }
+
+    /* Хандив/QR-ийн хэсгийг босоо болгох */
+    .donation-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    .option, .qr-box {
+        max-width: 90%;
+        min-width: 90%;
+        margin-bottom: var(--space-3);
+    }
+}
+
+
+/* ===============================================
+   I) ULTRA-SMALL MOBILE FONT ADJUSTMENTS (450px-ээс бага)
+   Жижиг дэлгэц дээр үсгийг БҮР ЖИЖИГ болгох тохиргоо
+   =============================================== */
+
+@media (max-width: 450px) {
+
+    /* 1. СУУРЬ ХЭМЖЭЭГ ЭРС БАГАСГАХ (15px-ээс 13px болгоно) */
+    :root {
+        --font-base: 13px; /* Энэ нь 768px-ийн 15px-ийн тохиргоог дарж, БҮХ үсгийг жижигрүүлнэ. */
+        --font-scale-1: 0.9rem; 
+        --font-scale-2: 1.0rem; 
+        --font-scale-3: 1.1rem; 
+        --font-scale-4: 1.2rem; 
+        --font-scale-5: 1.4rem; 
+        
+        /* Бүхэл элементийн зайг багасгах */
+        --space-4: 15px; 
+        --space-5: 20px;
+    }
+    html {
+        font-size: var(--font-base);
+    }
+    
+    .container{ 
+        width:98%; 
+        padding: var(--space-2); 
+    }
+
+    /* 2. ГАРЧИГ, ТЕКСТИЙГ ЖИЖИГРҮҮЛЭХ */
+    h1 { font-size: 1.6rem !important; margin: 10px 0; }
+    h2 { font-size: 1.4rem !important; padding-bottom: 5px; }
+    h3 { font-size: 1.2rem !important; }
+    
+    /* Үндсэн текстүүд (p, li) */
+    p, .about-text, .impact-text, li {
+        font-size: 1rem !important; /* 13px */
+        line-height: 1.4; 
+    }
+
+    /* Цэсний (Nav) текст */
+    nav a {
+        font-size: 0.9rem !important; 
+        padding: 8px 5px !important;
+    }
+
+    /* Том статистикийн тоо */
+    .statistic h3 { font-size: 2.2em !important; } 
+    .statistic p { font-size: 0.9rem !important; }
+
+    /* Товчлуурууд */
+    .donate-button, .btn-screening, .register-button, .submit-button {
+        font-size: 1rem !important; 
+        padding: 10px 0 !important; 
+    }
+    .donate-button::before, .donate-button::after, .btn-screening::before {
+        font-size: 0.9em; 
+    }
+
+    /* Шинж тэмдгийн жагсаалт */
+    .symptoms-list li {
+        font-size: 0.95rem !important;
+        padding-left: 35px; 
+        margin: 5px 0;
+    }
+    .symptoms-list li::before {
+        width: 24px; 
+        height: 24px;
+        font-size: 0.8rem;
+        left: 0;
+    }
+
+    /* Банкны мэдээлэл (IBAN) */
+    .detail-iban {
+        font-size: 1.1em !important; 
+        padding: 5px;
+        word-break: break-all; 
+    }
+    
+    /* Төслийн гарчиг */
+    .project-content h3 {
+        font-size: 1.1rem !important;
+    }
+}
