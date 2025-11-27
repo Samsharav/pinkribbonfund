@@ -287,7 +287,8 @@ footer{
 .image-container{ 
   display:flex; 
   flex-direction:column; 
-  justify-content:flex-start; 
+align-items:center;  
+justify-content:center;
   text-align:center; 
   margin: 0; 
   border: 1px solid var(--pink-border);  /* Цагаан ягаан нимгэн хүрээ */
@@ -533,11 +534,22 @@ margin-top: var(--space-4); /* Дээд талын элементээс зай �
     border: 1px solid var(--pink-border);
 }
 
-/* Hover effect: Baby Blue дэвсгэр өнгө & Цагаан текст */
 .collaborate-button:hover {
-    background: #B2EBF2; /* Baby Blue-тэй ойролцоо Цэнхэр */
-    color: var(--pink-primary); /* Текст: Цагаан */
-    border-color: var(--pink-border); /* Хүрээ: Цэнхэр */
+    background: #B2EBF2; 
+    color: var(--pink-primary); 
+    border-color: var(--pink-border); 
+}
+
+.request-help-button {
+    background-color: #ffffff; /* Цагаан фонт */
+    border: 1px solid var(--pink-border);
+    color: var(--pink-primary);
+}
+
+.request-help-button:hover {
+    background-color: #A5D6A7; 
+    border-color: var(--pink-border);
+    color: var(--pink-primary);
 }
 
 /* ===============================================
@@ -621,8 +633,6 @@ line-height:1.5;
     opacity: 1;
 }
 
-
-
 /* ... Одоо байгаа бусад CSS кодууд ... */
 
 /* Видеонуудыг 3 баганатай болгох Grid загвар */
@@ -667,6 +677,62 @@ line-height:1.5;
     color: #666;
 }
 
+/* "АЛСЫН ХАРАА" хэсгийг агуулсан хайрцаг */
+.vision-box {
+    width: 80%; /* Контейнерийн өргөн */
+    max-width: 800px; /* Хамгийн их өргөн (том дэлгэц дээр хэт томрохоос сэргийлнэ) */
+    margin: 20px auto; /* Дээд, доод талаас зай авч, төвд байрлуулна */
+    padding: 30px; /* Дотор талаас зай авах */
+    background: linear-gradient(135deg, #fce4ec 0%, #ffebee 100%); /* Зөөлөн ягаан өнгийн градиент */
+    border-radius: 50px; /* Булангуудыг бөөрөнхийлөх */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Зөөлөн сүүдэр нэмэх */
+    text-align: center; /* Доторх текстийг төвд байрлуулах */
+    font-family: 'Arial', sans-serif; /* Илүү уншигдахуйц фонт сонгох */
+    color: #4A4A4A; /* Ерөнхий текстний өнгө */
+    transition: all 0.3s ease-in-out;
+}
+
+/* "АЛСЫН ХАРАА" гарчгийн загвар */
+.vision-header {
+    font-size: 2.0em; /* Гарчгийн фонтын хэмжээг томруулах */
+    font-weight: 700; /* Тодруулах */
+    color: #AD1457; /* Тод ягаан өнгө өгөх */
+    margin-bottom: 0px; /* Доод талаас зай авах */
+    margin-top: 0px;    
+    position: relative;
+    padding-bottom: 10px; /* Доод хүрээний зай */
+}
+
+.vision-header::after { /* Гарчгийн доор зураас нэмэх */
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 100px; /* Зураасны урт */
+    height: 3px; /* Зураасны зузаан */
+    background-color: #AD1457;
+    border-radius: 2px;
+}
+
+/* "Хөхний хорт хавдраас..." гэсэн үндсэн агуулгын загвар */
+.vision-content {
+    font-size: 1.2em; /* Агуулгын фонтын хэмжээ */
+    line-height: 1.5; /* Мөр хоорондын зайг нэмэгдүүлж уншихад хялбар болгох */
+    color: #616161; /* Зөөлөн саарал өнгө */
+    margin-bottom: 00; /* Доод зайг арилгах */
+}
+
+.vision-box:hover {
+    /* 1. Илүү тод сүүдэр */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    
+    /* 2. Бага зэрэг томруулах (жишээ нь, 1.01 дахин) */
+    transform: scale(1.01);
+    
+    /* 3. Хөдөлгөөнийг түр зогсоох (сонголттой, хэрэглэгчид анхаарлаа төвлөрүүлэх боломж олгоно) */
+    animation-play-state: paused;
+}
 
 /* ===============================================
    D) DONATE PAGE
@@ -826,6 +892,15 @@ td:first-child { text-align: left; padding-left: 10px; } /* Зүүн талаа�
     min-width: 0 !important;
 }
 
+/* Зөвхөн хоёр классыг хоёуланг нь агуулсан элементийн өргөнийг 90% болгох */
+
+.point-box.treatment-card {
+    width: 90%; /* Өргөнийг дэлгэцийн 90% болгож тохируулав */
+    margin: 20px auto; /* Төвд байрлуулах (Дээр, доор 20px, хажуу тал авто) */
+    /* Хэрэв таны point-box-д Padding байгаа бол үүнийг нэмэх нь зүйтэй */
+    box-sizing: border-box; 
+}
+
 /* 2. Картын үндсэн загвар (point-box) */
 .treatment-card {
     flex: 1; 
@@ -939,6 +1014,15 @@ td:first-child { text-align: left; padding-left: 10px; } /* Зүүн талаа�
   justify-content: center;
 }
 
+.contact-info p a {
+    color: #c2185b;
+    text-decoration: none; 
+}
+
+.contact-info p a:hover {
+    text-decoration: underline; /* Хулгана аваачихад зураас гаргах */
+}
+
 .help-callout{
   background:#fff5fa;
   border:2px solid var(--pink-primary);
@@ -969,11 +1053,72 @@ overflow-wrap: break-word;
 
 /* Contact Page specific iframe/FB embed styles */
 .image-container iframe {
-  aspect-ratio: 1 /1.2;
-  min-width: 100%;
+width: 100% !important;  
+max-width: 500px;
+height: 600px;
   border: none;
 }
 
+/* Холбоо барих хэсэгт орсон зураг */
+.text-content {
+    position: relative; /* Үүнийг figure-ийн absolute position-д зориулж set хийнэ */
+    overflow: hidden; /* Figure-ийн гаднах зүйлийг нуух */
+    padding: 10px; /* Дотоод зай */
+}
+
+/* Холбоо барих мэдээллийн хэсэг */
+.contact-info {
+    position: relative;
+    z-index: 10; /* Текстийг зургийн дээгүүр байрлуулах */
+    width: 100%; /* Текстийн хэсгийг зургийн хажууд зайтай үлдээх */
+    padding-left: 10px;
+    background-color: rgba(255, 255, 255, 0.9); /* Фонд цайвар өнгө өгч, зурагнаас ялгаруулна */
+    border-radius: 8px;
+    margin-bottom: 20px; /* Доорх зурагнаас зай авах */
+}
+
+/* Зургийн хүрээ (Figure tag) */
+.contact-image {
+    position: relative; /* 👈 Absolute-ийг relative болгож, зургийг блок хэлбэрт шилжүүлэв */
+    margin: 20px 0;
+    z-index: 5; 
+    display: flex;
+    justify-content: center; /* Зургийг хэвтээгээр голлуулах */
+    align-items: center; 
+    text-align: center;
+}
+
+/* Зураг өөрөө */
+.contact-image img {
+    max-width: 60%;
+    max-height: 60%;
+    object-fit: contain; /* Зургийг муутгалгүйгээр хүрээ дотор багтаах */
+    display: block;
+opacity: 0.8; /* 50% тунгалаг болгох (0.0 - 1.0 хооронд) */
+    
+    /* Гоёомсог загварууд */
+    border-radius: 50%; /* Хүрээг дугуйлах */
+    box-shadow: 0 4px 50px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.contact-image img:hover {
+    transform: scale(1.05); /* Зургийг бага зэрэг томруулах */
+    box-shadow: 0 8px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Холбоо барих мэдээллийн текст */
+.contact-info p {
+    margin-bottom: 10px;
+    line-height: 1.0;
+}
+
+/* Зургийн icon болон bold text-ийн зайг тохируулах */
+.contact-info .icon {
+    margin-right: 0px;
+}
 
 /* ===============================================
    G) APPLICATION PAGE (Form)
@@ -1167,15 +1312,21 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     .two-col-block { display: block; }
     .two-col-block > *{ flex: 1 1 100%; }
     
-    .image-container iframe{ height:350px; }
-    .register-button{ max-width:100%; }
+    /* Iframe-ийг агуулж буй хайрцгийг голлуулах */
+.image-container {
+    text-align: center; /* 👈 Энэ нь iframe-ийг голлуулна */
+    margin: 0 auto; /* 👈 Хайрцгийг өөрийг нь голлуулна (хэрэв 100% биш бол) */
 
     .image-container iframe,
     .fb-embed iframe {
-    width: 100% !important;
+    width: 95% !important; /* 100% биш 95% болгосноор голлох зай үүснэ */
+    max-width: 400px; /* Iframe-ийг хэт томрохоос сэргийлэх */
     height: auto !important;
     }
-
+    
+    .image-container iframe{ height:350px; }
+    .register-button{ max-width:100%; }
+   
     .help-callout {
     margin-top: 20px;
     width: 100%;
@@ -1342,5 +1493,4 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     .treatment-card {
         padding: var(--space-3) !important; /* 15px-ээр багасгах */
     }
-}
 
