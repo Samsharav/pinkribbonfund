@@ -88,8 +88,6 @@ main {
 
 /* Мэдээллийн сан доторх iframe тохиргоо  */
 
-
-
 *{ box-sizing: border-box; }
 html{ font-size: var(--font-base); }
 body{
@@ -245,26 +243,20 @@ footer{
     font-weight: 700;
 }
 
+.flex-row{display:flex; flex-wrap:wrap; gap: var(--space-4); margin-top: var(--space-4); justify-content: space-between; }
 
-
-.flex-row{ display:flex; flex-wrap:wrap; gap: var(--space-4); margin-top: var(--space-4); justify-content: space-between; }
-
+/* Үндсэн нүүр хэсэгт хамаарна */
 .two-col-block{ display:flex; flex-wrap:wrap; gap: var(--space-4); align-items: stretch; }
 .two-col-block > *{ flex: 1 1 48%; min-width:0; }
 
 .flex-item{ flex:1 1 48%; min-width:0; }
 
-.flex-45-item {
-    flex: 0 0 calc(50% - var(--space-4) / 2); 
-    max-width: calc(50% - var(--space-4) / 2);
-}
 
-.flex-55-item {
-    flex: 0 0 calc(50% - var(--space-4) / 2);
-    max-width: calc(50% - var(--space-4) / 2);
-}
+/* Холбоо барих хэсэгт хамаарна */
+.flex-45-item { flex: 0 0 calc(35% - var(--space-4) / 2); max-width: calc(35% - var(--space-4) / 2); align-self: flex-start; }
+.flex-55-item { flex: 0 0 calc(65% - var(--space-4) / 2); max-width: calc(65% - var(--space-4) / 2); }
 
-.info-banner,
+/* Үндсэн нүүр хэсэгт хамаарна */
 .symptoms-card,
 .text-content{
   width: 100%;
@@ -276,17 +268,15 @@ footer{
   padding: var(--space-4);
   box-shadow: var(--shadow-sm);
 }
-.info-banner h3,
 .symptoms-card h2{ font-size: var(--font-scale-5); margin: var(--space-4) 0; }
 .symptoms-card{ display:flex; flex-direction:column; }
 .text-content{ justify-content:center; }
 .text-content p:last-child { margin-bottom: 0; }
-
 .image-container{ 
   display:flex; 
   flex-direction:column; 
-align-items:center;  
-justify-content:center;
+  align-items:center;  
+  justify-content:center;
   text-align:center; 
   margin: 0; 
   border: 1px solid var(--pink-border);  /* Цагаан ягаан нимгэн хүрээ */
@@ -294,32 +284,26 @@ justify-content:center;
   padding: var(--space-4);               /* Доторх агуулгад зай гаргах */
   box-shadow: var(--shadow-sm);          /* Зөөлөн сүүдэр нэмэх */
 }
-
-/* НҮҮР ХУУДАСТ БАЙГАА Зургийг 50% томруулна */
-
-.image-container img { width:100%; height:auto; border-radius: var(--radius-lg); transition: transform 0.8s ease-in-out, box-shadow 0.3s ease-in-out; }
-
-.zoomable-img {cursor: zoom-in; /* Хулганы курсорыг өөрчилж, томруулж болно гэсэн санаа өгөх */ }
-
-.static-img { transition: none !important; cursor: default !important; }
-
-.static-img:hover {  transform: none !important; }
-
-.image-container img:hover {  transform: scale(1.5); box-shadow: var(--shadow-lg); /* Томрох үед сүүдэр нэмж тодруулна */
+.image-container img { 
+  width:100%; 
+  height:auto; 
+  border-radius: var(--radius-lg); 
+  transition: transform 0.8s ease-in-out, 
+  box-shadow 0.3s ease-in-out;
 }
-.image-container iframe{ width:100%; height:auto; border:1px solid #ddd; border-radius: var(--radius-md); display:block; margin:0 auto; }
+.zoomable-img { cursor: zoom-in; }
+.static-img { transition: none !important; cursor: default !important; }
+.static-img:hover {  transform: none !important; }
+.image-container img:hover {  transform: scale(1.1); box-shadow: var(--shadow-lg); }
+.image-container iframe{ width:100%; height:auto; border:100px solid #ddd; border-radius: var(--radius-md); display:block; margin:0 auto; }
 .image-label{ color: var(--pink-primary); font-size: var(--font-scale-3); line-height:1.2; text-align:justify; opacity:.85; margin-bottom:0px; }
 
-
-/* Floating FB Embed (opt-in) */
-
+/* Үндсэн нүүр хэсэгт нууцалсан Facebook хамаарна */
 .facebook-embed-container{
-  display:none; /* show: remove this line */
+  display:none; /* show эсвэл none */
   position:fixed; top:10px; right:10px; z-index:1000;
   width:360px; height:500px; overflow:hidden; background:#fff;
-  border-radius: var(--radius-md); box-shadow: var(--shadow-lg);
-}
-
+  border-radius: var(--radius-md); box-shadow: var(--shadow-lg); } 
 .facebook-embed-container iframe{ width:100%; height:100%; border:none; }
 
 /* Responsive Embeds */
@@ -437,6 +421,7 @@ animation: slideIn 0.8s ease-out forwards; /* Анимацийг хэрэглэ�
 z-index: 10;
 animation: blinkPulse 1.8s ease-in-out infinite;
 }
+
 /* === НЭМЭЛТ: Дарааллын хойшлуулалт (Sequential Delay) === */
 /* Зөвхөн li::before-д хэрэглэнэ. 0.2 секундын зайтай анивчих дараалал үүсгэнэ. */
 .symptoms-list li:nth-child(1)::before { animation-delay: 0.1s; }
@@ -483,7 +468,6 @@ margin-top: var(--space-4); /* Дээд талын элементээс зай �
     margin-top: 20px;          /* Дээрээс нь зай үүсгэнэ. */
     margin-bottom: 20px;
 }
-
 
 .donate-button {
 	display:inline-block; 
@@ -1052,9 +1036,8 @@ overflow-wrap: break-word;
 /* Contact Page specific iframe/FB embed styles */
 .image-container iframe {
 width: 100% !important;  
-max-width: 500px;
-height: 600px;
-  border: none;
+max-width: 100% !important;
+min-height: 500px;
 }
 
 /* Холбоо барих хэсэгт орсон зураг */
@@ -1078,7 +1061,7 @@ height: 600px;
 /* Зургийн хүрээ (Figure tag) */
 .contact-image {
     position: relative; /* 👈 Absolute-ийг relative болгож, зургийг блок хэлбэрт шилжүүлэв */
-    margin: 20px 0;
+    margin: 10px 0;
     z-index: 5; 
     display: flex;
     justify-content: center; /* Зургийг хэвтээгээр голлуулах */
@@ -1088,8 +1071,8 @@ height: 600px;
 
 /* Зураг өөрөө */
 .contact-image img {
-    max-width: 60%;
-    max-height: 60%;
+    max-width: 40%;
+    max-height:40%;
     object-fit: contain; /* Зургийг муутгалгүйгээр хүрээ дотор багтаах */
     display: block;
 opacity: 0.8; /* 50% тунгалаг болгох (0.0 - 1.0 хооронд) */
@@ -1278,20 +1261,6 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 /* ===============================================
     H) MEDIA QUERIES (Responsive Behavior) 2025 11 26
     =============================================== */
-@media (min-width: 992px) {
-  .two-col-block {
-    gap: 20px;          /* хэрэв gap огт байхгүй бол л нэмнэ */
-  }
-  .two-col-block .flex-45-item {
-    flex: 0 0 48%;
-    max-width: 48%;
-  }
-  .two-col-block .flex-55-item {
-    flex: 0 0 48%;
-    max-width: 48%;
-  }
-}
-
 @media (max-width: 950px){
     .container{ width:90%; padding: var(--space-4); }
     .flex-row, .qr-section, .contact-grid{ flex-direction:column; }
@@ -1325,26 +1294,15 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         flex: 1 1 100%; 
     }
 
-    /* Iframe-ийг агуулж буй хайрцгийг голлуулах */
-.image-container {
-    text-align: center; /* 👈 Энэ нь iframe-ийг голлуулна */
-    margin: 0 auto; /* 👈 Хайрцгийг өөрийг нь голлуулна (хэрэв 100% биш бол) */
+/* Iframe-ийг агуулж буй хайрцгийг голлуулах */
 
-    .image-container iframe,
-    .fb-embed iframe {
-    width: 95% !important; /* 100% биш 95% болгосноор голлох зай үүснэ */
-    max-width: 400px; /* Iframe-ийг хэт томрохоос сэргийлэх */
-    height: auto !important;
-    }
+.image-container {text-align: center;}
+.image-container iframe {width: 95% !important; max-width: none !important; min-height: 500px;}
+     
     
-    .image-container iframe{ height:350px; }
-    .register-button{ max-width:100%; }
+.register-button{ max-width:100%; }
    
-    .help-callout {
-    margin-top: 20px;
-    width: 100%;
-    box-sizing: border-box;
-    }
+    .help-callout {margin-top: 20px; width: 100%; box-sizing: border-box;}
 
   /* Гарчигт нэмэлт тохируулга */
     h1 { font-size: 1.9rem; }
