@@ -255,15 +255,13 @@ footer{
 .flex-item{ flex:1 1 48%; min-width:0; }
 
 .flex-45-item {
-    /* 45% өргөнөөс gap-ийн хагасыг хасч тооцно. Энэ нь 45% + gap + 50% = 100% болох боломжтой */
-    flex: 0 0 calc(48% - var(--space-4) / 2); 
-    max-width: calc(48% - var(--space-4) / 2);
+    flex: 0 0 calc(50% - var(--space-4) / 2); 
+    max-width: calc(50% - var(--space-4) / 2);
 }
 
 .flex-55-item {
-    /* 55% өргөнөөс gap-ийн хагасыг хасч тооцно */
-    flex: 0 0 calc(52% - var(--space-4) / 2);
-    max-width: calc(52% - var(--space-4) / 2);
+    flex: 0 0 calc(50% - var(--space-4) / 2);
+    max-width: calc(50% - var(--space-4) / 2);
 }
 
 .info-banner,
@@ -1281,7 +1279,6 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     H) MEDIA QUERIES (Responsive Behavior) 2025 11 26
     =============================================== */
 
-/* 1. Tablet/Small Desktop Mode: max-width 950px (Зөвхөн бүтцийн өөрчлөлт) */
 @media (max-width: 950px){
     .container{ width:90%; padding: var(--space-4); }
     .flex-row, .qr-section, .contact-grid{ flex-direction:column; }
@@ -1294,8 +1291,6 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     .facebook-embed-container{ display:none; }
 }
 
-
-/* 2. Tablet/Structural Adjustments: max-width 768px (Фонтыг бага зэрэг жижигрүүлнэ) */
 @media (max-width: 768px){
 
     /* СУУРЬ ФОНТЫН ХЭМЖЭЭГ 16px-ээс 15px болгож БАГАСГАХ */
@@ -1312,6 +1307,11 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     .two-col-block { display: block; }
     .two-col-block > *{ flex: 1 1 100%; }
     
+    .flex-45-item, .flex-55-item {
+    max-width: 100%; 
+    flex: 1 1 100%; 
+    }
+
     /* Iframe-ийг агуулж буй хайрцгийг голлуулах */
 .image-container {
     text-align: center; /* 👈 Энэ нь iframe-ийг голлуулна */
@@ -1356,6 +1356,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
  }
  
 /* 3. Mobile Mode: max-width 650px (Багц товчлуур болон жагсаалтын зайны тохиргоо) */
+
 @media (max-width: 650px){
     /* Контейнерийн өргөн болон Nav Menu-г босоо болгох (Хэвээр) */
     .container{ width:95%; padding: var(--space-3); }
@@ -1494,3 +1495,4 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         padding: var(--space-3) !important; /* 15px-ээр багасгах */
     }
 
+}
