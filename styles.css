@@ -1278,6 +1278,19 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 /* ===============================================
     H) MEDIA QUERIES (Responsive Behavior) 2025 11 26
     =============================================== */
+@media (min-width: 992px) {
+  .two-col-block {
+    gap: 20px;          /* хэрэв gap огт байхгүй бол л нэмнэ */
+  }
+  .two-col-block .flex-45-item {
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
+  .two-col-block .flex-55-item {
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
+}
 
 @media (max-width: 950px){
     .container{ width:90%; padding: var(--space-4); }
@@ -1308,8 +1321,8 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     .two-col-block > *{ flex: 1 1 100%; }
     
     .flex-45-item, .flex-55-item {
-    max-width: 100%; 
-    flex: 1 1 100%; 
+        max-width: 100%; 
+        flex: 1 1 100%; 
     }
 
     /* Iframe-ийг агуулж буй хайрцгийг голлуулах */
