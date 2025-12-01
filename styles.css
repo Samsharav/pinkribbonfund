@@ -1327,7 +1327,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 
 #google-chart {
         height: 450px !important; 
-        min-width: 800px !important; 
+        min-width: 900px !important; 
         width: 100% !important;
         display: block !important;
         margin-bottom: 0 !important; 
@@ -1417,7 +1417,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         margin-bottom: var(--space-3);
     }
 
-#google-chart { height: 400px !important; min-width: 800px !important; }
+#google-chart { height: 400px !important; min-width: 900px !important; }
     
 #gco-heatmap { height: 600px !important; }
 
@@ -1510,7 +1510,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         font-size: 1.1rem !important;
     }
 
-#google-chart { height: 400px !important; min-width: 800px !important; }
+#google-chart { height: 400px !important; min-width: 900px !important; }
     
 #gco-heatmap { height: 650px !important; }
 
