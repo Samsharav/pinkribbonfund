@@ -1375,7 +1375,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     }
     .treatment-card .source-note {
         margin: 0 !important; 
-        margin-top: -60px !important;
+        margin-top: -40px !important;
       
 	padding-top: 3px !important;
         padding-bottom: var(--space-2); /* Доод талын зайг var(--space-2) буюу 10px болгох */
