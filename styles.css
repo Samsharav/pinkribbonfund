@@ -440,7 +440,7 @@ padding-top: var(--space-1); /* Зурааснаас дээш текст хүр�
 margin-top: var(--space-4); /* Дээд талын элементээс зай авах */}
 
 .btn-screening{
-  display:block; background: var(--pink-primary); color:#fff;
+  display:inline-flex; align-items: center; justify-content: center; background: var(--pink-primary); color:#fff;
   padding: 15px 0; width: 100%; text-decoration:none; font-size: var(--font-scale-3);
   font-weight:bold; border-radius:5px; margin-top:0;
   transition: transform .3s, background-color .3s; text-align: center;
@@ -452,7 +452,6 @@ margin-top: var(--space-4); /* Дээд талын элементээс зай �
   display: inline-block;
   vertical-align: middle;
   margin: 0 10px;
-  vertical-align: bottom;
   
   /* === Хөдөлгөөн: Тогтмол анивчих хөдөлгөөнийг нэмэв === */
   animation: heart-pulse 1.2s infinite ease-in-out; 
@@ -470,7 +469,9 @@ margin-top: var(--space-4); /* Дээд талын элементээс зай �
 }
 
 .donate-button {
-	display:inline-block; 
+	display:inline-flex; 
+align-items: center;
+justify-content: center;
 	text-align: center; 
 	background: #fff; 
 	color:var(--pink-primary); 
@@ -489,16 +490,16 @@ margin-top: var(--space-4); /* Дээд талын элементээс зай �
 .donate-button::before { 
     content: "💗"; 
     font-size: 1.2em; 
-    display:inline-block; 
-    transform: translateY(2px); 
+     
+    transform: none;     /* солих эсэх translateY(2px) */
     animation: pulse .6s ease-in-out infinite alternate;
     margin-right: 10px; 
 }
 .donate-button::after { 
     content: "💗"; 
     font-size: 1.2em; 
-    display:inline-block; 
-    transform: translateY(2px); 
+    
+    transform: none;   /* солих эсэх translateY(2px) */
     animation: pulse .6s ease-in-out infinite alternate;
     margin-left: 10px; 
     animation-delay: 0.3s; 
@@ -1291,7 +1292,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     padding: 10px 8px; 
     }
     .donate-button::before, .donate-button::after, .btn-screening::before {
-    font-size: 1em; margin: 0 2px; vertical-align: middle;
+    font-size: 1em; margin: 0 2px; 
     }
 
     /* Бүтцийн үндсэн өөрчлөлт */
@@ -1361,10 +1362,10 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         padding: 8px 5px !important;
     }    
     .donate-button::before, .donate-button::after, .btn-screening::before { 
-        font-size: 0.8em; margin: 0 2px; vertical-align: middle;
-    }
-
-    /* Жагсаалтын зай */
+        font-size: 0.8em; margin: 0 2px; 
+    } 
+    
+/* Жагсаалтын зай */
     .symptoms-list{ padding-left:20px; }
     .symptoms-list li{
         padding-left: 50px; 
@@ -1436,7 +1437,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         padding: 6px 0 !important; 
     }
     .donate-button::before, .donate-button::after, .btn-screening::before {
-        font-size: 0.7em; margin: 0 2px; vertical-align: middle;
+        font-size: 0.7em; margin: 0 2px; 
     }
 
     /* Шинж тэмдгийн жагсаалт */
