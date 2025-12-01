@@ -66,15 +66,9 @@ html {
     height: 100%;
 }
 body {
-    min-height: 100%; /* body-ийн өндрийг дэлгэцийн хамгийн бага өндрөөр авна */
-    /* Энэ нь хэрэггүй байж магадгүй, гэхдээ дараах Flexbox-ийг туршина уу: */
-}
-
-body {
-    /* 1. Flexbox-ийг идэвхжүүлнэ (Footer-ийг доош түлхэх зорилгоор) */
     display: flex;
     flex-direction: column; 
-    min-height: 100vh; /* Дэлгэцийн хэмжээний хамгийн бага өндөртэй болгоно */
+    min-height: 100vh; 
 }
 
 /* 2. Header болон Nav-ийн дараах гол контентийг бүх зайг дүүргэхийг заана */
@@ -119,8 +113,8 @@ main {
 /* Мэдээллийн сан доторх iframe тохиргоо  */
 
 *{ box-sizing: border-box; }
-html{ font-size: var(--font-base); }
-body{
+html { font-size: var(--font-base); }
+body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -203,7 +197,7 @@ header p{
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   object-fit: contain;
-  transition: transform 0.3s ease-in-out; box-shadow 0.3s ease-in-out; 
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
   cursor: pointer;
 }
 
@@ -381,7 +375,7 @@ footer{
     /* Холбоосыг inline-block болгож, transform ажиллах нөхцөлийг бүрдүүлнэ */
     display: inline-block;
     /* Зөөлөн солигдох анимац нэмэх (Нэмэлт) */
-    transition: color 0.3s ease, font-weight 0.3s ease; transform 0.3s ease; /* Зүүм эффектийг нэмэв */
+    transition: color 0.3s ease, font-weight 0.3s ease, transform 0.3s ease; /* Зүүм эффектийг нэмэв */
 }
 
 /* Ховер үед өөрчлөгдөх загвар */
@@ -1306,7 +1300,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     font-size: 0.9rem; 
     padding: 10px 8px; 
     }
-    .donate-button::before, {
+    .donate-button::before {
     font-size: 1em; margin: 0 2px; animation: pulse .6s ease-in-out infinite alternate;
     }
    .donate-button::after, {
@@ -1411,7 +1405,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         font-size: 0.7rem !important; 
         padding: 8px 5px !important;
     }    
-    .donate-button::before, {
+    .donate-button::before {
     font-size: 0.8em; margin: 0 2px; animation: pulse .6s ease-in-out infinite alternate;
     }
    .donate-button::after, {
@@ -1499,7 +1493,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         padding: 6px 0 !important; 
     }
  
-    .donate-button::before, {
+    .donate-button::before {
     font-size: 0.7em; margin: 0 2px; animation: pulse .6s ease-in-out infinite alternate;
     }
    .donate-button::after, {
