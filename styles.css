@@ -1374,13 +1374,11 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         overflow-y: hidden; 
     }
     .source-note {
-        /* Бүх талын маржиныг тэг болгоно (p-ийн default маржиныг дарна) */
-        margin: 0 !important; 
-        /* Цагаан зайг нөхөхийн тулд дээш татах (Сөрөг Маржин) */
-        margin-top: -10px !important;
       
-	/* Зөвхөн дээд талд нь бага зэргийн зай үлдээх (3px) */
-        padding-top: 3px !important;
+        margin: 0 !important; 
+        margin-top: -30px !important;
+      
+	padding-top: 3px !important;
         padding-bottom: var(--space-2); /* Доод талын зайг var(--space-2) буюу 10px болгох */
         
         /* Фонтын хэмжээг жижиг дэлгэц дээр тогтоох */
