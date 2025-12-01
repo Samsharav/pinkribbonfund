@@ -113,7 +113,6 @@ main {
     box-shadow: 0 0 20px rgba(0, 188, 212, 0.4); 
 }
 
-}
 
 /* ---------- A.1) Base Elements & Reset ---------- */
 
@@ -204,8 +203,8 @@ header p{
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   object-fit: contain;
-transition: transform 0.3s ease-in-out; box-shadow 0.3s ease-in-out; 
-cursor: pointer;
+  transition: transform 0.3s ease-in-out; box-shadow 0.3s ease-in-out; 
+  cursor: pointer;
 }
 
 /* === ШИНЭ ДҮРЭМ: Hover хийх үед томруулах === */
@@ -327,7 +326,7 @@ footer{
 .static-img { transition: none !important; cursor: default !important; }
 .static-img:hover {  transform: none !important; }
 .image-container img:hover {  transform: scale(1.1); box-shadow: var(--shadow-lg); }
-.image-container iframe{ width:100%; height:auto; border:100px solid #ddd; border-radius: var(--radius-md); display:block; margin:0 auto; }
+.image-container iframe{ width:100%; height:auto; border:10px solid #ddd; border-radius: var(--radius-md); display:block; margin:0 auto; }
 .image-label{ color: var(--pink-primary); font-size: var(--font-scale-3); line-height:1.2; text-align:justify; opacity:.85; margin-bottom:0px; }
 
 /* Үндсэн нүүр хэсэгт нууцалсан Facebook хамаарна */
@@ -382,7 +381,7 @@ footer{
     /* Холбоосыг inline-block болгож, transform ажиллах нөхцөлийг бүрдүүлнэ */
     display: inline-block;
     /* Зөөлөн солигдох анимац нэмэх (Нэмэлт) */
-    transition: color 0.3s ease, text-decoration 0.8s ease-in-out, font-weight 0.3s ease; transform 0.3s ease; /* Зүүм эффектийг нэмэв */
+    transition: color 0.3s ease, font-weight 0.3s ease; transform 0.3s ease; /* Зүүм эффектийг нэмэв */
 }
 
 /* Ховер үед өөрчлөгдөх загвар */
@@ -731,7 +730,7 @@ line-height:1.5;
     font-size: 1.2em; /* Агуулгын фонтын хэмжээ */
     line-height: 1.5; /* Мөр хоорондын зайг нэмэгдүүлж уншихад хялбар болгох */
     color: #616161; /* Зөөлөн саарал өнгө */
-    margin-bottom: 00; /* Доод зайг арилгах */
+    margin-bottom: 0; /* Доод зайг арилгах */
 }
 
 .vision-box:hover {
@@ -750,20 +749,18 @@ line-height:1.5;
    =============================================== */
 /* Дансны дугаарыг илүү тодруулах үндсэн загвар */
 .detail-iban {
-    /* Transform ажиллахын тулд inline-block эсвэл block болгох */
     display: inline-block; 
-    
+    font-family: monospace; /* Хуулж авахад хялбар фонт */
     font-size: 1.6em; 
     color: var(--pink-primary);
-    padding: var(--space-1); /* Хөдөлгөөн дээр эвгүй харагдахгүй байхын тулд дотоод зай нэмэв */
+    padding: var(--space-1); 
     border-radius: var(--radius-sm); 
-    
+    background-color: var(--pink-bg);
     /* Хөдөлгөөн зөөлөн хийгдэх transition нэмэх */
     transition: all 0.3s ease-in-out; 
     cursor: pointer; /* Энэ нь идэвхтэйг илтгэнэ */
 }
 
-/* Hover үед хөдөлгөөн болон загварыг өөрчлөх */
 .detail-iban:hover {
     color: var(--pink-dark); /* Өнгийг тодотгох */
     background-color: var(--pink-bg); /* Сүүдэр болон гэрэлтэлтийг тодруулах суурь өнгө */
@@ -818,15 +815,6 @@ line-height:1.5;
     margin: 0;
 }
 
-/* Дансны дугаарыг илүү тодруулах */
-.detail-iban {
-    font-size: 1.6em; /* Томруулсан */
-    color: var(--pink-primary); /* Ягаанаар тодруулсан */
-    font-family: monospace; /* Хуулж авахад хялбар фонт */
-    background-color: var(--pink-bg);
-    padding: var(--space-1);
-    border-radius: var(--radius-sm);
-}
 
 .bank-note {
     margin-top: var(--space-3);
