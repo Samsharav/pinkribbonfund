@@ -1287,7 +1287,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     }
 
     .donate-button, .btn-screening, .register-button, .submit-button, button, input[type="submit"] {
-    font-size: 1.1rem; 
+    font-size: 1rem; 
     padding: 12px 10px; 
     }
     .donate-button::before, .donate-button::after, .btn-screening::before {
@@ -1354,14 +1354,15 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         margin: var(--space-3) auto; 
         padding: 15px 10px !important;
     }
-    .donate-button::before, .donate-button::after, .btn-screening::before { 
-        font-size: 1em; 
-        margin: 0 5px; 
-    }
+
     .donate-button, .btn-screening, .register-button, .submit-button, button, input[type="submit"] {
-        font-size: 1rem !important; /* 1rem (15px-ийн суурь дээр 15px) */
+        font-size: 0.8rem !important; 
         padding: 10px 5px !important;
     }    
+    .donate-button::before, .donate-button::after, .btn-screening::before { 
+        font-size: 0.9em; 
+        margin: 0 5px; 
+    }
 
     /* Жагсаалтын зай */
     .symptoms-list{ padding-left:20px; }
@@ -1431,11 +1432,11 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 
     /* Товчлуурууд */
     .donate-button, .btn-screening, .register-button, .submit-button {
-        font-size: 0.8rem !important; 
+        font-size: 0.7rem !important; 
         padding: 8px 0 !important; 
     }
     .donate-button::before, .donate-button::after, .btn-screening::before {
-        font-size: 0.9em; 
+        font-size: 0.8em; 
     }
 
     /* Шинж тэмдгийн жагсаалт */
