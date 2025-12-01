@@ -1373,7 +1373,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         overflow-x: auto !important;
         overflow-y: hidden; 
     }
-    .source-note {
+    .treatment-card .source-note {
         margin: 0 !important; 
         margin-top: -30px !important;
       
