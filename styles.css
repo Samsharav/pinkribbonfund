@@ -1330,10 +1330,13 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         flex: 1 1 100%; 
     }
 
-   .treatment-card iframe {
+    .treatment-card {
+        overflow-x: auto; /* <--- Хэвтээ гүйлгэх боломжийг олгоно */
+    }
+    .treatment-card iframe {
         width: 100% !important;
-        height: 500px !important;
-        max-width: 100% !important;
+        height: 650px !important;
+        min-width: 600px;
     }
  }
  
