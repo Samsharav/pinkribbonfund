@@ -1261,6 +1261,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 /* ===============================================
     H) MEDIA QUERIES (Responsive Behavior) 2025 11 26
     =============================================== */
+
 @media (max-width: 950px){
     .container{ width:90%; padding: var(--space-4); }
     .flex-row, .qr-section, .contact-grid{ flex-direction:column; }
@@ -1284,6 +1285,13 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     html {
         font-size: var(--font-base);
     }
+
+    .donate-button, .btn-screening, .register-button, .submit-button, button, input[type="submit"] {
+    font-size: 1.15rem; 
+    padding: 12px 10px; 
+    }
+    .donate-button::before, .donate-button::after, .btn-screening::before {
+    font-size: 0.9em; }
 
     /* Бүтцийн үндсэн өөрчлөлт */
     .two-col-block { display: block; }
@@ -1317,8 +1325,6 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         flex: 1 1 100%; 
     }
 
-/* 2025 11 26 нэмсэн  */
-
    .treatment-card iframe {
         width: 100% !important;
         height: auto !important;
@@ -1326,8 +1332,6 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     }
  }
  
-/* 3. Mobile Mode: max-width 650px (Багц товчлуур болон жагсаалтын зайны тохиргоо) */
-
 @media (max-width: 650px){
     /* Контейнерийн өргөн болон Nav Menu-г босоо болгох (Хэвээр) */
     .container{ width:95%; padding: var(--space-3); }
@@ -1375,12 +1379,6 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         margin-bottom: var(--space-3);
     }
 }
-
-
-/* ===============================================
-   I) ULTRA-SMALL MOBILE FONT ADJUSTMENTS (450px-ээс бага)
-   Жижиг дэлгэц дээр үсгийг БҮР ЖИЖИГ болгох тохиргоо
-   =============================================== */
 
 @media (max-width: 450px) {
 
