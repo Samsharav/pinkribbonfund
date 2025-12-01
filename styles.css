@@ -82,7 +82,38 @@ main {
     flex-grow: 1; 
 }
 
+/* Google Chart-ийн Хайрцаг: Үндсэн ягаан загварыг өөрчлөхгүй, харин хүрээг нарийсгаж, бүрэн болгоно */
+.treatment-card.google-chart-box {
+    border-left: 20px solid var(--pink-primary);   
+    border-top: 1px solid var(--pink-primary);
+    border-right: 1px solid var(--pink-primary);
+    border-bottom: 1px solid var(--pink-primary);
+    background-color: white; 
+}
 
+.treatment-card.google-chart-box:hover {
+    border-left: 20px solid var(--pink-primary); 
+    transform: translateY(-3px); 
+    box-shadow: 0 0 20px var(--pink-primary); 
+}
+
+/* GCO Heatmap-ийн Хайрцаг: Цэнхэр өнгөөр ялгаруулна */
+.treatment-card.gco-heatmap-box {
+    /* Зүүн хүрээг цэнхэр өнгөөр сольж, зузааныг багасгана */
+    border-left: 20px solid #2b3256; 
+    border-top: 1px solid #2b3256;
+    border-right: 1px solid #2b3256;
+    border-bottom: 1px solid #2b3256;
+    background-color: #F5F5F5; 
+}
+
+.treatment-card.gco-heatmap-box:hover {
+    border-left: 20px solid #2b3256; 
+    transform: scale(1.005); 
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.4); 
+}
+
+}
 
 /* ---------- A.1) Base Elements & Reset ---------- */
 
@@ -134,6 +165,7 @@ p{ margin: var(--space-2) 0; }
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(218, 104, 136, 0.5);
   }
+
 }
 
 /* ---------- A.2) Layout & Container ---------- */
@@ -1330,22 +1362,33 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         flex: 1 1 100%; 
     }
 
-    .point-box.treatment-card,
-    .treatment-card {
-        overflow-x: auto !important; 
-        overflow-y: hidden;
+   
+#google-chart {
+        height: 520px !important; 
+        min-width: 650px !important; 
+        width: 100% !important; 
     }
-    .treatment-card iframe {
-        width: 100% !important;
-        height: 400px !important;
-        min-width: 600px !important;
+    
+    .treatment-card:has(#google-chart) { 
+        overflow-x: auto !important;
+        overflow-y: hidden; 
     }
- }
- 
-.source-note {
-        margin-top: 0 !important; /* <--- Эх сурвалжийн дээд маржиныг устгав */
-        padding-top: 5px; /* Эх сурвалж болон графикын хооронд бага зэрэг зай үлдээх */
+    
+    .treatment-card:has(#google-chart) + .source-note {
+        margin-top: 0 !important; 
+        padding-top: 5px; 
     }
+
+#gco-heatmap {
+        width: 100% !important;      
+        height: 600px !important; 
+        min-width: unset !important; 
+    }
+    
+    .treatment-card:has(#gco-heatmap) {
+        overflow-x: unset !important;
+    }
+}
 
 @media (max-width: 650px){
     /* Контейнерийн өргөн болон Nav Menu-г босоо болгох (Хэвээр) */
@@ -1403,13 +1446,11 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         min-width: 90%;
         margin-bottom: var(--space-3);
     }
-    .treatment-card {
-        overflow-x: auto; /* <--- Хэвтээ гүйлгэх боломжийг олгоно */
-    }   
-    .treatment-card iframe {
-        height: 400px !important; 
-        min-width: 650px !important; 
-    }
+
+#google-chart { height: 550px !important; min-width: 650px !important; }
+    
+#gco-heatmap { height: 600px !important; }
+
 
 }
 
@@ -1499,13 +1540,11 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         font-size: 1.1rem !important;
     }
 
-    .treatment-card {
-    overflow-x: auto; 
-    padding: var(--space-3) !important; 
-    }
-    .treatment-card iframe {
-        height: 400px !important; 
-        min-width: 700px !important;
-    }
+#google-chart { height: 600px !important; min-width: 750px !important; }
+    
+#gco-heatmap { height: 650px !important; }
 
+.treatment-card {
+        padding: var(--space-3) !important; /* 15px зайг баталгаажуулна */
+    }
 }
