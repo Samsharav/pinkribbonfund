@@ -1287,8 +1287,15 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     font-size: 0.9rem; 
     padding: 10px 8px; 
     }
-    .donate-button::before, .donate-button::after, .btn-screening::before {
-    font-size: 1em; margin: 0 2px; 
+    .donate-button::before, {
+    font-size: 1em; margin: 0 2px; animation: pulse .6s ease-in-out infinite alternate;
+    }
+   .donate-button::after, {
+    font-size: 1em; margin: 0 2px; animation: pulse .6s ease-in-out infinite alternate; animation-delay: 0.3s; 
+    }
+
+    .btn-screening::before {
+    font-size: 1em; margin: 0 2px; animation: heart-pulse 1.2s infinite ease-in-out;
     }
 
     /* Бүтцийн үндсэн өөрчлөлт */
@@ -1357,10 +1364,16 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         font-size: 0.7rem !important; 
         padding: 8px 5px !important;
     }    
-    .donate-button::before, .donate-button::after, .btn-screening::before { 
-        font-size: 0.8em; margin: 0 2px; 
-    } 
-    
+    .donate-button::before, {
+    font-size: 0.8em; margin: 0 2px; animation: pulse .6s ease-in-out infinite alternate;
+    }
+   .donate-button::after, {
+    font-size: 0.8em; margin: 0 2px; animation: pulse .6s ease-in-out infinite alternate; animation-delay: 0.3s; 
+    }
+    .btn-screening::before {
+    font-size: 0.8em; margin: 0 2px; animation: heart-pulse 1.2s infinite ease-in-out;
+    }
+
 /* Жагсаалтын зай */
     .symptoms-list{ padding-left:20px; }
     .symptoms-list li{
@@ -1432,11 +1445,18 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         font-size: 0.6rem !important; 
         padding: 6px 0 !important; 
     }
-    .donate-button::before, .donate-button::after, .btn-screening::before {
-        font-size: 0.7em; margin: 0 2px; 
+ 
+    .donate-button::before, {
+    font-size: 0.7em; margin: 0 2px; animation: pulse .6s ease-in-out infinite alternate;
     }
-
-    /* Шинж тэмдгийн жагсаалт */
+   .donate-button::after, {
+    font-size: 0.7em; margin: 0 2px; animation: pulse .6s ease-in-out infinite alternate; animation-delay: 0.3s; 
+    }
+    .btn-screening::before {
+    font-size: 0.7em; margin: 0 2px; animation: heart-pulse 1.2s infinite ease-in-out;
+    }
+ 
+   /* Шинж тэмдгийн жагсаалт */
     .symptoms-list li {
         font-size: 0.95rem !important;
         padding-left: 35px; 
