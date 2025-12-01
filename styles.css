@@ -1362,7 +1362,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     }
 
 #google-chart {
-        height: 450px !important; 
+        height: 400px !important; 
         min-width: 650px !important; 
         width: 100% !important;
         display: block !important;
@@ -1378,7 +1378,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         margin: 0 !important; 
         
         /* Зөвхөн дээд талд нь бага зэргийн зай үлдээх (3px) */
-        padding-top: 0px !important;
+        padding-top: 3px !important;
         padding-bottom: var(--space-2); /* Доод талын зайг var(--space-2) буюу 10px болгох */
         
         /* Фонтын хэмжээг жижиг дэлгэц дээр тогтоох */
