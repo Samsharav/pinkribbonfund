@@ -449,11 +449,7 @@ margin-top: var(--space-4); /* Дээд талын элементээс зай �
 .btn-screening::before {
   content: "💗"; /* Зүрхний дүрс */
   font-size: 1.2em;
-  display: inline-block;
-  vertical-align: middle;
   margin: 0 10px;
-  
-  /* === Хөдөлгөөн: Тогтмол анивчих хөдөлгөөнийг нэмэв === */
   animation: heart-pulse 1.2s infinite ease-in-out; 
 }
 
@@ -485,7 +481,7 @@ justify-content: center;
 	position: relative;	
 	transition: transform .3s, background-color .3s;}
 	
-@keyframes pulse{ from{ transform: translateY(2px) scale(1);} to{ transform: translateY(2px) scale(1.25);} }
+@keyframes pulse{ from{ transform: scale(1);} to{ transform: scale(1.25);} }
 
 .donate-button::before { 
     content: "💗"; 
