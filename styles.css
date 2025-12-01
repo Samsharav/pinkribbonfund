@@ -1342,6 +1342,11 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     }
  }
  
+.source-note {
+        margin-top: 0 !important; /* <--- Эх сурвалжийн дээд маржиныг устгав */
+        padding-top: 5px; /* Эх сурвалж болон графикын хооронд бага зэрэг зай үлдээх */
+    }
+
 @media (max-width: 650px){
     /* Контейнерийн өргөн болон Nav Menu-г босоо болгох (Хэвээр) */
     .container{ width:95%; padding: var(--space-3); }
