@@ -1363,7 +1363,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 
 #google-chart {
         height: 450px !important; 
-        min-width: 650px !important; 
+        min-width: 700px !important; 
         width: 100% !important;
         display: block !important;
         margin-bottom: 0 !important; 
@@ -1375,7 +1375,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     }
     .treatment-card .source-note {
         margin: 0 !important; 
-        margin-top: -30px !important;
+        margin-top: -50px !important;
       
 	padding-top: 3px !important;
         padding-bottom: var(--space-2); /* Доод талын зайг var(--space-2) буюу 10px болгох */
@@ -1453,7 +1453,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         margin-bottom: var(--space-3);
     }
 
-#google-chart { height: 400px !important; min-width: 650px !important; }
+#google-chart { height: 400px !important; min-width: 700px !important; }
     
 #gco-heatmap { height: 600px !important; }
 
@@ -1546,7 +1546,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         font-size: 1.1rem !important;
     }
 
-#google-chart { height: 400px !important; min-width: 650px !important; }
+#google-chart { height: 400px !important; min-width: 700px !important; }
     
 #gco-heatmap { height: 650px !important; }
 
