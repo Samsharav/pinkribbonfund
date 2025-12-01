@@ -1291,7 +1291,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     padding: 10px 8px; 
     }
     .donate-button::before, .donate-button::after, .btn-screening::before {
-    font-size: 0.9em; margin: 0 2px; 
+    font-size: 1em; margin: 0 2px; 
     }
 
     /* Бүтцийн үндсэн өөрчлөлт */
@@ -1361,7 +1361,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         padding: 8px 5px !important;
     }    
     .donate-button::before, .donate-button::after, .btn-screening::before { 
-        font-size: 0.7em; 
+        font-size: 0.8em; 
         margin: 0 2px; 
     }
 
@@ -1437,7 +1437,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         padding: 6px 0 !important; 
     }
     .donate-button::before, .donate-button::after, .btn-screening::before {
-        font-size: 0.6em; margin: 0 2px; 
+        font-size: 0.7em; margin: 0 2px; 
     }
 
     /* Шинж тэмдгийн жагсаалт */
