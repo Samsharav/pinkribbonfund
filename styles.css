@@ -1287,11 +1287,12 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     }
 
     .donate-button, .btn-screening, .register-button, .submit-button, button, input[type="submit"] {
-    font-size: 1rem; 
+    font-size: 0.9rem; 
     padding: 12px 10px; 
     }
     .donate-button::before, .donate-button::after, .btn-screening::before {
-    font-size: 0.9em; }
+    font-size: 0.8em; margin: 0 5px; 
+    }
 
     /* Бүтцийн үндсэн өөрчлөлт */
     .two-col-block { display: block; }
@@ -1356,11 +1357,11 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     }
 
     .donate-button, .btn-screening, .register-button, .submit-button, button, input[type="submit"] {
-        font-size: 0.8rem !important; 
+        font-size: 0.7rem !important; 
         padding: 10px 5px !important;
     }    
     .donate-button::before, .donate-button::after, .btn-screening::before { 
-        font-size: 0.9em; 
+        font-size: 0.6em; 
         margin: 0 5px; 
     }
 
@@ -1432,11 +1433,11 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 
     /* Товчлуурууд */
     .donate-button, .btn-screening, .register-button, .submit-button {
-        font-size: 0.7rem !important; 
+        font-size: 0.6rem !important; 
         padding: 8px 0 !important; 
     }
     .donate-button::before, .donate-button::after, .btn-screening::before {
-        font-size: 0.8em; 
+        font-size: 0.5em; 
     }
 
     /* Шинж тэмдгийн жагсаалт */
