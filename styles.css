@@ -862,7 +862,6 @@ line-height:1.5;
     margin: 0;
 }
 
-
 .source-note {
     text-align: right;
     font-style: italic;
@@ -1362,22 +1361,30 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         flex: 1 1 100%; 
     }
 
-   
 #google-chart {
         height: 520px !important; 
         min-width: 650px !important; 
-        width: 100% !important; 
+        width: 100% !important;
+        display: block !important;
+        margin-bottom: 0 !important; 
     }
     
     .treatment-card:has(#google-chart) { 
         overflow-x: auto !important;
         overflow-y: hidden; 
     }
-    
-    .treatment-card:has(#google-chart) + .source-note {
-        margin-top: 0 !important; 
-        padding-top: 5px; 
+    .source-note {
+        /* Бүх талын маржиныг тэг болгоно (p-ийн default маржиныг дарна) */
+        margin: 0 !important; 
+        
+        /* Зөвхөн дээд талд нь бага зэргийн зай үлдээх (3px) */
+        padding-top: 3px !important;
+        padding-bottom: var(--space-2); /* Доод талын зайг var(--space-2) буюу 10px болгох */
+        
+        /* Фонтын хэмжээг жижиг дэлгэц дээр тогтоох */
+        font-size: 0.85rem !important; 
     }
+  
 
 #gco-heatmap {
         width: 100% !important;      
