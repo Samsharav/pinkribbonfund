@@ -1250,6 +1250,71 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     background-color: #a7144e;
 }
  
+
+/* QR Code Section-ийн ерөнхий загвар */
+.qr-code-section {
+    padding: 40px 0;
+    text-align: center;
+    background-color: #f9f9f9; /* Зөвхөн ялгаруулах зорилгоор */
+}
+
+.qr-section-title {
+    color: #c2185b;
+    margin-bottom: 30px;
+}
+
+/* Grid-ийн үндсэн загвар (4 багана) */
+.qr-code-grid {
+    display: grid;
+    /* Grid нь 4 баганатай, зай нь 20px */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    max-width: 1300px; /* Таны контентийн өргөнөөр тохируулна */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* QR кодны зургийн блок */
+.qr-item {
+    text-align: center;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.qr-item img {
+    /* Зургийг хайрцагтаа тааруулах, 400x600-аас хэтрэхгүй байх */
+    width: 100%; 
+    height: auto;
+    max-width: 400px;
+    max-height: 600px;
+    object-fit: contain; /* Зургийг гажуудуулахгүйгээр байрлуулах */
+    margin-bottom: 10px;
+}
+
+.qr-item p {
+    font-weight: bold;
+    color: #333;
+    margin: 5px 0 0;
+}
+
+/* Жижиг төхөөрөмж дээрх харагдац (Responsive Design) */
+@media (max-width: 1024px) {
+    .qr-code-grid {
+        /* 2 баганатай болгох */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .qr-code-grid {
+        /* 1 баганатай болгох */
+        grid-template-columns: 1fr;
+    }
+}
+
+
 /* ===============================================
     H) MEDIA QUERIES (Responsive Behavior) 2025 11 26
     =============================================== */
