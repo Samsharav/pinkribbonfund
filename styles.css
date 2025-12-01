@@ -1330,13 +1330,15 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         flex: 1 1 100%; 
     }
 
+    .point-box.treatment-card,
     .treatment-card {
-        overflow-x: auto; /* <--- Хэвтээ гүйлгэх боломжийг олгоно */
+        overflow-x: auto !important; 
+        overflow-y: hidden;
     }
     .treatment-card iframe {
         width: 100% !important;
         height: 600px !important;
-        min-width: 600px;
+        min-width: 600px !important;
     }
  }
  
@@ -1400,8 +1402,8 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         overflow-x: auto; /* <--- Хэвтээ гүйлгэх боломжийг олгоно */
     }   
     .treatment-card iframe {
-        height: 520px !important; 
-        width: 100% !important; 
+        height: 650px !important; 
+        min-width: 650px !important; 
     }
 
 }
@@ -1497,7 +1499,8 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     padding: var(--space-3) !important; 
     }
     .treatment-card iframe {
-        height: 550px !important; 
+        height: 700px !important; 
+        min-width: 700px !important;
     }
 
 }
