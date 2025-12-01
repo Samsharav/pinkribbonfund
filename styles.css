@@ -1335,7 +1335,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     }
     .treatment-card iframe {
         width: 100% !important;
-        height: 650px !important;
+        height: 600px !important;
         min-width: 600px;
     }
  }
@@ -1396,8 +1396,11 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         min-width: 90%;
         margin-bottom: var(--space-3);
     }
+    .treatment-card {
+        overflow-x: auto; /* <--- Хэвтээ гүйлгэх боломжийг олгоно */
+    }   
     .treatment-card iframe {
-        height: 520px !important; /* Өндрийг $768\text{px}$-ийн тохиргооноос илүү нарийвчилж нэмэв */
+        height: 520px !important; 
         width: 100% !important; 
     }
 
@@ -1489,12 +1492,12 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         font-size: 1.1rem !important;
     }
 
-/* 2025 11 26 нэмсэн  */
     .treatment-card {
-        padding: var(--space-3) !important; /* 15px-ээр багасгах */
+    overflow-x: auto; 
+    padding: var(--space-3) !important; 
     }
     .treatment-card iframe {
-        height: 550px !important; /* <--- Өндрийг илүү нэмэгдүүлсэн */
+        height: 550px !important; 
     }
 
 }
