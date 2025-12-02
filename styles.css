@@ -128,10 +128,13 @@ body {
 }
 img{ max-width:100%; height:auto; display:block; }
 section{ margin-bottom: var(--space-6); }
-h1,h2,h3{ margin: var(--space-3) 0; line-height: 1.25; }
+
+h1,h2,h3{ margin: var(--space-1) 0; line-height: 1.25; }
+
 h2{
+  margin-top: 0;  
   color: var(--pink-primary);
-  border-bottom: 2px solid var(--pink-accent);
+  border-bottom: 2px solid var(--pink-primary);
   padding-bottom: var(--space-1);
   font-size: var(--font-scale-5);
 }
@@ -159,12 +162,13 @@ p{ margin: var(--space-2) 0; }
 
 .container{
   width: 80%;
-  max-width: 100%;
+  max-width: 1200px;
   margin: var(--space-4) auto;
   padding: var(--space-4);
   background: #fff;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
+  overflow-x: hidden;
 }
 
 /* ---------- A.3) Header / Nav / Footer ---------- */
@@ -303,6 +307,8 @@ footer{
 .image-container img { 
   width:100%; 
   height:auto; 
+  margin-top: 15px; 
+  margin-bottom: 5px;
   border-radius: var(--radius-lg); 
   transition: transform 0.8s ease-in-out, box-shadow 0.3s ease-in-out;
 }
@@ -450,9 +456,9 @@ animation: slideIn 0.8s ease-out forwards; /* Анимацийг хэрэглэ�
 /* CTA */
 .symptoms-cta{ margin-top:auto; }
 .symptoms-cta h2{ color: var(--pink-dark); border-bottom: none; margin-top: var(--space-4); 
-font-size: var(--font-scale-4); padding-bottom:0; 
-border-top: 5px solid var(--pink-primary); /* Ягаан өнгийн 3px зузаантай зураас нэмэв */
-padding-top: var(--space-1); /* Зурааснаас дээш текст хүртэлх зай */
+font-size: var(--font-scale-2); padding-bottom:0; 
+border-top: 10px solid var(--pink-primary); /* Ягаан өнгийн 3px зузаантай зураас нэмэв */
+padding-top: var(--space-2); /* Зурааснаас дээш текст хүртэлх зай */
 margin-top: var(--space-4); /* Дээд талын элементээс зай авах */}
 
 .btn-screening{
@@ -553,7 +559,7 @@ justify-content: center;
 .about-text{
   color: var(--pink-primary);
 line-height:1.5;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-1);
   font-size: var(--font-scale-2);
   text-align: justify;
   padding: 0 var(--space-1);
@@ -1253,14 +1259,15 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 
 /* QR Code Section-ийн ерөнхий загвар */
 .qr-code-section {
-    padding: 40px 0;
+    padding: 20px 0;
     text-align: center;
     background-color: #f9f9f9; /* Зөвхөн ялгаруулах зорилгоор */
 }
 
 .qr-section-title {
-    color: #c2185b;
-    margin-bottom: 30px;
+    color: #Da6888;
+    margin-bottom: 20px;
+    margin-top: 0px;
 }
 
 /* Grid-ийн үндсэн загвар (4 багана) */
@@ -1269,7 +1276,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     /* Grid нь 4 баганатай, зай нь 20px */
     grid-template-columns: repeat(4, 1fr); 
     gap: 20px;
-    max-width: 1300px; /* Таны контентийн өргөнөөр тохируулна */
+    max-width: 100%; /* Таны контентийн өргөнөөр тохируулна */
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -1278,8 +1285,8 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 .qr-item {
     text-align: center;
     background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 10px;
+    border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -1290,7 +1297,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     max-width: 400px;
     max-height: 600px;
     object-fit: contain; /* Зургийг гажуудуулахгүйгээр байрлуулах */
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .qr-item p {
@@ -1320,9 +1327,9 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     =============================================== */
 
 @media (max-width: 950px){
-    .container{ width:90%; padding: var(--space-4); }
+    .container{ width:90%; padding: var(--space-4); overflow-x: hidden; }
     .flex-row, .qr-section, .contact-grid{ flex-direction:column; }
-    .flex-item, .qr-box, .contact-info, .map-container{ flex: 1 1 100%; width:100%; }
+    .flex-item, .qr-box, .contact-info, .map-container{ flex: 1 1 100%; width:100%; min-width: 0; }
 
     .donation-options{ gap: var(--space-3); }
     .option{ max-width: 100%; }
@@ -1365,12 +1372,13 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     .flex-45-item, .flex-55-item {
         max-width: 100%; 
         flex: 1 1 100%; 
+        min-width: 0;
     }
 
 /* Iframe-ийг агуулж буй хайрцгийг голлуулах */
 
 .image-container {text-align: center;}
-.image-container iframe {width: 95% !important; max-width: none !important; min-height: 500px;}
+.image-container iframe {width: 95% !important; max-width: 100% !important; min-height: 500px;}
      
     
 .register-button{ max-width:100%; }
