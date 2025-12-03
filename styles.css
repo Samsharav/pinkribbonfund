@@ -273,8 +273,8 @@ footer{
 
 
 /* Холбоо барих хэсэгт хамаарна */
-.flex-45-item { flex: 0 0 calc(35% - var(--space-4) / 2); max-width: calc(35% - var(--space-4) / 2); align-self: flex-start; }
-.flex-55-item { flex: 0 0 calc(65% - var(--space-4) / 2); max-width: calc(65% - var(--space-4) / 2); }
+.flex-45-item { flex: 0 0 calc(45% - var(--space-4) / 2); max-width: calc(45% - var(--space-4) / 2); align-self: flex-start; }
+.flex-55-item { flex: 0 0 calc(55% - var(--space-4) / 2); max-width: calc(55% - var(--space-4) / 2); }
 
 /* Үндсэн нүүр хэсэгт хамаарна */
 .symptoms-card,
@@ -304,20 +304,55 @@ footer{
   padding: var(--space-4);               /* Доторх агуулгад зай гаргах */
   box-shadow: var(--shadow-sm);          /* Зөөлөн сүүдэр нэмэх */
 }
-.image-container img { 
-  width:100%; 
+.image-container img, img { 
   height:auto; 
   margin-top: 15px; 
   margin-bottom: 5px;
   border-radius: var(--radius-lg); 
   transition: transform 0.8s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .zoomable-img { cursor: zoom-in; }
 .static-img { transition: none !important; cursor: default !important; }
 .static-img:hover {  transform: none !important; }
-.image-container img:hover {  transform: scale(1.1); box-shadow: var(--shadow-lg); }
+.image-container img:hover {  transform: scale(1.1); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); }
 .image-container iframe{ width:100%; height:auto; border:10px solid #ddd; border-radius: var(--radius-md); display:block; margin:0 auto; }
 .image-label{ color: var(--pink-primary); font-size: var(--font-scale-3); line-height:1.2; text-align:justify; opacity:.85; margin-bottom:0px; }
+
+.flex-layout {
+    display: flex; /* Зураг болон текстийг зэрэгцүүлэн байрлуулах */
+    align-items: center;   /* Босоо байрлалыг дээд хэсэгт нь эхлүүлэх нь ихэвчлэн текстэнд тохиромжтой */
+    gap: 0px; /* Зураг болон текстийн хоорондох зайг тогтоох */
+    width: 100%; /* Нийт хайрцгийн өргөнийг тогтоох (Жишээ: 80%) */
+    margin: 20px auto; /* Нийт хайрцгийг төвд байрлуулах */
+    padding: 20px;
+    border: 1px solid #ddd; /* Хайрцгийг ялгах зорилгоор хүрээ нэмэв */
+    border-radius: var(--radius-lg);
+}
+
+.image-box {
+    flex: 0 0 70%; /* Зургийн хайрцгийг 40% өргөнтэй болгох */
+    max-width: 70%;
+}
+
+.text-box {
+    flex: 1 1 60%; /* Текстийн хайрцаг үлдсэн 60%-ийг эзэлж, уян хатан байх */
+    padding: 0px;
+    max-width: 100%; /* 60%-иас хэтрэхгүй байхыг баталгаажуулах */
+}
+
+.image-box .static-img {
+  width: 100%;
+  display: block; 
+  margin: 0;
+}
+
+.dynamic-img {
+  width: 100%; 
+  display: block; 
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* Үндсэн нүүр хэсэгт нууцалсан Facebook хамаарна */
 .facebook-embed-container{
@@ -954,6 +989,86 @@ td:first-child { text-align: left; padding-left: 10px; } /* Зүүн талаа�
     box-shadow: var(--shadow-sm); /* Зургийн сүүдэр нэмэх (Нэмэлт) */
 }
 
+/* Flex Container - Хоёр баганыг зэрэгцүүлэх */
+.donation-section {
+    display: flex;
+    gap: 30px; /* Хоёр баганын хоорондох зай */
+    width: 100%; 
+    margin: 10px auto; /* Дээр доороос зай авах */
+    padding: 10px;
+    border-radius: var(--radius-lg);
+    background-color: #fcfcfc; /* Бага зэрэг ялгаруулах фон */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    align-items: center; /* Босоо тэнхлэгт төвлүүлэх */
+}
+
+/* Flex Item 1 - Зүүн талын текст контент */
+.donation-content {
+    flex: 1 1 70%; /* Үндсэн контентыг 70% эзлүүлж, уян хатан байлгах */
+}
+
+/* Flex Item 2 - Баруун талын зураг */
+.donation-image-side {
+    flex: 0 0 25%; /* Зургийг 30% өргөнтэй болгож, хэмжээг нь тогтоох */
+    max-width: 25%;
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Зөөлөн шилжилт */
+    display: flex;       /* Зургийг гололж байрлуулах */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Зургийн загвар */
+.donation-impact-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Зургийг хайрцагт тохируулж харуулах */
+    border: 10px solid #fcfcfc; /* Цагаан хүрээ */
+    border-radius: var(--radius-lg); /* Дугуй өнцөг */    
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;}
+
+/* Жагсаалтын загвар - Цэггүй болгож, илүү цэвэрхэн харагдуулах */
+.donation-list {
+    list-style: none; /* Цэгийг арилгах */
+    padding-left: 0;
+}
+
+.donation-section:hover .donation-impact-img {
+    transform: scale(1.05) rotate(2deg); /* Бага зэрэг томрох */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* Сүүдэр тодрох */
+}
+.donation-section:hover .donation-image-side {
+    box-shadow: 0 20px 40px rgba(218, 104, 136, 0.3); /* Ягаан туяатай сүүдэр нэмэх */
+    transform: translateY(-5px); /* Зургийн хэсэг бага зэрэг дээшлэх */
+}
+
+/* Жагсаалтын элемент бүрийг загварчлах */
+.donation-list li {
+    background-color: white; 
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-left: 5px solid var(--pink-primary, #DA6888); /* Ягаан өнгийн хүчтэй шугам */
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Мөнгөн дүнгийн загвар (Тодруулах) */
+.donation-amount {
+    display: block; /* Өөрийн мөрөнд гарах */
+    font-size: var(--font-scale-4); 
+    font-weight: 700;
+    color: var(--pink-primary, #DA6888); 
+    margin-bottom: 5px;
+}
+
+/* Тайбар текст */
+.donation-desc {
+    display: block;
+    font-size: var(--font-scale-2);
+    color: #555;
+}
+
 
 /* ===============================================
    E) IMPACT PAGE
@@ -1061,7 +1176,7 @@ min-height: 500px;
     position: relative;
     z-index: 10; /* Текстийг зургийн дээгүүр байрлуулах */
     width: 100%; /* Текстийн хэсгийг зургийн хажууд зайтай үлдээх */
-    padding-left: 10px;
+    padding-left: 20px;
     background-color: rgba(255, 255, 255, 0.9); /* Фонд цайвар өнгө өгч, зурагнаас ялгаруулна */
     border-radius: 8px;
     margin-bottom: 20px; /* Доорх зурагнаас зай авах */
@@ -1080,14 +1195,14 @@ min-height: 500px;
 
 /* Зураг өөрөө */
 .contact-image img {
-    max-width: 40%;
-    max-height:40%;
+    max-width:70%;
+    max-height:70%;
     object-fit: contain; /* Зургийг муутгалгүйгээр хүрээ дотор багтаах */
     display: block;
-opacity: 0.8; /* 50% тунгалаг болгох (0.0 - 1.0 хооронд) */
+    opacity: 0.8; /* 50% тунгалаг болгох (0.0 - 1.0 хооронд) */
     
     /* Гоёомсог загварууд */
-    border-radius: 50%; /* Хүрээг дугуйлах */
+    border-radius: 5%; /* Хүрээг дугуйлах */
     box-shadow: 0 4px 50px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     cursor: pointer;
@@ -1095,7 +1210,7 @@ opacity: 0.8; /* 50% тунгалаг болгох (0.0 - 1.0 хооронд) */
 
 /* Hover effect */
 .contact-image img:hover {
-    transform: scale(1.05); /* Зургийг бага зэрэг томруулах */
+    transform: scale(1.15); /* Зургийг бага зэрэг томруулах */
     box-shadow: 0 8px 50px rgba(0, 0, 0, 0.3);
 }
 
@@ -1203,7 +1318,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 .project-item img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 10px 10px 0 0;
     transition: transform 0.3s ease;
 }
