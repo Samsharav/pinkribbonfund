@@ -97,7 +97,6 @@ main {
 
 /* GCO Heatmap-ийн Хайрцаг: Цэнхэр өнгөөр ялгаруулна */
 .treatment-card.gco-heatmap-box {
-    /* Зүүн хүрээг цэнхэр өнгөөр сольж, зузааныг багасгана */
     border-left: 20px solid #2b3256; 
     border-top: 1px solid #2b3256;
     border-right: 1px solid #2b3256;
@@ -111,6 +110,54 @@ main {
     box-shadow: 0 0 20px rgba(0, 188, 212, 0.4); 
 }
 
+/* Эмчилгээний мэдээлэл карт (Бусдаас ялгарах) */
+.treatment-card.latest-treatment-info {
+    border: 1px solid var(--pink-dark); /* Тод хүрээ нэмэх */
+    box-shadow: var(--shadow-lg); /* Сүүдрийг тодотгох */
+}
+
+
+.treatment-card.latest-treatment-info .card-title {
+    color: var(--pink-dark); /* Гарчгийг тодотгох */
+    border-bottom: 3px double var(--light-pink); /* Хоёр зураастай доод хүрээ */
+    padding-bottom: var(--space-1);
+    margin-bottom: var(--space-2);
+}
+
+.treatment-card.latest-treatment-info .treatment-list li {
+    padding-left: 20px; /* Эможид зориулсан зай */
+    position: relative;
+}
+
+
+/* ХАНДИВ хуудаст байрлах Статистик, Графикын Карт (Бусдаас тусдаа болгох) */
+.point-box.stats-chart-card {
+    background-color: #ffffff; /* Картны дэвсгэр өнгийг цагаан болгох */
+    border: 1px solid white; /* хүрээ нэмэх */
+    box-shadow: 0 0 30px rgba(218, 104, 136, 0.6); /* Сүүдрийг илүү тод болгох */
+    padding: var(--space-5);
+    margin-bottom: var(--space-4); /* Бусад элементээс зайг нэмэгдүүлэх */
+}
+
+/* Онцлох Мэдээлэл (Highlight Statement)-ийг тодотгох */
+.stats-chart-card .highlight-statement {
+    display: block; /* Тусдаа мөр болгох */
+    font-size: 1.15em;
+    font-weight: bold;
+    color: var(--pink-dark); /* Тод ягаан өнгөөр бичих */
+    background-color: var(--pink-bg); /* Цаана нь маш зөөлөн дэвсгэр өгөх */
+    padding: var(--space-2);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    margin: var(--space-1) 0;
+}
+
+/* Гарчгийг тодотгох */
+.stats-chart-card .card-title {
+    color: var(--text-main); /* Үндсэн текст өнгөөр үлдээх */
+    border-bottom: 2px dashed var(--pink-border); /* Тасархай зураас нэмэх */
+    padding-bottom: var(--space-1);
+}
 
 /* ---------- A.1) Base Elements & Reset ---------- */
 
@@ -824,7 +871,7 @@ line-height:1.5;
     display: flex;
     justify-content: space-between; /* Текст болон утгыг хоёр тийш нь түлхэх */
     align-items: baseline;
-    padding: var(--space-1) 0;
+    padding: var(--space-3) 0;
     border-bottom: 1px dotted var(--pink-border);
 }
 
@@ -843,17 +890,19 @@ line-height:1.5;
 
 
 .bank-note {
-    margin-top: var(--space-3);
+    margin-top: var(--space-7);
     color: var(--text-muted);
 }
 
 /* QR кодны баруун талын хэсэг */
 .qr-code-area {
-    flex: 1 1 35%; /* Баруун хэсэг нийт өргөний 35%-ийг эзэлнэ */
-    text-align: center;
+    flex: 1 1 20%; /* Баруун хэсэг нийт өргөний 30%-ийг эзэлнэ */
     background-color: var(--pink-bg);
     padding: var(--space-3);
     border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column; /* Элементүүдийг босоо дарааллаар байрлуулна (гарчиг, зураг, тэмдэглэл) */
+    align-items: center; /* Энэ нь бүх агуулгыг хэвтээ тэнхлэгээр голлуулна */
 }
 
 .qr-code-area .qr-title {
@@ -868,7 +917,7 @@ line-height:1.5;
     border: 3px solid #ffffff;
     box-shadow: var(--shadow-md);
     margin-bottom: var(--space-1);
-}
+  }
 
 .qr-note {
     font-size: 0.8em;
@@ -900,16 +949,15 @@ td:first-child { text-align: left; padding-left: 10px; } /* Зүүн талаа�
 /* 1. Эргэн тойрон дахь Flexbox-ийн зайг нэмэх */
 .treatment-points {
     display: flex;
-    gap: var(--space-4); /* 20px зай нэмэв (Одоогийн 0px-ийн оронд) */
+    gap: var(--space-4);
     flex-wrap: wrap;
     font-size: 1.0em;
-    margin-bottom: var(--space-5); /* Доороо зайтай болгов */
+    margin-bottom: 0; 
 }
 
-/* 2025 11 26 нэмж орсон */
 .point-box, .treatment-card { /* point-box нь treatment-card-аас илүү өргөн хүрээнд ашиглагдаж болно */
     /* Хэт томрохоос сэргийлэх */
-    max-width: 100% !important; 
+    max-width: 98% !important; 
     /* Доторх агуулга хальсан ч гаднах div-ийг нуух */
     overflow-x: hidden; 
     /* Жижиг дэлгэц дээр тогтмол өргөнийг хаах (min-width: 0 нь Flexbox-т чухал) */
@@ -919,7 +967,7 @@ td:first-child { text-align: left; padding-left: 10px; } /* Зүүн талаа�
 /* Зөвхөн хоёр классыг хоёуланг нь агуулсан элементийн өргөнийг 90% болгох */
 
 .point-box.treatment-card {
-    width: 90%; /* Өргөнийг дэлгэцийн 90% болгож тохируулав */
+    width: 98%; /* Өргөнийг дэлгэцийн 98% болгож тохируулав */
     margin: 20px auto; /* Төвд байрлуулах (Дээр, доор 20px, хажуу тал авто) */
     /* Хэрэв таны point-box-д Padding байгаа бол үүнийг нэмэх нь зүйтэй */
     box-sizing: border-box; 
