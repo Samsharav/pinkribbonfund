@@ -1584,7 +1584,6 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         font-size: 0.85rem !important; 
     }
   
-
 #gco-heatmap {
         width: 100% !important;      
         height: 600px !important; 
@@ -1593,6 +1592,23 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     
     .treatment-card:has(#gco-heatmap) {
         overflow-x: unset !important;
+    }
+
+.qr-code-area {
+        /* Гар утсан дээр нийт өргөний 90-100% -ийг эзлүүлнэ */
+        flex: 1 1 100%; /* 20%-ийг 100% болгож өргөтгөнө */
+        max-width: 90%; /* Дэлгэцийн 90%-ийг эзлүүлэх */
+        
+        /* Голчлохын тулд: */
+        margin-left: auto;
+        margin-right: auto;
+        /* эсвэл: */
+        /* margin: 20px auto; */
+    }
+
+    /* Зургийг хэт том харагдахаас сэргийлж хязгаарлах */
+    .qr-image {
+        max-width: 150px; /* Эсвэл 100% */
     }
 }
 
@@ -1657,6 +1673,16 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     
 #gco-heatmap { height: 600px !important; }
 
+.qr-code-area {
+        /* Өмнөх flex: 1 1 20%;-ийг үгүйсгэж, бараг бүтэн өргөнийг эзлүүлнэ */
+        flex: 1 1 100%; 
+        max-width: 85%; /* 85% өргөн эзэлж, хоёр талд нь зай үлдээнэ */
+        margin: 20px auto; /* Дээд, доод талдаа 20px зай авч, хэвтээгээр голлуулна */
+    }
+
+    .qr-image {
+        max-width: 170px; /* Зургийг арай том байлгаж болно */
+    }
 
 }
 
@@ -1752,5 +1778,23 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 
 .treatment-card {
         padding: var(--space-3) !important; /* 15px зайг баталгаажуулна */
+    }
+@media (max-width: 450px) {
+    .qr-code-area {
+        /* Дэлгэц маш жижиг тул илүү их өргөнийг эзлүүлнэ */
+        max-width: 95%; 
+        padding: var(--space-2); /* Хэт их зай авахаас сэргийлж, padding-ийг багасгаж болно */
+    }
+
+    .qr-code-area .qr-title {
+        font-size: 1.1em; /* Гарчигийг багасгах */
+    }
+
+    .qr-image {
+        max-width: 130px; /* Зургийг багасгах */
+    }
+
+    .qr-note, .source-note {
+        font-size: 0.75em; /* Тэмдэглэлийг багасгах */
     }
 }
