@@ -1773,6 +1773,27 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
 
+/* Grid-ийн баганын тоог 4-өөс 2 болгож өөрчлөх */
+    .qr-code-grid {
+        /* Одоо 2 ижил хэмжээтэй багана үүсгэнэ */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px; /* Элементүүдийн хоорондох зайг багасгах */
+        padding: 10px;
+    }
+    
+    /* QR кодын зургийг багасгах (Хэрэггүй байж магадгүй, max-width: 100% байгаа тул) */
+    .qr-item img {
+        /* 100% өргөнийг эзлэх тул, Grid-ийн 2 багана болсноор зураг автоматаар жижигдэнэ */
+        /* Хэрэв зургийг нэмж жижигрүүлэх бол: */
+        /* max-width: 120px; */
+    }
+    
+    /* Гарчигийг тохируулах */
+    .qr-section-title {
+        font-size: 1.2em;
+        padding: 0 10px;
+    }
+
 }
 
 @media (max-width: 450px) {
@@ -1890,5 +1911,14 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 .donation-impact-img {
         max-width: 80%; /* Дэлгэцийн 80% болгох */
         width: 80%;
+    }
+.qr-code-grid {
+        /* Зөвхөн 1 багана үүсгэнэ */
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+    .qr-item img {
+        /* Хэт томрохоос сэргийлж зургийн хамгийн их хэмжээг тогтоож болно */
+        max-width: 180px; 
     }
 }
