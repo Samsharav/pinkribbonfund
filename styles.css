@@ -1608,7 +1608,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 
     /* Зургийг хэт том харагдахаас сэргийлж хязгаарлах */
     .qr-image {
-        max-width: 150px; /* Эсвэл 100% */
+        max-width: 100%; /* Эсвэл 150px */
     }
 }
 
@@ -1681,7 +1681,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     }
 
     .qr-image {
-        max-width: 170px; /* Зургийг арай том байлгаж болно */
+        max-width:100%; 
     }
 
 }
@@ -1779,22 +1779,22 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 .treatment-card {
         padding: var(--space-3) !important; /* 15px зайг баталгаажуулна */
     }
-@media (max-width: 450px) {
-    .qr-code-area {
+
+.qr-code-area {
         /* Дэлгэц маш жижиг тул илүү их өргөнийг эзлүүлнэ */
         max-width: 95%; 
         padding: var(--space-2); /* Хэт их зай авахаас сэргийлж, padding-ийг багасгаж болно */
     }
 
-    .qr-code-area .qr-title {
+.qr-code-area .qr-title {
         font-size: 1.1em; /* Гарчигийг багасгах */
     }
 
-    .qr-image {
-        max-width: 130px; /* Зургийг багасгах */
+.qr-image {
+        max-width: 100%; 
     }
 
-    .qr-note, .source-note {
+.qr-note, .source-note {
         font-size: 0.75em; /* Тэмдэглэлийг багасгах */
     }
 }
