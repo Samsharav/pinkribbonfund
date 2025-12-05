@@ -1610,6 +1610,56 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     .qr-image {
         max-width: 100%; /* Эсвэл 150px */
     }
+
+/* 1. Flex Container-ийн чиглэлийг өөрчлөх */
+    .donation-section {
+        flex-direction: column; /* Хэвтээ байрлалаас босоо (нэг нь нөгөөгийнхөө доор) болгох */
+        gap: 20px; /* Зайг бага зэрэг багасгах */
+        padding: 15px;
+    }
+    
+    /* 2. Текст болон Зургийн хэсгийг бүтэн өргөнтэй болгох */
+    .donation-content,
+    .donation-image-side {
+        flex: 1 1 100%; /* Бүтэн өргөнийг эзлүүлнэ */
+        max-width: 100%; /* Зургийг 25%-аас чөлөөлөх */
+        width: 100%;
+    }
+    
+    /* 3. Зургийг голд, зохистой хэмжээтэй байрлуулах */
+    .donation-image-side {
+        /* Зургийн хэсгийг текстээс өмнө харуулах (Хэрэв хүсвэл) */
+        /* order: -1; */ 
+        
+        /* Зургийг голчлох тохиргоо хэвээр үлдэнэ: */
+        /* display: flex; justify-content: center; align-items: center; */
+    }
+
+    .donation-impact-img {
+        /* Зургийг дэлгэцийн 60%-70% орчим хэмжээтэй болгох */
+        max-width: 70%; 
+        width: 70%;
+        /* margin: 0 auto; -г .donation-image-side-ийн Flexbox хийж байгаа */
+    }
+    
+    /* 4. Жагсаалтын элемент доторх мөнгөн дүнг тохируулах */
+    .donation-list li {
+        display: block; /* Flex-ээр зохицуулах шаардлагагүй, бүгдийг өөрийн мөрөнд нь гаргах */
+        padding: 10px 15px; /* Padding-ийг багасгах */
+    }
+    
+    .donation-amount {
+        /* Мөнгөн дүн анхнаасаа display: block; байгаа тул тохиромжтой */
+        font-size: 1.1em; /* Хэт том харагдахаас сэргийлэх */
+        margin-bottom: 3px;
+    }
+    
+    /* Hover эффектүүдийг гар утсан дээр идэвхгүй болгох эсвэл өөрчлөх */
+    .donation-section:hover .donation-impact-img,
+    .donation-section:hover .donation-image-side {
+        transform: none; 
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
 }
 
 @media (max-width: 650px){
@@ -1682,6 +1732,45 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 
     .qr-image {
         max-width:100%; 
+    }
+
+/* 1. Flex Container-ийн чиглэлийг өөрчлөх (Баганаас Мөр лүү) */
+    .donation-section {
+        flex-direction: column; 
+        gap: 20px; 
+        padding: 15px;
+    }
+    
+    /* 2. Текст болон Зургийн хэсгийг бүтэн өргөнтэй болгох */
+    .donation-content,
+    .donation-image-side {
+        flex: 1 1 100%; 
+        max-width: 100%; 
+        width: 100%;
+    }
+    
+    /* 3. Зургийг голд, зохистой хэмжээтэй байрлуулах */
+    .donation-impact-img {
+        max-width: 70%; /* Зургийг дэлгэцийн 70% орчим хэмжээтэй болгоно */
+        width: 70%;
+    }
+    
+    /* 4. Жагсаалтын элемент доторх мөнгөн дүнг тохируулах */
+    .donation-list li {
+        display: block; /* Мөнгө ба тайлбарыг тус тусдаа мөрөнд оруулах */
+        padding: 10px 15px;
+    }
+    
+    .donation-amount {
+        font-size: 1.1em;
+        margin-bottom: 3px;
+    }
+    
+    /* 5. Hover эффектүүдийг утсан дээр идэвхгүй болгох */
+    .donation-section:hover .donation-impact-img,
+    .donation-section:hover .donation-image-side {
+        transform: none; 
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
 
 }
@@ -1796,5 +1885,10 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 
 .qr-note, .source-note {
         font-size: 0.75em; /* Тэмдэглэлийг багасгах */
+    }
+
+.donation-impact-img {
+        max-width: 80%; /* Дэлгэцийн 80% болгох */
+        width: 80%;
     }
 }
