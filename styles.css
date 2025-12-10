@@ -1499,6 +1499,10 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     .team-grid{ justify-content:space-around; }
     .team-member{ flex: 1 1 45%; max-width:45%; }
     .facebook-embed-container{ display:none; }
+.flex-row, .qr-section, .contact-grid{ 
+        flex-direction:column; 
+        align-items: center; 
+    }
 }
 
 @media (max-width: 768px){
@@ -1633,13 +1637,14 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         
         /* Зургийг голчлох тохиргоо хэвээр үлдэнэ: */
         /* display: flex; justify-content: center; align-items: center; */
-    }
+}
 
     .donation-impact-img {
         /* Зургийг дэлгэцийн 60%-70% орчим хэмжээтэй болгох */
         max-width: 70%; 
         width: 70%;
         /* margin: 0 auto; -г .donation-image-side-ийн Flexbox хийж байгаа */
+        
     }
     
     /* 4. Жагсаалтын элемент доторх мөнгөн дүнг тохируулах */
@@ -1660,6 +1665,13 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         transform: none; 
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
+
+.bank-info-wrapper {
+        flex-direction: column; 
+        /* Нэмэлт: Хүүхэд элементүүдийг хэвтээгээр голлуулах */
+        align-items: center; 
+    }
+
 }
 
 @media (max-width: 650px){
@@ -1699,6 +1711,11 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     font-size: 0.8em; margin: 0 2px; animation: heart-pulse 1.2s infinite ease-in-out;
     }
 
+.donation-options {
+        flex-direction: column;
+        /* Хэвтээгээр голлуулах */
+        align-items: center;
+    }
 /* Жагсаалтын зай */
     .symptoms-list{ padding-left:20px; }
     .symptoms-list li{
@@ -1708,11 +1725,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         left: 0; 
     }
 
-    /* Хандив/QR-ийн хэсгийг босоо болгох */
-    .donation-options {
-        flex-direction: column;
-        align-items: center;
-    }
+
     .option, .qr-box {
         max-width: 90%;
         min-width: 90%;
@@ -1766,6 +1779,12 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         margin-bottom: 3px;
     }
     
+    /* Хандив/QR-ийн хэсгийг босоо болгох */
+    .donation-options {
+        flex-direction: column;
+        align-items: center;
+    }
+
     /* 5. Hover эффектүүдийг утсан дээр идэвхгүй болгох */
     .donation-section:hover .donation-impact-img,
     .donation-section:hover .donation-image-side {
@@ -1916,8 +1935,9 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         /* Зөвхөн 1 багана үүсгэнэ */
         grid-template-columns: 1fr; 
         gap: 20px;
+	justify-items: center;
     }
-    .qr-item img {
+.qr-item img {
         /* Хэт томрохоос сэргийлж зургийн хамгийн их хэмжээг тогтоож болно */
         max-width: 180px; 
     }
