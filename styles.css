@@ -1676,7 +1676,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     .contact-qr-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 10px;
         justify-items: center;
     }
     .contact-qr-grid .qr-item {
@@ -1827,7 +1827,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 
 .contact-qr-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        gap: 5px;
     }
     .contact-qr-grid .qr-item {
         max-width: 100%;
@@ -1964,7 +1964,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     }
 .contact-qr-grid {
         grid-template-columns: repeat(2, 1fr); 
-        gap: 10px;
+        gap: 3px;
         justify-items: center;
     }
    
