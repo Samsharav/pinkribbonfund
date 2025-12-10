@@ -1686,6 +1686,9 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         min-width: unset;
         margin-bottom: unset;
     }
+.contact-qr-grid .qr-item img, .qr-item img {
+        max-width: 100% !important; /* Grid-ийн 2 баганын өргөнийг дүүргэнэ */
+    }
 }
 
 @media (max-width: 650px){
@@ -1808,7 +1811,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     .qr-code-grid {
         /* Одоо 2 ижил хэмжээтэй багана үүсгэнэ */
         grid-template-columns: repeat(2, 1fr); 
-        gap: 15px; /* Элементүүдийн хоорондох зайг багасгах */
+        gap: 10px; /* Элементүүдийн хоорондох зайг багасгах */
         padding: 10px;
     }
     
@@ -1896,12 +1899,12 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     }
  
    /* Шинж тэмдгийн жагсаалт */
-    .symptoms-list li {
+.symptoms-list li {
         font-size: 0.95rem !important;
         padding-left: 35px; 
         margin: 5px 0;
     }
-    .symptoms-list li::before {
+.symptoms-list li::before {
         width: 24px; 
         height: 24px;
         font-size: 0.8rem;
@@ -1909,47 +1912,42 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     }
 
     /* Банкны мэдээлэл (IBAN) */
-    .detail-iban {
+.detail-iban {
         font-size: 1.1em !important; 
         padding: 5px;
         word-break: break-all; 
     }
     
-    /* Төслийн гарчиг */
-    .project-content h3 {
-        font-size: 1.1rem !important;
-    }
-
-#google-chart { height: 400px !important; min-width: 1050px !important; }
+/* Бүтцийн Flex/Grid тохиргоо (Таны асуусан хэсгүүд) */
     
-#gco-heatmap { height: 650px !important; }
+    .two-col-block{ flex-direction:column; }
+    .two-col-block > *{ flex: 1 1 100%; }
+    .image-container img:hover{ transform: scale(1.05); }
+    
+    .video-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+    .statistics-grid { grid-template-columns: 1fr !important; gap: 15px !important; }
 
-.treatment-card {
+    .contact-grid { flex-direction: column; }
+    .flex-45-item, .flex-55-item { flex: 1 1 100%; max-width: 100%; }
+    .contact-image img { max-width: 90%; }
+    .contact-info p { font-size: 1em; }
+    .help-callout h3 { font-size: 1.1em !important; padding: 5px; word-break: break-all; }    
+    .project-content h3 { font-size: 1.1rem !important; }
+    
+    #google-chart { height: 400px !important; min-width: 1050px !important; }
+    #gco-heatmap { height: 650px !important; }
+    .treatment-card {
         padding: var(--space-3) !important; /* 15px зайг баталгаажуулна */
     }
 
-.qr-code-area {
-        /* Дэлгэц маш жижиг тул илүү их өргөнийг эзлүүлнэ */
-        max-width: 95%; 
-        padding: var(--space-2); /* Хэт их зай авахаас сэргийлж, padding-ийг багасгаж болно */
-    }
+/* QR Code Rules (Өргөнийг жигдэлсэн, зай багасгасан хэсэг) */
 
-.qr-code-area .qr-title {
-        font-size: 1.1em; /* Гарчигийг багасгах */
-    }
+.qr-code-area { max-width: 95%; padding: var(--space-2); }
+.qr-code-area .qr-title { font-size: 1.1em; }
+.qr-image { max-width: 100%; }
+.qr-note, .source-note { font-size: 0.75em; }
+.donation-impact-img { max-width: 80%; width: 80%; }
 
-.qr-image {
-        max-width: 100%; 
-    }
-
-.qr-note, .source-note {
-        font-size: 0.75em; /* Тэмдэглэлийг багасгах */
-    }
-
-.donation-impact-img {
-        max-width: 80%; /* Дэлгэцийн 80% болгох */
-        width: 80%;
-    }
 .qr-code-grid {
         /* Зөвхөн 1 багана үүсгэнэ */
         grid-template-columns: 1fr; 
@@ -1963,13 +1961,12 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         object-fit: contain;
     }
 .contact-qr-grid {
-        grid-template-columns: repeat(2, 1fr); 
         gap: 3px;
         justify-items: center;
     }
    
 .contact-qr-grid .qr-item img {
-        max-width: 100%;
+        max-width: 100% !important;
         max-height: 120px;
     }
 }
