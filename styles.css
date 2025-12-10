@@ -1499,7 +1499,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     .team-grid{ justify-content:space-around; }
     .team-member{ flex: 1 1 45%; max-width:45%; }
     .facebook-embed-container{ display:none; }
-.flex-row, .qr-section, .contact-grid{ 
+    .flex-row, .qr-section, .contact-grid{ 
         flex-direction:column; 
         align-items: center; 
     }
@@ -1509,9 +1509,9 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 
     /* СУУРЬ ФОНТЫН ХЭМЖЭЭГ 16px-ээс 15px болгож БАГАСГАХ */
     :root {
-        --font-base: 15px; 
-        --font-scale-4: 1.3rem; /* h3, товчлуурын гарчиг */
-        --font-scale-5: 1.5rem; /* h2 */
+        --font-base: 14px; 
+        --font-scale-4: 1.2rem; /* h3, товчлуурын гарчиг */
+        --font-scale-5: 1.4rem; /* h2 */
     }
     html {
         font-size: var(--font-base);
@@ -1553,9 +1553,9 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     .help-callout {margin-top: 20px; width: 100%; box-sizing: border-box;}
 
   /* Гарчигт нэмэлт тохируулга */
-    h1 { font-size: 1.9rem; }
-    h2 { font-size: 1.5rem; }
-    h3 { font-size: 1.3rem; }
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.4rem; }
+    h3 { font-size: 1.2rem; }
 
     /* Банкны мэдээлэл (QR-ийн хажууд) */
     .bank-info-wrapper {
