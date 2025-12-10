@@ -545,7 +545,7 @@ margin-top: var(--space-4); /* Дээд талын элементээс зай �
 
 .btn-screening{
   display:inline-flex; align-items: center; justify-content: center; background: var(--pink-primary); color:#fff;
-  padding: 15px 0; width: 100%; text-decoration:none; font-size: var(--font-scale-3);
+  padding: 15px 0; width: 100%; text-decoration:none; font-size: var(--font-scale-2);
   font-weight:bold; border-radius:5px; margin-top:0;
   transition: transform .3s, background-color .3s; text-align: center;
 }
@@ -846,7 +846,7 @@ line-height:1.5;
     display: flex;
     gap: var(--space-5); /* Баганууд хоорондын зай */
     align-items: flex-start; /* Элементүүдийг дээд талаар нь тэгшлэх */
-    padding: var(--space-4);
+    padding: var(--space-2) var(--space-4);
     border: 1px solid var(--pink-border);
     border-radius: var(--radius-md);
     background-color: #ffffff;
@@ -860,18 +860,18 @@ line-height:1.5;
 }
 
 .bank-info-details h3 {
-    color: var(--pink-dark);
-    border-bottom: 2px solid var(--pink-accent);
-    padding-bottom: var(--space-2);
-    margin-top: 0;
-}
+	margin-top: 0;    
+	color: var(--pink-dark);
+    	border-bottom: 2px solid var(--pink-accent);
+    	padding-bottom: var(--space-1);
+   }
 
 /* Мэдээллийн мөр тус бүрийн загвар */
 .bank-details-line {
     display: flex;
     justify-content: space-between; /* Текст болон утгыг хоёр тийш нь түлхэх */
     align-items: baseline;
-    padding: var(--space-3) 0;
+    padding: var(--space-2) 0;
     border-bottom: 1px dotted var(--pink-border);
 }
 
@@ -890,7 +890,7 @@ line-height:1.5;
 
 
 .bank-note {
-    margin-top: var(--space-7);
+    margin-top: var(--space-1);
     color: var(--text-muted);
 }
 
@@ -898,7 +898,7 @@ line-height:1.5;
 .qr-code-area {
     flex: 1 1 20%; /* Баруун хэсэг нийт өргөний 30%-ийг эзэлнэ */
     background-color: var(--pink-bg);
-    padding: var(--space-3);
+    padding: var(--space-5);
     border-radius: var(--radius-md);
     display: flex;
     flex-direction: column; /* Элементүүдийг босоо дарааллаар байрлуулна (гарчиг, зураг, тэмдэглэл) */
@@ -1135,6 +1135,27 @@ td:first-child { text-align: left; padding-left: 10px; } /* Зүүн талаа�
 }
 .event-gallery img:hover{ transform: scale(1.03); }
 
+/* =========================================================
+   Зургийг Сүүдэртэй болгох, Hover хийхэд томруулах
+   ========================================================= */
+
+/* Энэ нь зургийг агуулж байгаа хайрцагт сүүдэр нэмж, transition-ийг тодорхойлно */
+.image-container .image-box {
+    box-shadow: 0 0 20px rgba(218, 104, 136, 0.4);
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; 
+}
+
+.image-container .image-box:hover {
+    box-shadow: 0 4px 30px rgba(218, 104, 136, 0.7);
+    transform: translateY(-3px); /* Зургийг бага зэрэг өргөх (Нэмэлт гоё эффект) */
+}
+
+/* Зураг өөрөө max-width: 100% байгааг баталгаажуулна (үндсэн CSS-д ихэвчлэн байдаг) */
+.image-container .image-box .static-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 
 /* ===============================================
    F) CONTACT PAGE
@@ -1265,6 +1286,27 @@ min-height: 500px;
 /* Зургийн icon болон bold text-ийн зайг тохируулах */
 .contact-info .icon {
     margin-right: 0px;
+}
+
+/* =========================================================
+   QR Code Grid (Том дэлгэц: 4 багана)
+   ========================================================= */
+
+.contact-qr-grid {
+    /* 4 багана үүсгэнэ. Баганын хэмжээг auto-fill/fit-ээр биш, яг 4-өөр тогтоох нь илүү найдвартай */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: var(--space-3); /* Баганууд хоорондын зай (жишээ нь 20px) */
+    justify-items: center; /* Элементүүдийг төвд байрлуулна */
+    align-items: flex-start; /* Эгнээний дээд талаар тэгшлэнэ */
+    margin-bottom: var(--space-5);
+    max-width: 1100px; /* Хайрцгийн нийт өргөнийг хязгаарлах */
+    margin-left: auto;  /* Төвлөрүүлэх */
+    margin-right: auto; /* Төвлөрүүлэх */
+}
+
+.contact-qr-grid .qr-item {
+    text-align: center; /* Текст болон QR-ийг төвлүүлнэ */
 }
 
 /* ===============================================
