@@ -1678,6 +1678,7 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         justify-items: center;
+
     }
     .contact-qr-grid .qr-item {
         /* Flex-ийн үр нөлөөг арилгах, Grid-ээр зохицуулах */
@@ -1688,6 +1689,9 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     }
 .contact-qr-grid .qr-item img, .qr-item img {
         max-width: 100% !important; /* Grid-ийн 2 баганын өргөнийг дүүргэнэ */
+    }
+.contact-qr-grid .qr-item p {
+        font-size: 0.85rem !important; /* QR-ын доорх текстийг багасгах */
     }
 }
 
@@ -1835,6 +1839,9 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
     .contact-qr-grid .qr-item {
         max-width: 100%;
     }
+.contact-qr-grid .qr-item p {
+        font-size: 0.80rem !important; /* QR-ын доорх текстийг багасгах */
+    }
 }
 
 @media (max-width: 450px) {
@@ -1968,5 +1975,8 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 .contact-qr-grid .qr-item img {
         max-width: 100% !important;
         max-height: 120px;
+    }
+.contact-qr-grid .qr-item p {
+        font-size: 0.80rem !important; /* QR-ын доорх текстийг багасгах */
     }
 }
