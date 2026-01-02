@@ -817,6 +817,128 @@ line-height:1.5;
     animation-play-state: paused;
 }
 
+/* 1. Гоёмсог зааглагч шугам */
+.elegant-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--pink-primary), transparent);
+    margin: 20px auto;
+    width: 80%;
+    position: relative;
+}
+
+.elegant-divider::after {
+    content: "🌸"; /* Жижиг цэцэг эсвэл логоны тэмдэг */
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0 15px;
+}
+
+/* 2. Зургийн шинэ загвар (35% өргөнтэй) */
+.team-container {
+    display: flex;
+    align-items: stretch;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(218, 104, 136, 0.1); /* Ягаан өнгөтэй зөөлөн сүүдэр */
+}
+
+.team-image-box {
+    flex: 0 0 35%; 
+    position: relative;
+}
+
+.team-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Хуулга авч байгаа мэт эффект */
+.team-container:hover .team-image-box img {
+    transform: scale(1.05);
+}
+
+/* 3. Текст хэсгийн загвар */
+.team-info-box {
+    flex: 1;
+    padding: 50px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.founder-label {
+    color: var(--pink-primary);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.pink-line {
+    width: 60px;
+    height: 4px;
+    background: var(--pink-primary);
+    margin: 20px 0;
+    border-radius: 2px;
+}
+
+.description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    font-style: italic;
+}  
+
+/* Жижиг дэлгэцийн тохиргоо (Гар утас, Таблет) */
+@media (max-width: 768px) {
+    /* 1. Хайрцагны байршлыг босоо болгох */
+    .team-container {
+        flex-direction: column;
+        max-width: 95%; /* Дэлгэцийн ирмэгээс бага зэрэг зай авна */
+    }
+
+    /* 2. Зургийг дэлгэц дүүрэн болгох */
+    .team-image-box {
+        flex: 0 0 auto; /* 35% гэсэн хэмжээг цуцална */
+        width: 100%;
+        height: 300px; /* Гар утас дээрх зургийн өндөр */
+    }
+
+    /* 3. Текстийн зайг гар утсанд тааруулж багасгах */
+    .team-info-box {
+        padding: 25px 20px;
+        text-align: center; /* Гар утас дээр текст голлосон байвал илүү гоё харагддаг */
+    }
+
+    /* 4. Ягаан зураас болон бусад элементүүдийг голлуулах */
+    .pink-line {
+        margin: 15px auto;
+    }
+
+    /* 5. "Түүх" хэсгийн текстийн хэмжээг тааруулах */
+    .about-text {
+        font-size: 1rem;
+        padding: 0 15px;
+        margin-bottom: 30px;
+    }
+
+    /* 6. Зааглагч зураасны хэмжээ */
+    .elegant-divider {
+        margin: 40px auto;
+        width: 90%;
+    }
+}
+
 /* ===============================================
    D) DONATE PAGE
    =============================================== */
