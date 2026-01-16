@@ -142,8 +142,8 @@ async function fetchAndDisplayNews() {
         if (data.status === 'ok' && data.items.length > 0) {
             container.innerHTML = ''; // "Ачаалж байна" гэсэн бичгийг арилгана
 
-            // Хамгийн сүүлийн 5 мэдээг авна
-            const latestNews = data.items.slice(0, 5);
+            // Хамгийн сүүлийн 9 мэдээг авна
+            const latestNews = data.items.slice(0, 9);
 
             for (let item of latestNews) {
                 // Мэдээний гарчгийг орчуулна
@@ -176,5 +176,4 @@ document.addEventListener('DOMContentLoaded', fetchAndDisplayNews);
 </script>
 
 </body>
-
 </html>
