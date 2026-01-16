@@ -37,7 +37,16 @@
 </style>
 
    <div class="container">
-    
+   
+<div class="point-box treatment-card news-box">
+        <div class="news-header">
+            <span class="blinking-flower">🌸</span> Хөхний хорт хавдрын талаарх шинэ мэдээ, мэдээлэл 
+        </div>
+        <div id="news-content" class="news-list">
+            <p style="text-align:center; padding-top:40px;">Мэдээллийг ачаалж байна...</p>
+        </div>
+    </div>
+ 
   <h2>📈 Хөхний хорт хавдрын морфологиор оношлогдсон үзүүлэлт (МУ)</h2>
   <p class="note" style="margin-top: 20px; padding: 20px; border-top: 2px dashed #c93b76; font-size: var(--font-scale-2); text-align: justify; color: #DA6888;">
 
@@ -94,6 +103,77 @@
     <footer>
         <p>&copy; 2025 Ягаан Тууз Сан. Бүх эрх хуулиар хамгаалагдсан.</p>
     </footer>
+
+<script>
+/**
+ * Текстийг Google Translate ашиглан Монгол хэл рүү хөрвүүлэх функц
+ */
+async function translateToMongolian(text) {
+    // Google Translate-ийн нээлттэй API (gtx) ашиглан Англи -> Монгол хөрвүүлэлт
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=mn&dt=t&q=${encodeURIComponent(text)}`;
+    
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        // data[0][0][0] нь орчуулагдсан үндсэн текст байдаг
+        return data[0][0][0];
+    } catch (error) {
+        console.error("Орчуулахад алдаа гарлаа:", error);
+        return text; // Алдаа гарвал эх хувиар нь буцаана
+    }
+}
+
+/**
+ * Google News-ээс мэдээ татаж, орчуулж, вэб дээр харуулах функц
+ */
+async function fetchAndDisplayNews() {
+    // 1. Google News RSS-ийг JSON формат руу хөрвүүлж татах
+    // "breast cancer research latest" гэсэн хайлтаар мэдээ хайна
+    const rssUrl = 'https://news.google.com/rss/search?q=breast+cancer+research+latest&hl=en-US&gl=US&ceid=US:en';
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+    const container = document.getElementById('news-content');
+    if (!container) return; // Хэрэв контейнер байхгүй бол зогсоно
+
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        if (data.status === 'ok' && data.items.length > 0) {
+            container.innerHTML = ''; // "Ачаалж байна" гэсэн бичгийг арилгана
+
+            // Хамгийн сүүлийн 5 мэдээг авна
+            const latestNews = data.items.slice(0, 5);
+
+            for (let item of latestNews) {
+                // Мэдээний гарчгийг орчуулна
+                const translatedTitle = await translateToMongolian(item.title);
+                
+                // Огноог Монгол формат руу хөрвүүлнэ (Жил/Сар/Өдөр)
+                const pubDate = new Date(item.pubDate);
+                const dateString = `${pubDate.getFullYear()}-${(pubDate.getMonth() + 1).toString().padStart(2, '0')}-${pubDate.getDate().toString().padStart(2, '0')}`;
+
+                // HTML мөр үүсгэх
+                const newsItem = document.createElement('div');
+                newsItem.className = 'news-item';
+                newsItem.innerHTML = `
+                    <span class="news-date">${dateString}</span>
+                    <a href="${item.link}" target="_blank" title="${item.title}">${translatedTitle}</a>
+                `;
+                container.appendChild(newsItem);
+            }
+        } else {
+            container.innerHTML = '<p style="text-align:center;">Одоогоор шинэ мэдээлэл олдсонгүй.</p>';
+        }
+    } catch (error) {
+        console.error("Мэдээ татахад алдаа гарлаа:", error);
+        container.innerHTML = '<p style="text-align:center; color: red;">Мэдээллийг шинэчлэх боломжгүй байна.</p>';
+    }
+}
+
+// Хуудасны бүх элементүүд (DOM) ачаалагдаж дууссаны дараа функцийг ажиллуулна
+document.addEventListener('DOMContentLoaded', fetchAndDisplayNews);
+</script>
 
 </body>
 </html>
