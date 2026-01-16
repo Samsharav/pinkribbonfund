@@ -211,13 +211,13 @@ main {
 /* 1. ТАБЛЕТ ДЭЛГЭЦ (768px хүртэл) */
 @media (max-width: 768px) {
     .news-box {
-        border-left-width: 15px !important; /* Зүүн талын зураасыг жаахан нарийсгах */
+        border-left-width: 20px !important; /* Зүүн талын зураасыг жаахан нарийсгах */
     }
     .news-header {
         font-size: 1rem;
     }
     .news-date {
-        margin-right: 20px;
+        margin-right: 10px;
         min-width: 70px;
         font-size: 0.7rem;
     }
