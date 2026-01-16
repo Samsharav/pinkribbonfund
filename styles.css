@@ -132,7 +132,7 @@ main {
 /* ШИНЭ Мэдээний хайрцагны тусгай загвар */
 
 .news-box {
-    height: 250px;
+    height: 270px;
     background: #ffffff;
     border-left: 20px solid #F37021 !important; /* Эхлээд арай нарийн зураас */
     display: flex;
@@ -152,7 +152,7 @@ main {
 
 .news-header {
     background: #fdf0f4;
-    padding: 12px 20px;
+    padding: 6px 12px;
     font-weight: bold;
     color: #c93b76;
     border-bottom: 1px solid #fce4ec;
@@ -197,6 +197,15 @@ main {
     margin-right: 15px;
     min-width: 80px;
     text-align: center;
+}
+
+.translate-note {
+    font-size: 0.7em;        /* Үндсэн текстээс арай жижиг */
+    font-style: italic;       /* Налуу хэлбэртэй */
+    color: #888;              /* Арай бүдэг саарал (нүдэнд ачаалал бага) */
+    display: inline-block;
+    margin-top: 1px;          /* Дээд талын мөрөөс бага зэрэг зайтай */
+    font-weight: normal;      /* Бүдүүн биш, энгийн */
 }
 
 /* ХАНДИВ хуудаст байрлах Статистик, Графикын Карт (Бусдаас тусдаа болгох) */

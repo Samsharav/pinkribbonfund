@@ -40,7 +40,9 @@
    
 <div class="point-box treatment-card news-box">
         <div class="news-header">
-            <span class="blinking-flower">🌸</span> Хөхний хорт хавдрын талаарх шинэ мэдээ, мэдээлэл (эх сурвалж: news.google.com)
+            <span class="blinking-flower">🌸</span> Хөхний хорт хавдрын талаарх шинэ мэдээ, мэдээлэл (эх сурвалж: news.google.com)<br>
+<span class="translate-note">Жич: Та " <strong>https://translate.google.com/translate?sl=auto&tl=mn&u=ЭНД_ЛИНКИЙГ_ХУУЛАХ </strong>" холбоосыг ашиглан дараах веб сайтын мэдээг орчуулан унших боломжтой. </span>
+
         </div>
         <div id="news-content" class="news-list">
             <p style="text-align:center; padding-top:40px;">Мэдээллийг ачаалж байна...</p>
@@ -116,7 +118,7 @@ async function translateToMongolian(text) {
         const response = await fetch(url);
         const data = await response.json();
         // data[0][0][0] нь орчуулагдсан үндсэн текст байдаг
-        return data[0][0][0];
+        return data[0].map(t => t[0]).join('');
     } catch (error) {
         console.error("Орчуулахад алдаа гарлаа:", error);
         return text; // Алдаа гарвал эх хувиар нь буцаана
