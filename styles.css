@@ -208,6 +208,82 @@ main {
     font-weight: normal;      /* Бүдүүн биш, энгийн */
 }
 
+/* 1. ТАБЛЕТ ДЭЛГЭЦ (768px хүртэл) */
+@media (max-width: 768px) {
+    .news-box {
+        border-left-width: 15px !important; /* Зүүн талын зураасыг жаахан нарийсгах */
+    }
+    .news-header {
+        font-size: 1rem;
+    }
+    .news-date {
+        margin-right: 10px;
+        min-width: 70px;
+        font-size: 0.7rem;
+    }
+}
+
+/* 2. ГАР УТАСНЫ ДЭЛГЭЦ (480px хүртэл) */
+@media (max-width: 480px) {
+    .news-box {
+        height: 270px; /* Өндрийг тогтмол барина */
+        border-left-width: 10px !important; /* Зай хэмнэх үүднээс нарийсгав */
+    }
+
+    .news-header {
+        font-size: 0.85rem;
+        padding: 8px 10px;
+    }
+
+    .news-list {
+        padding: 10px 12px; /* Дотор зайг багасгах */
+    }
+
+    .news-item {
+        flex-direction: column; /* Огноо болон мэдээг дээр дээр нь гаргах */
+        align-items: flex-start;
+        gap: 5px;
+        margin-bottom: 10px;
+    }
+
+    .news-date {
+        margin-right: 0;
+        min-width: 60px;
+        font-size: 0.65rem;
+        padding: 1px 6px;
+    }
+
+    .news-item a {
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+
+    .translate-note {
+        font-size: 0.7rem;
+        margin-top: 4px;
+    }
+
+    .link-text {
+        font-size: 0.65rem;
+        word-break: break-all; /* Урт линкийг албадан тасална */
+        display: block; /* Утас дээр бүтэн мөр эзлэх нь аюулгүй */
+        margin-top: 5px;
+    }
+}
+
+/* Гүйлгэх мөрийг (Scrollbar) гоё болгох (заавал биш ч үзэмж нэмнэ) */
+.news-list::-webkit-scrollbar {
+    width: 5px;
+}
+.news-list::-webkit-scrollbar-track {
+    background: #fdf0f4;
+}
+.news-list::-webkit-scrollbar-thumb {
+    background: #DA6888;
+    border-radius: 10px;
+}
+
+
 /* ХАНДИВ хуудаст байрлах Статистик, Графикын Карт (Бусдаас тусдаа болгох) */
 .point-box.stats-chart-card {
     background-color: #ffffff; /* Картны дэвсгэр өнгийг цагаан болгох */
