@@ -629,7 +629,7 @@ footer{
 
 .main-callout {
     /* Доод талд зураас нэмэх */
-    border-bottom: 10px solid var(--pink-border); 
+    border-bottom: 5px solid var(--pink-border); 
     
     /* Доод талын зураас болон товчлуур хооронд зай үүсгэх */
     padding-bottom: var(--space-1); 
@@ -823,7 +823,7 @@ line-height:1.5;
 #logos-section {
     padding: 30px 20px;
     text-align: left;
-    border-top: 1px solid #eee; 
+    border-top: 0px solid #eee; 
     margin-top: 30px;
 }
 
@@ -929,11 +929,11 @@ line-height:1.5;
 /* "АЛСЫН ХАРАА" хэсгийг агуулсан хайрцаг */
 .vision-box {
     width: 80%; /* Контейнерийн өргөн */
-    max-width: 800px; /* Хамгийн их өргөн (том дэлгэц дээр хэт томрохоос сэргийлнэ) */
+    max-width: 900px; /* Хамгийн их өргөн (том дэлгэц дээр хэт томрохоос сэргийлнэ) */
     margin: 20px auto; /* Дээд, доод талаас зай авч, төвд байрлуулна */
-    padding: 30px; /* Дотор талаас зай авах */
+    padding: 10px; /* Дотор талаас зай авах */
     background: linear-gradient(135deg, #fce4ec 0%, #ffebee 100%); /* Зөөлөн ягаан өнгийн градиент */
-    border-radius: 50px; /* Булангуудыг бөөрөнхийлөх */
+    border-radius: 30px; /* Булангуудыг бөөрөнхийлөх */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Зөөлөн сүүдэр нэмэх */
     text-align: center; /* Доторх текстийг төвд байрлуулах */
     font-family: 'Arial', sans-serif; /* Илүү уншигдахуйц фонт сонгох */
