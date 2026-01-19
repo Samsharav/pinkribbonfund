@@ -791,6 +791,54 @@ justify-content: center;
     color: var(--pink-primary);
 }
 
+.about-container {
+    display: flex;             /* Зэрэгцээ байрлуулах үндсэн команд */
+    align-items: stretch;       /* Зураг болон текстийг босоо тэнхлэгээр голлуулна */
+    justify-content: space-between; /* Хооронд нь жигд зай авна */
+    gap: 30px;                 /* Зураг, текст хоёрын хоорондын зай */
+    padding: 0px;         /* Дэлгэцийн захаас авах зай */
+}
+
+.about-image {
+    flex: 1;                   /* Зургийн талбайг 50% эзлүүлнэ */
+    line-height: 0;
+}
+
+.about-image img {
+    width: 100%;               /* Зургийг талбайдаа дүүрэн харагдуулна */
+    height: auto;              /* Харьцааг алдагдуулахгүй */
+    border-radius: 10px;       /* Зургийн буланг дугуйлах */
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.1); /* Үл мэдэгдэм сүүдэр */
+}
+
+.about-content {
+    flex: 2;              
+    padding: 10px;        /* Текст хананд наалдахгүй байх дотор зай */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Текстийг босоо чиглэлд голлуулна */
+}
+
+.about-content h2 {
+    color: #d81b60;            /* Гарчигт зориулсан өнгө (жишээ нь: ягаан) */
+    margin-bottom: 5px;
+    font-size: 2rem;
+}
+
+.about-text {
+    line-height: 1.8;          /* Мөр хоорондын зайг холдуулж уншихад хялбар болгох */
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Гар утсан дээр дээр доороо ордог болгох тохиргоо */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column; /* Босоо жагсаалт болгоно */
+        text-align: center;     /* Текстийг голлуулна */
+    }
+}
+
 /* ===============================================
    C) ABOUT PAGE
    =============================================== */
