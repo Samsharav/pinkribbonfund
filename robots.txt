@@ -1,4 +1,6 @@
 User-agent: *
-Allow: /
+Allow: /mn/
+Allow: /en/
+Disallow: /images/  # Зургийн хавтсыг хайлтын илэрцэд гаргахгүй байх (сонголтоор)
 
 Sitemap: https://pinkribbonfund.com/sitemap.xml

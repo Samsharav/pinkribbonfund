@@ -2377,3 +2377,46 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
         font-size: 0.80rem !important; /* QR-ын доорх текстийг багасгах */
     }
 }
+
+/* Nav доторх хэл солигчийн ерөнхий загвар */
+.nav-lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px; /* Бусад цэснээс тусгаарлах зай */
+    vertical-align: middle;
+}
+
+/* Туг болон текстийн нэгдэл */
+.lang-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* Тугны зурагны хэмжээ */
+.nav-flag {
+    width: 20px;
+    height: auto;
+    border-radius: 1px;
+    display: inline-block;
+}
+
+/* Одоо байгаа хэлний харагдац */
+.lang-link.active {
+    opacity: 0.5;
+    cursor: default;
+    color: #666;
+}
+
+/* Гар утасны хувилбарт зориулсан тохиргоо */
+@media (max-width: 768px) {
+    .nav-lang-switcher {
+        display: flex;
+        justify-content: center;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
