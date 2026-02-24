@@ -408,27 +408,37 @@ header p{
   box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Томрох үед сүүдрийг тодруулж эффект өгөх */
 }
 
-nav{
-  text-align:center;
-  background: var(--pink-dark);
-  padding: 12px 0;
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: var(--pink-dark);
+    padding: 12px 20px;
+    gap: 0; /* Margin-аар зайг удирдана */
 }
-nav a{
-  text-decoration:none;
-  color:#fff;
-  background: transparent;
-  font-weight:600;
-  font-size:15px;
-  padding:10px 18px;
-  margin:0 8px;
-  border-radius:8px;
-  display:inline-block;
-  transition: all .3s ease;
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 0;
+    margin: 4px 5px; /* Дээш доош болон хажуу талын зай */
+    display: inline-block;
+    
+    /* ХАЙРЦАГИЙГ ИЖИЛХЭН БОЛГОХ ХЭСЭГ */
+    width: 150px;      /* Хамгийн урт үгэнд тааруулсан тогтмол өргөн */
+    text-align: center;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;   /* Өргөнөө алдахаас сэргийлнэ */
 }
-nav a:hover{
-  background: var(--pink-primary);
-  color:#fff;
-  transform: scale(1.08);
+
+nav a:hover {
+    background: var(--pink-primary);
+    color: #fff !important;
+    transform: scale(1.05);
 }
 
 footer{
@@ -2096,12 +2106,40 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 
 @media (max-width: 650px){
     /* Контейнерийн өргөн болон Nav Menu-г босоо болгох (Хэвээр) */
-    .container{ width:95%; padding: var(--space-3); }
-    nav{ padding:10px 0; }
-    nav a{ display:block; margin:5px auto; width:90%; font-size: 1rem; }
-    .team-member{ flex: 1 1 90%; max-width:90%; }
+    .container{ 
+	width:95%; 
+	padding: var(--space-3); 
+}
+    nav{ 
+	padding:15px 0; 
+	gap: 8px;
+}
+    nav a{ 
+	display:block; 
+	margin:5px auto; 
+	width:90%;
+	min-width: unset; 
+	font-size: 1rem;
+ 	padding: 12px 0;
+}
+/* Хэл солигчийг гар утсан дээр голлуулж, дээрээс нь зай авах */
+    .nav-lang-switcher {
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1); /* Цэснээс тусгаарлах шугам */
+}
+
+    .team-member{ 
+	flex: 1 1 90%; 
+	max-width:90%; 
+}
     .treatment-card strong[style] {
-        margin-bottom: 10px !important; 
+	display: block; /* Зай авахын тулд блок болгох шаардлагатай */        
+	margin-bottom: 10px !important; 
     }
 
     .main-callout, .symptoms-card, .symptoms-cta {
@@ -2382,43 +2420,88 @@ legend{ color: var(--pink-dark); font-size: var(--font-scale-3); font-weight:bol
 
 /* Nav доторх хэл солигчийн ерөнхий загвар */
 .nav-lang-switcher {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-left: 20px; /* Бусад цэснээс тусгаарлах зай */
-    vertical-align: middle;
+	display: inline-flex;
+   	align-items: center;
+    	gap: 5px;
+    	margin-left: 15px;
+    	padding-left: 15px;
+    	border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Туг болон текстийн нэгдэл */
 .lang-link {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 10px;
+    width: 60px;          /* MN болон EN-ийг багтаах хангалттай тогтмол өргөн */
+    justify-content: center;
+    flex-shrink: 0;       /* Хэмжээ нь шахагдахаас сэргийлнэ */
+    transition: opacity 0.3s ease; /* Шилжилт зөөлөн болгох */
+}
+
+/* Зөвхөн текстийн өргөнийг хязгаарлаж бас болно */
+.lang-link span {
+    	display: inline-block;
+	width: auto;          
+    	text-align: center;
+}
+
+/* EN холбоосны өнгө (HTML доторх style-ийг энд бичвэл цэвэрхэн) */
+.en-link {
+    color: #fffcfe;
+    font-weight: bold;
 }
 
 /* Тугны зурагны хэмжээ */
 .nav-flag {
     width: 20px;
     height: auto;
-    border-radius: 1px;
-    display: inline-block;
+    border-radius: 2px;
+    display: block;
 }
 
 /* Одоо байгаа хэлний харагдац */
 .lang-link.active {
     opacity: 0.5;
     cursor: default;
-    color: #666;
+    pointer-events: none;
+    color: #ccc; /* Идэвхтэй үед өнгийг нь даруухан болгох */
+}
+
+/* Идэвхгүй хэл дээр очих үед */
+.lang-link:not(.active):hover {
+    opacity: 0.8;
 }
 
 /* Гар утасны хувилбарт зориулсан тохиргоо */
-@media (max-width: 768px) {
-    .nav-lang-switcher {
-        display: flex;
-        justify-content: center;
-        margin-left: 0;
-        margin-top: 10px;
+
+@media (max-width: 1024px) {
+    nav a {
+        width: 140px; /* Дунд хэмжээний дэлгэцэнд хайрцаг бага зэрэг жижигсэх */
+        font-size: 13px;
     }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Цэсүүд дээр дээрээсээ доошоо жагсана */
+        padding: 20px 0;
+    }
+    
+    nav a {
+        width: 90%;  /* Гар утсан дээр бүтэн өргөн шахуу харагдана */
+        margin: 5px 0;
+    }
+
+    .nav-lang-switcher {
+        margin-left: 0;
+        margin-top: 15px;
+        padding-left: 0;
+        border-left: none; /* Гар утсан дээр тусгаарлах зураасыг авна */
+        width: 100%;
+        justify-content: center;
+    }
+
 }
