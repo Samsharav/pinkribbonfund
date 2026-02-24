@@ -103,21 +103,4 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://pinkribbonfund.com/en/contact.html"/>
   </url>
 
-  <url>
-    <loc>https://pinkribbonfund.com/mn/application.html</loc>
-    <lastmod>2025-11-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="mn" href="https://pinkribbonfund.com/mn/application.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://pinkribbonfund.com/en/application.html"/>
-  </url>
-  <url>
-    <loc>https://pinkribbonfund.com/en/application.html</loc>
-    <lastmod>2025-11-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="mn" href="https://pinkribbonfund.com/mn/application.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://pinkribbonfund.com/en/application.html"/>
-  </url>
-
 </urlset>
