@@ -1,6 +1,10 @@
+User-agent: facebookexternalhit
+Allow: /images/
+Allow: /
+
 User-agent: *
 Allow: /mn/
 Allow: /en/
-Disallow: /images/  # Зургийн хавтсыг хайлтын илэрцэд гаргахгүй байх (сонголтоор)
+Disallow: /images/
 
 Sitemap: https://pinkribbonfund.com/sitemap.xml
